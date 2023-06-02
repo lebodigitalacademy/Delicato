@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GetOneComponent } from './get-one/get-one.component';
+import { HomeContentComponent } from './home-content/home-content.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GetOneComponent
+    HomeContentComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -18,3 +20,4 @@ import { GetOneComponent } from './get-one/get-one.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
