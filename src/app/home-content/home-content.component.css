@@ -12,3 +12,66 @@ img{
     display: block;
 
 }
+h1 {
+    text-align: center; 
+    font-style:oblique;
+        
+        }
+h2{
+    text-align: center;
+    margin-top: 80px;
+ }
+.box {
+   background-color: #F2EFEF;
+        }        
+.equal-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.equal-box .product-image {
+    width: 100%;
+    text-align: center;
+}
+
+.equal-box img {
+    width: 100%;
+    height: auto;
+}
+
+.equal-box h4 {
+    margin-top: 10px;
+}
+
+.big-rectangle {
+    border: 1px solid black;
+    padding: 10px;
+    display: inline-block;
+}
+
+.box {
+    text-align: center;
+    border-right: 1px solid black;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.box:last-child {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.box h4,
+.box h5 {
+    margin: 5px 0;
+} 
