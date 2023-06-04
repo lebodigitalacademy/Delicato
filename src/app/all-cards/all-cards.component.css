@@ -1,6 +1,7 @@
 .firstCol{
     background-color: #38A8AE;
-    min-height: 100vh
+    min-height: 100vh;
+    max-width: 15%;
 }
 h1{
     text-align: center;
@@ -10,7 +11,7 @@ h1{
     color: orange;
 }
 .row1{
-    margin-left: 6%;
+    margin-left: 7%;
 }
 .product-grid {
     display: grid;
@@ -30,6 +31,12 @@ h1{
   }
   .cat{
     margin-top: 14%;
+    text-align: center;
+    color: #f5f5f5;
+  }
+  .link{
+    color: #f5f5f5;
+    text-decoration: none;
   }
 
   .panelHeading{
@@ -47,3 +54,11 @@ h1{
     font-family: optima;
     font-size: 60%;
   }
+
+  .proPrice{
+font-family: optima;
+  }
+
+  
+
+ 

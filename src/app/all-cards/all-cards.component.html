@@ -7,23 +7,19 @@
         </a>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li class="cat nav-item">
-                <a href="/">
-                    <i class="cat1"></i> <span>Fruit & Veg</span></a>
-            </li>
-            <li class="cat nav-item">
-                <a href="/">
+                <a class="link" href="/">
                     <i class="cat2"></i> <span>Meat & Poultry</span> </a>
             </li>
             <li class="cat nav-item">
-                <a href="/">
+                <a  class="link"href="/">
                     <i class="cat2"></i> <span>Cereal</span></a>
             </li>
             <li class="cat nav-item">
-            <a href="/">
+            <a class="link" href="/">
                     <i class="cat3"></i> <span>Bakery</span></a>
             </li>
             <li class="cat nav-item">
-                <a href="/">
+                <a class="link" href="/">
                     <i class="cat4"></i> <span>Frozen Food</span> </a>
         </ul>
         <hr>               
@@ -37,7 +33,7 @@
   <div class="product-card" *ngFor="let item of items">
     <img class="proImg" src="{{item.image}}">
     <h3 class="proTitle">{{ item.title }}</h3>
-    <p>R {{ item.price }}</p>
+    <p class="proPrice">R {{ item.price }}</p>
   </div>
 </div>
         
