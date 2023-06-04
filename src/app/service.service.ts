@@ -11,7 +11,7 @@ export class ServiceService {
 
   // backend url
 
-  private url ='http://localhost:8080/employees';
+  private url ="https://fakestoreapi.com/products";
 
   // GET, ADD, UPDATE and DELETE Http methods that make calls to our restful API (backend)
   getEmployeeAll(){

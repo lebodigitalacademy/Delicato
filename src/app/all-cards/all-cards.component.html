@@ -3,26 +3,26 @@
     <div class=" firstCol col-lg-2">
       <div class="sideBar d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
         <a href="/" class="d-flex align-items-center text-white text-decoration-none">
-            <span class="panelHeading" style="margin-top: 200px;">Categories</span>
+            <span class="panelHeading">Categories</span>
         </a>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-            <li class="nav-item">
+            <li class="cat nav-item">
                 <a href="/">
                     <i class="cat1"></i> <span>Fruit & Veg</span></a>
             </li>
-            <li class="nav-item">
+            <li class="cat nav-item">
                 <a href="/">
                     <i class="cat2"></i> <span>Meat & Poultry</span> </a>
             </li>
-            <li class="nav-item">
+            <li class="cat nav-item">
                 <a href="/">
                     <i class="cat2"></i> <span>Cereal</span></a>
             </li>
-            <li class="nav-item">
+            <li class="cat nav-item">
             <a href="/">
                     <i class="cat3"></i> <span>Bakery</span></a>
             </li>
-            <li class="nav-item">
+            <li class="cat nav-item">
                 <a href="/">
                     <i class="cat4"></i> <span>Frozen Food</span> </a>
         </ul>
@@ -30,17 +30,14 @@
     </div>
     </div>
     <div class="col-lg-10 align-self-center">
-      <div class="row">
+      <div class="row1 row">
         <h1>Shop All</h1>
 
         <div class="product-grid">
   <div class="product-card" *ngFor="let item of items">
-    <h3>{{ item.name }}</h3>
-    <p>{{ item.email }}</p>
-    <h3>{{ item.name }}</h3>
-    <p>{{ item.email }}</p>
-    
-    <!-- Add more product details as needed -->
+    <img class="proImg" src="{{item.image}}">
+    <h3 class="proTitle">{{ item.title }}</h3>
+    <p>R {{ item.price }}</p>
   </div>
 </div>
         
