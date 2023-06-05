@@ -9,16 +9,35 @@ import { ServiceService } from '../service.service';
 })
 export class AllCardsComponent {
   items:any;
-  // id?: number;
+  // id?: number
+  categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
+  selectedCategory: any = '';
+  filteredItems: any[] = [];
 
   constructor(private service:ServiceService, private router: Router) {}
 
   ngOnInit() {
-    this.service.getEmployeeAll()
+    this.fetchItems();
+   
+}
+fetchItems(){
+  this.service.getEmployeeAll()
       .subscribe(data => {
         this.items = data;
-        console.log(this.items);
-      });
+        console.log(this.items)
+      this.selectedCategory='' });
 }
 
+filterItems() {
+  if (this.selectedCategory) {
+    this.filteredItems = this.items.filter((item: { category: string; }) => item.category === this.selectedCategory);
+  } else {
+    this.filteredItems = this.items;
+  }
+}
+
+selectCategory(category: string) {
+  this.selectedCategory = category;
+  this.filterItems();
+}
 }

@@ -61,4 +61,12 @@ font-family: optima;
 
   
 
+ .list-group-item{
+    color: #f5f5f5;
+    background-color: #38A8AE;
+    cursor: pointer;
+ }
+
+  
+
  
