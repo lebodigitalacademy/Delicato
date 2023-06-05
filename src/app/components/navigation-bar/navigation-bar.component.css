@@ -32,6 +32,7 @@
 }
 
 .collapse{
+    padding: 10px;
     gap: 130px
 }
 
@@ -40,6 +41,7 @@
     font-family:sans-serif;
     flex-direction: row;
     align-items: center;
+    padding: 10px;
     gap: 70px;
     color: #F5F5F5;
 
