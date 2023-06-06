@@ -23,7 +23,7 @@ h1{
   }
   
   .product-card {
-    background-color: #f5f5f5;
+    background-color:none;
     max-width: 70%;
     max-height: 70%;
     padding: 20px;
@@ -44,20 +44,25 @@ h1{
     margin-top: 180%;
     font-family: optima;
     font-size: 150%;
+    margin-left: 20%;
+    margin-bottom: 10%;
   }
 
   .proImg{
     max-width:100%;
     max-height: 65%;
+    cursor: pointer;
   }
 
   .proTitle{
     font-family: optima;
     font-size: 60%;
+    cursor: pointer;
   }
 
   .proPrice{
 font-family: optima;
+cursor: pointer;
   }
 
   
@@ -66,6 +71,8 @@ font-family: optima;
     color: #f5f5f5;
     background-color: #38A8AE;
     cursor: pointer;
+    border-style: none;
+    text-align: center;
  }
 
   

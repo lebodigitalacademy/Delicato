@@ -40,4 +40,10 @@ selectCategory(category: string) {
   this.selectedCategory = category;
   this.filterItems();
 }
+
+viewOne(id:any){
+  console.log('The Product id is:' +id)
+  this.router.navigate(['/viewProduct/'])
+
+}
 }
