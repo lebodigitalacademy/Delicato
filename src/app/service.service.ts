@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Product } from './interface/product';
 
 
 @Injectable({
@@ -17,4 +18,25 @@ export class ServiceService {
   getEmployeeAll(){
     return this.http.get(`${this.url}`)
   }
+
+  getAllProducts(){
+   return this.http.get('https://fakestoreapi.com/products');
+  }
+
+  getOneProduct(id:number){
+    return this.http.get('https://fakestoreapi.com/products+'+id);
+   }
+
+  createProduct(body: Product){
+    return this.http.post('', body);
+  }
+
+  updateProduct(id:number, body: Product){
+    return this.http.put(''+id, body );
+  }
+
+   deleteProduct(id:number){
+    return this.http.delete(''+id);
+   }
+
 }
