@@ -38,8 +38,8 @@
           <div *ngIf="selectedCategory===''"y>
             <h1>Shop All</h1>
             <!-- HTML content to display when value is null -->
-            <div class="product-grid">
-              <div class="product-card" *ngFor="let item of items">
+            <div class="product-grid" *ngFor="let item of items" >
+              <div class="product-card" (click)="viewProduct(item.id)">
                 <img class="proImg" src="{{item.image}}">
                 <a (click)="viewOne(item.id)" class="proTitle">{{ item.title }}</a>
                 <p class="proPrice">R {{ item.price }}</p>
