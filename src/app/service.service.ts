@@ -24,7 +24,7 @@ export class ServiceService {
   }
 
   getOneProduct(id:number){
-    return this.http.get('https://fakestoreapi.com/products+'+id);
+    return this.http.get('https://fakestoreapi.com/products/'+id);
    }
 
   createProduct(body: Product){

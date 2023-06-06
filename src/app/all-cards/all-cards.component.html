@@ -37,8 +37,8 @@
         <ng-template #emptyValue>
           <div *ngIf="selectedCategory===''"y>
             <!-- HTML content to display when value is null -->
-            <div class="product-grid">
-              <div class="product-card" *ngFor="let item of items">
+            <div class="product-grid" *ngFor="let item of items" >
+              <div class="product-card" (click)="viewProduct(item.id)">
                 <img class="proImg" src="{{item.image}}">
                 <h3 class="proTitle">{{ item.title }}</h3>
                 <p class="proPrice">R {{ item.price }}</p>

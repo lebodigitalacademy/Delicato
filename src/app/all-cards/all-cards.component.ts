@@ -40,4 +40,8 @@ selectCategory(category: string) {
   this.selectedCategory = category;
   this.filterItems();
 }
+viewProduct(id: number) {
+  this.router.navigate(['/viewProduct/' + id]);
+
+}
 }
