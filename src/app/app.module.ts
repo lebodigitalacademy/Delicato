@@ -7,9 +7,11 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { HomeContentComponent } from './home-content/home-content.component';
+import { CardComponent } from './card/card.component';
 import { GetOneComponent } from './get-one/get-one.component';
-import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component';
 import { AllCardsComponent } from './all-cards/all-cards.component';
+import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -19,6 +21,8 @@ import { ViewOneComponent } from './components/view-one/view-one.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeContentComponent,
+    CardComponent,
     GetOneComponent,
     AllSidePanelComponent,
     AllCardsComponent,
@@ -36,3 +40,4 @@ import { ViewOneComponent } from './components/view-one/view-one.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
