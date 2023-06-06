@@ -15,8 +15,7 @@ import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { CartServiceService } from './services/cart-service.service';
-import { ViewOneComponent } from './components/view-one/view-one.component';
+//import { CartServiceService } from './services/cart-service.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { ViewOneComponent } from './components/view-one/view-one.component';
     AllSidePanelComponent,
     AllCardsComponent,
     NavigationBarComponent,
-    ViewOneComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +34,7 @@ import { ViewOneComponent } from './components/view-one/view-one.component';
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [CartServiceService],
+  // providers: [CartServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
