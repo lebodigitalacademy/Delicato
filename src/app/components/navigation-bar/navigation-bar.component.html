@@ -42,11 +42,12 @@
         <div class="rightContent">
             <ul class="navbar-nav mr-auto">
             <li class="cart">
-                <a class="nav-link" href="#">
+                <a class="nav-link" routerLink="/cart">
                     <fa-icon 
                     [icon]="cartIcon"
                     [styles]="{ color: 'white' }"
                     size="lg"></fa-icon>
+                    <span class="cart-counter">{{ cartItemCount }}</span>
                 </a>
             </li>
         </ul>
@@ -69,7 +70,13 @@
 
 
 
-//copied and modified from figma
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> db4ec9a5b9a066eaeb881b01ca8bd8444a952318
+<!-- copied and modified from figma -->
 <!-- <div class="header">
     <div class="logo">
             <img src="https://i.ibb.co/znTssF3/Delicato-Logo.png" alt="Delicato-Logo" height="40" width="40"/>
