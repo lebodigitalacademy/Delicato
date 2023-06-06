@@ -42,11 +42,12 @@
         <div class="rightContent">
             <ul class="navbar-nav mr-auto">
             <li class="cart">
-                <a class="nav-link" href="#">
+                <a class="nav-link" routerLink="/cart">
                     <fa-icon 
                     [icon]="cartIcon"
                     [styles]="{ color: 'white' }"
                     size="lg"></fa-icon>
+                    <span class="cart-counter">{{ cartItemCount }}</span>
                 </a>
             </li>
         </ul>
@@ -69,6 +70,12 @@
 
 
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> db4ec9a5b9a066eaeb881b01ca8bd8444a952318
 <!-- copied and modified from figma -->
 <!-- <div class="header">
     <div class="logo">
