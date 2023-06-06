@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-all-cards',
@@ -6,5 +8,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./all-cards.component.css']
 })
 export class AllCardsComponent {
+  items:any;
+  // id?: number
+  categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
+  selectedCategory: any = '';
+  filteredItems: any[] = [];
 
+  constructor(private service:ServiceService, private router: Router) {}
+
+  ngOnInit() {
+    this.fetchItems();
+   
+}
+fetchItems(){
+  this.service.getEmployeeAll()
+      .subscribe(data => {
+        this.items = data;
+        console.log(this.items)
+      this.selectedCategory='' });
+}
+
+filterItems() {
+  if (this.selectedCategory) {
+    this.filteredItems = this.items.filter((item: { category: string; }) => item.category === this.selectedCategory);
+  } else {
+    this.filteredItems = this.items;
+  }
+}
+
+selectCategory(category: string) {
+  this.selectedCategory = category;
+  this.filterItems();
+}
 }
