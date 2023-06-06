@@ -50,9 +50,8 @@ selectCategory(category: string) {
   this.filterItems();
 }
 
-viewOne(id:any){
-  console.log('The Product id is:' +id)
-  this.router.navigate(['/viewProduct/'])
+viewProduct(id: number) {
+  this.router.navigate(['/viewProduct/' + id]);
 
 }
 }
