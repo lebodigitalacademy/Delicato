@@ -19,13 +19,6 @@ export class AllCardsComponent {
 
   ngOnInit() {
     this.fetchItems();
-    this.route.params.subscribe(params => {
-      this.proCat = params["category"];
-      if (this.proCat!=null) {
-        this.selectCategory(this.proCat);
-      }
-      
-     })
    
 }
 fetchItems(){
@@ -48,6 +41,7 @@ selectCategory(category: string) {
   this.selectedCategory = category;
   this.filterItems();
 }
+
 viewProduct(id: number) {
   this.router.navigate(['/viewProduct/' + id]);
 

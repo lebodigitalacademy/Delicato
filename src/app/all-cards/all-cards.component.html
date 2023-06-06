@@ -19,13 +19,14 @@
         
 
         <div *ngIf="selectedCategory; else emptyValue">
+          <h1>Shop {{selectedCategory}}</h1>
           <!-- HTML content to display when value is not empty -->
           <h1>Shop {{selectedCategory}}</h1>
             <div class="product-grid">
               <div class="product-card" *ngFor="let item of filteredItems">
-                <img class="proImg" src="{{item.image}}">
-                <a (click)="viewOne(item.id)" class="proTitle">{{ item.title }}</a>
-                <p class="proPrice">R {{ item.price }}</p>
+                <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
+                <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.title }}</h3>
+                <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
               </div>
             </div>
           </div>
@@ -38,11 +39,14 @@
           <div *ngIf="selectedCategory===''"y>
             <h1>Shop All</h1>
             <!-- HTML content to display when value is null -->
-            <div class="product-grid" *ngFor="let item of items" >
-              <div class="product-card" (click)="viewProduct(item.id)">
-                <img class="proImg" src="{{item.image}}">
-                <a (click)="viewOne(item.id)" class="proTitle">{{ item.title }}</a>
-                <p class="proPrice">R {{ item.price }}</p>
+
+            <div class="product-grid">
+              <div class="product-card" *ngFor="let item of items">
+                <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
+                <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.title }}</h3>
+                <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+
+
               </div>
             </div>
           </div>
