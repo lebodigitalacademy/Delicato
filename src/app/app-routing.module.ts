@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 export const routes: Routes = [
   {path : 'shop', component : AllCardsComponent},
-  {path : 'viewProduct', component : GetOneComponent},
+  {path : 'viewProduct/:id', component : GetOneComponent},
   {path : '', component: HomeContentComponent}
 ];
 
