@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+
+import { AppRoutingModule, routes } from './app-routing.module';
+
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { CardComponent } from './card/card.component';
@@ -10,6 +15,7 @@ import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+//import { CartServiceService } from './services/cart-service.service';
 
 @NgModule({
   declarations: [
@@ -19,14 +25,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     GetOneComponent,
     AllSidePanelComponent,
     AllCardsComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  // providers: [CartServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
