@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllCardsComponent } from './all-cards/all-cards.component';
 import { GetOneComponent } from './get-one/get-one.component';
+import { HomeContentComponent } from './home-content/home-content.component';
 
-const routes: Routes = [{path : 'shop', component : AllCardsComponent},
-{path : 'viewProduct', component : GetOneComponent}
+const routes: Routes = [
+  {path : 'shop', component : AllCardsComponent},
+  {path : 'viewProduct', component : GetOneComponent},
+  {path : 'home', component: HomeContentComponent}
 ];
 
 @NgModule({
