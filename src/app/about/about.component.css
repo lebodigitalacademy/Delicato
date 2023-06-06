@@ -1,0 +1,41 @@
+*{
+    font-family: optima;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 155px; 
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .header{
+    font-weight: bolder;
+    font-size: 100px;
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 40px;
+  }
+
+  .content{
+    padding: 0 30px;
+  }
+
+
+  .card-body{
+    padding: 0 40px;
+    /* background-color: red; */
+  }
+
+  .card{
+     padding: 50px 40px;
+     box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+     border-radius: 15px;
+     /* background-color: aqua; */
+
+  }
+  /* <div id="app" class="d-flex flex-column min-vh-100"> */

@@ -14,6 +14,7 @@ import { AllCardsComponent } from './all-cards/all-cards.component';
 import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AboutComponent } from './about/about.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -26,6 +27,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AllSidePanelComponent,
     AllCardsComponent,
     NavigationBarComponent,
+<<<<<<< HEAD
+=======
+    AboutComponent
+>>>>>>> 4daa4b34be4213c1c07d3ba96e69286436b8bb61
   ],
   imports: [
     BrowserModule,
