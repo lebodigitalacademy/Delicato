@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faShoppingCart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/cart.service';
 //import { CartServiceService } from 'src/app/services/cart-service.service';
@@ -21,12 +21,6 @@ export class NavigationBarComponent {
       this.cartItemCount = items.length;
     });
   }
-
-  @Output() searchEvent = new EventEmitter<string>();
-  searchQuery: string = '';
-
-  search() {
-    this.searchEvent.emit(this.searchQuery);
-  }
+  
 
 }

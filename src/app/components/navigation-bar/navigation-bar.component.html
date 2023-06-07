@@ -29,15 +29,15 @@
                 </div>
             </ul>
 
-        <div class="search">
-            <input class="inputSearch" type="text" placeholder="Search" [(ngModel)]="searchQuery">
-            <button class="btn" type="submit" (click)="search()">
+        <form class="search">
+            <input class="inputSearch" type="text" placeholder="Search">
+            <button class="btn" type="submit">
                 <fa-icon 
                 [icon]="searchIcon"
                 [styles]="{ color: 'gray' }"
                 size="lg"></fa-icon>
             </button>
-        </div>
+        </form>
 
         <div class="rightContent">
             <ul class="navbar-nav mr-auto">
