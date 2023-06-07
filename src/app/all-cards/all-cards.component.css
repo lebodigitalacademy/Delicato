@@ -9,7 +9,7 @@ h1{
     margin-bottom: 4%;
     margin-left:-12%;
     font-family: optima;
-    color: orange;
+    color: #F16B44;
 }
 .row1{
     margin-left: 8.5%;
@@ -75,35 +75,22 @@ cursor: pointer;
     text-align: center;
  }
 
-/* .align-self-center{
-  padding: 20px 100px;
-  align-self: center;
-}   */
+
+.search-hero {
+  max-width: 400px;
+  padding-bottom: 50px;
+  margin:auto;
+}
 
 
-.search{
-  box-sizing: border-box;
+.form-control {
+  border: 0.2px solid #F16B44;
+  box-shadow: 0 2px 2px 0 #F16B44;
+}
+.form-control::placeholder  {
   font-family: optima;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 5px 15px;
-  width: 40%;
-  height: 40px;
-
-  background: #F5F5F5;
-  border: 1px solid #F16B44;
-
-  flex: none;
-  order: 2;
-  flex-grow: 0;
 }
 
-.inputSearch{
-  background-color: #F5F5F5;
-  border: none;
-  width: 100%;
-
-}
-
- 
+ .category-list{
+  font-family: optima;
+ }

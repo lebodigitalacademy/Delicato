@@ -15,10 +15,8 @@ import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './about/about.component';
-import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './components/search/search.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //import { CartServiceService } from './services/cart-service.service';
@@ -34,10 +32,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NavigationBarComponent,
     AboutComponent,
     FooterComponent,
-     FilterPipe,
-     SearchComponent,
-
-
   ],
   imports: [
     BrowserModule,

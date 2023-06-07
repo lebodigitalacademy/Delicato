@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
-  apiUrl: any;
+
+  //private apiUrl = "https://fakestoreapi.com/products";
 
   constructor(private http:HttpClient) { }
 
@@ -17,8 +18,8 @@ export class ServiceService {
   private url ="https://fakestoreapi.com/products";
 
   searchProducts(query: string): Observable<any> {
-    const url = `${this.apiUrl}?q=${query}`;
-    return this.http.get(url);
+    const apiUrl = `${this.url}?q=${query}`;
+    return this.http.get(apiUrl);
   }
 
   // GET, ADD, UPDATE and DELETE Http methods that make calls to our restful API (backend)

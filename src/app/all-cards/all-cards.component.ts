@@ -12,10 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class AllCardsComponent implements OnInit {
   proCat:any;
   items:any;
-  searchTerm = '';
-  products: Product[] = [];
-  allProducts: Product[] = [];
-  term = '';
+  searchText: any;
   // id?: number
   categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
   selectedCategory: any = '';
@@ -27,20 +24,7 @@ export class AllCardsComponent implements OnInit {
 
   ngOnInit() {
     this.fetchItems();
-    this.http
-    .get<Product[]>('https://fakestoreapi.com/products')
-    .subscribe((data: Product[]) => {
-      this.products = data;
-      this.allProducts = this.products;
-    });
-   
-}
-
-search(value: string): void {
-  this.products = this.allProducts.filter((val) =>
-    val.title.toLowerCase().includes(value)
-  );
-}
+  }
 
 
 fetchItems(){
