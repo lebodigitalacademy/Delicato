@@ -1,5 +1,5 @@
-<app-navigation-bar></app-navigation-bar>
-<div class="product" style="margin-top: 100px;">
+  
+<!-- <div class="product" style="margin-top: 100px;">
     <h1>Categories</h1>
     
     <div class="container text-center">
@@ -8,10 +8,10 @@
            
             <div class="col-md-2">
                 <div div class="card">
-                 
-                    <img src="../../assets/3b360279-8b43-40f3-9b11-604749128187.jpg" class="card-img-top" alt="...">
+
+                    <img src="../../assets/3b360279-8b43-40f3-9b11-604749128187.jpg" (click)="selectCategory(categories[0])" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Fruits & Veg</p>
+                        <p class="card-text">{{categories[0]}}</p>
                          
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="card">
                     <img src="../../assets/meat-poultry.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Meat Poultry</p>
+                        <p class="card-text">{{categories[1]}}</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="card">
                     <img src="../../assets/cereal-recipes-ft-blog0816-2000-9ca7e8d7490b4fd3be62084431df8d23.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Cereal</p>
+                        <p class="card-text">{{categories[2]}}</p>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 <div class="card">
                     <img src="../../assets/GlobalTrends.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Bakery</p>
+                        <p class="card-text">{{categories[3]}}</p>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 <div class="card">
                     <img src="../../assets/rgsj9oc_frozen-foods-_625x300_25_October_19.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Frozen Food</p>
+                        <p class="card-text">{{categories[4]}}</p>
                     </div>
                 </div>
             </div>
@@ -84,4 +84,153 @@
                   </div>
         </div>
     </div>
-</div>   
+</div>-->
+
+//if there isn't a filtered value then display the normal home page
+    <div *ngIf="check===false">
+        <div class="product" style="margin-top: 100px;">
+            <h1 class="catHeading">Categories</h1>
+            
+            <div class="container text-center">
+                
+                <div class="row">
+                   
+                    <div class="col-md-2">
+                        <div div class="card">
+        
+                            <img src="../../assets/3b360279-8b43-40f3-9b11-604749128187.jpg" (click)="selectCategory(categories[0])" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">{{categories[0]}}</p>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img src="../../assets/meat-poultry.jpg" (click)="selectCategory(categories[1])"class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">{{categories[1]}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img src="../../assets/cereal-recipes-ft-blog0816-2000-9ca7e8d7490b4fd3be62084431df8d23.jpg" (click)="selectCategory(categories[2])" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">{{categories[2]}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img src="../../assets/GlobalTrends.jpg" (click)="selectCategory(categories[3])"class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">{{categories[3]}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img src="../../assets/rgsj9oc_frozen-foods-_625x300_25_October_19.jpg" (click)="selectCategory(categories[4])"class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">{{categories[4]}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+<div class="sellers">
+    <h2>Shop Our Top Sellers</h2>
+    <div class="container text-center">
+     
+            <div class="row justify-content-center">
+           
+                <div class="card" style="width: 18rem;">
+                    <img src="{{items[5].image}}" (click)="viewProduct(items[5].id)" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">{{items[5].title}}  <br> R {{items[5].price}}</p>
+                    </div>
+                  </div>
+
+                  <div class="card" style="width: 18rem;">
+                    <img src="{{items[6].image}}"  (click)="viewProduct(items[6].id)" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">{{items[6].title}}  <br> R {{items[6].price}}</p>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="{{items[7].image}} " (click)="viewProduct(items[7].id)"class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">{{items[7].title}}  <br> R {{items[7].price}}</p>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="{{items[8].image}} " (click)="viewProduct(items[8].id)" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">{{items[8].title}}  <br> R {{items[8].price}}</p>
+                    </div>
+                  </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- if there is filtered items then display the shop page -->
+<div *ngIf="check===true">
+    <div class="container-fluid">
+        <div class="row">
+          <div class=" firstCol col-lg-2">
+            <div class="sideBar d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
+              <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                  <span class="panelHeading">Categories</span>
+              </a>
+              <div class="category-list">
+                <div class="list-group">
+                  <a  (click)="fetchItems()" class="list-group-item list-group-item-action">All</a>
+                  <a *ngFor="let category of categories" (click)="selectCategory(category)" class="list-group-item list-group-item-action">{{ category }}</a>
+                </div>
+              </div>
+              <hr>               
+          </div>
+          </div>
+          <div class="col-lg-10 align-self-center">
+            <div class="row1 row">
+  
+    <!-- HTML content to display when value is not empty -->
+    <h1>Shop {{selectedCategory}}</h1>
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let item of filteredItems">
+          <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
+          <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.title }}</h3>
+          <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  
+  <ng-template #emptyValue>
+    <div *ngIf="selectedCategory===''"y>
+      <h1>Shop All</h1>
+      <!-- HTML content to display when value is null -->
+
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let item of items">
+          <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
+          <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.title }}</h3>
+          <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+</div>
+
+
