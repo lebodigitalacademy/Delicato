@@ -1,0 +1,28 @@
+.inputSearch{
+    background-color: #F5F5F5;
+    border: none;
+    width: 100%;
+
+}
+
+.search{
+    box-sizing: border-box;
+    font-family: optima;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 15px;
+    width: 40%;
+    height: 40px;
+
+    background: #F5F5F5;
+    border: 1px solid #F16B44;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.container{
+    
+}

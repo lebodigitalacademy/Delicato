@@ -18,6 +18,8 @@ import { AboutComponent } from './about/about.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './components/search/search.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -32,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     NavigationBarComponent,
     AboutComponent,
     FooterComponent,
-     FilterPipe
+     FilterPipe,
+     SearchComponent,
 
 
   ],
@@ -42,6 +45,7 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
     RouterModule.forRoot(routes)
   ],
   // providers: [CartServiceService],

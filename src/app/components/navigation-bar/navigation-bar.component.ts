@@ -14,6 +14,8 @@ export class NavigationBarComponent {
   searchIcon = faSearch;
   cartItemCount: number = 0;
 
+  
+
   constructor(private cartService: CartService) { }
 
   ngOnInit() {

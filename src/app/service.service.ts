@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './interface/product';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
+  apiUrl: any;
 
   constructor(private http:HttpClient) { }
 
   // backend url
 
   private url ="https://fakestoreapi.com/products";
+
+  searchProducts(query: string): Observable<any> {
+    const url = `${this.apiUrl}?q=${query}`;
+    return this.http.get(url);
+  }
 
   // GET, ADD, UPDATE and DELETE Http methods that make calls to our restful API (backend)
   getEmployeeAll(){

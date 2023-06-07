@@ -4,26 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-
- /**
-   * Pipe filters the list of elements based on the search text provided
-   *
-   * @param items list of elements to search in
-   * @param searchText search string
-   * @returns list of elements filtered by search text or []
-   */
- transform(items: any[], searchText: string): any[] {
-  if (!items) {
-    return [];
+  transform(list: any[], filterText: string): any {
+    return list ? list.filter(item => item.name.search(new RegExp(filterText, 'i')) > -1) : [];
   }
-  if (!searchText) {
-    return items;
-  }
-  searchText = searchText.toLocaleLowerCase();
-
-  return items.filter(it => {
-    return it.toLocaleLowerCase().includes(searchText);
-  });
-}
 
 }

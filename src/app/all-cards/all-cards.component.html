@@ -14,12 +14,18 @@
         <hr>               
     </div>
     </div>
+   
     <div class="col-lg-10 align-self-center">
+      <br>
+      <br>
+      <br>
+      <br>
+      <form class="search">
+        <input class="inputSearch" type="text" [(ngModel)]="searchTerm" (input)="search(searchTerm)">  
+    </form>
       <div class="row1 row">
-        
-
+    
         <div *ngIf="selectedCategory; else emptyValue">
-          <h1>Shop {{selectedCategory}}</h1>
           <!-- HTML content to display when value is not empty -->
           <h1>Shop {{selectedCategory}}</h1>
             <div class="product-grid">
@@ -36,7 +42,7 @@
         </div>
         
         <ng-template #emptyValue>
-          <div *ngIf="selectedCategory===''"y>
+          <div *ngIf="selectedCategory===''">
             <h1>Shop All</h1>
             <!-- HTML content to display when value is null -->
 
@@ -45,8 +51,6 @@
                 <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
                 <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.title }}</h3>
                 <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
-
-
               </div>
             </div>
           </div>
