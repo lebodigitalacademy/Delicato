@@ -21,5 +21,6 @@ export class NavigationBarComponent {
       this.cartItemCount = items.length;
     });
   }
+  
 
 }
