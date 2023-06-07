@@ -9,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Delicato';
+  performSearch(query: string) {
+    console.log('Search query:', query);
+    // Perform search logic here
+  }
 }
