@@ -16,6 +16,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './about/about.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     AllCardsComponent,
     NavigationBarComponent,
 
-    AboutComponent
+    AboutComponent,
+     FooterComponent
 
 
   ],
