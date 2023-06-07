@@ -14,7 +14,7 @@ export class HomeContentComponent {
  
   items:any;
   // id?: number
-  categories: string[] = ["electronics", "jewelry","women's clothing", "men's clothing"]; // Add your list of categories
+  categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
   selectedCategory: any = '';
   filteredItems: any[] = [];
 
