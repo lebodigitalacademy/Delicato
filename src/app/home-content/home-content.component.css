@@ -1,77 +1,104 @@
-.product{
-    padding: 40px 0;
+ h4{
+    font-family:optima;
 }
-.box{
-    padding: 20px;
-    border: 1px solid   #ccc;
-    border-radius: 4px;
+h5 {
+   
+    font-family:optima;
 }
-img{
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
 
-}
-h1 {
+.catHeading {
     text-align: center; 
-    font-style:oblique;
-        
+    margin-left:0%;
+    font-family:optima;
         }
 h2{
     text-align: center;
     margin-top: 80px;
+    font-family:optima;
  }
-.box {
-   background-color: #F2EFEF;
-        }        
-.equal-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+ .col-md-2{
+    margin-left: 26px;
+    width: 230px;
+    
+ }  
+
+ /* moe css */
+ .firstCol{
+    background-color: #38A8AE;
+    min-height: 100vh;
+    max-width: 15%;
+}
+h1{
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 4%;
+    margin-left:-12%;
+    font-family: optima;
+    color: orange;
+}
+.row1{
+    margin-left: 8.5%;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as desired */
+    row-gap: 20px;
+    column-gap: 20px;
+    
+  }
+  
+  .product-card {
+    background-color:none;
+    max-width: 70%;
+    max-height: 70%;
+    padding: 20px;
     height: 100%;
-}
-
-.equal-box .product-image {
-    width: 100%;
+    /* margin-bottom: -20%; */
+  }
+  .cat{
+    margin-top: 1%;
     text-align: center;
-}
+    color: #f5f5f5;
+  }
+  .link{
+    color: #f5f5f5;
+    text-decoration: none;
+  }
 
-.equal-box img {
-    width: 100%;
-    height: auto;
-}
+  .panelHeading{
+    margin-top: 180%;
+    font-family: optima;
+    font-size: 150%;
+    margin-left: 20%;
+    margin-bottom: 10%;
+  }
 
-.equal-box h4 {
-    margin-top: 10px;
-}
+  .proImg{
+    max-width:150%;
+    max-height: 65%;
+    cursor: pointer;
+  }
 
-.big-rectangle {
-    border: 1px solid black;
-    padding: 10px;
-    display: inline-block;
-}
+  .proTitle{
+    font-family: optima;
+    font-size: 60%;
+    cursor: pointer;
+  }
 
-.box {
+  .proPrice{
+font-family: optima;
+cursor: pointer;
+  }
+
+  
+
+ .list-group-item{
+    color: white;
+    background-color: #38A8AE;
+    cursor: pointer;
+    border-style: none;
     text-align: center;
-    border-right: 1px solid black;
-    padding-right: 10px;
-    margin-right: 10px;
-}
+ }
+ 
+ 
 
-.box:last-child {
-    border-right: none;
-    padding-right: 0;
-    margin-right: 0;
-}
-
-.product-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.box h4,
-.box h5 {
-    margin: 5px 0;
-} 
