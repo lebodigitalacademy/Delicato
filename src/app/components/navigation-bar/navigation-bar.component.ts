@@ -9,6 +9,7 @@ import { CartService } from 'src/app/cart.service';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
+  products:any[] = []; 
   cartIcon = faShoppingCart;
   profileIcon = faUser;
   searchIcon = faSearch;
@@ -17,10 +18,7 @@ export class NavigationBarComponent {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartService.cartItems.subscribe(items => {
-      this.cartItemCount = items.length;
-    });
+      this.products = this.cartService.getProducts();
+      this.cartItemCount = this.products.length;
   }
-  
-
 }
