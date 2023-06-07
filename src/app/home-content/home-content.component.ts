@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 
 
@@ -8,6 +10,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-content.component.css']
 })
 export class HomeContentComponent {
-
-
 }
