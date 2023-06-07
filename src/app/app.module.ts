@@ -27,7 +27,10 @@ import { AboutComponent } from './about/about.component';
     AllSidePanelComponent,
     AllCardsComponent,
     NavigationBarComponent,
+
     AboutComponent
+
+
   ],
   imports: [
     BrowserModule,
