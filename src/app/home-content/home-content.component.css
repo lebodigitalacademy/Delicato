@@ -1,19 +1,11 @@
-.product{
-    padding: 30px 0;
-    
+ h4{
+    font-family:optima;
 }
-.box{
-    padding: 30px;
-    margin: 10px;
-    border: 2px solid   #ccc;
-    border-radius: 4px;
+h5 {
+   
+    font-family:optima;
 }
-img{
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
 
-}
 h1 {
     text-align: center; 
     font-family:optima;
@@ -23,71 +15,7 @@ h2{
     margin-top: 80px;
     font-family:optima;
  }
-.box {
-   background-color: #F2EFEF;
-        }        
-.equal-box {
-   
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
+ .col-md-2{
+    margin-left: 26px;
+ }  
 
-.equal-box .product-image {
-    width: 100%;
-    text-align: center;
-    padding-right: 5px;
-}
-
-.equal-box img {
-    width: 100%;
-    height: auto;
-   display: flex;
-}
-
-.equal-box h4 {
-    margin-top: 10px;
-    font-family:optima;
-}
-
-.big-rectangle {
-    border: 1px solid black;
-    padding: 10px;
-    display: inline-block;
-}
-
-.box {
-    text-align: center;
-    border-right: 1px solid black;
-    padding-right: 10px;
-    margin-right: 10px;
-}
-
-.box:last-child {
-    border-right: none;
-    padding-right: 0;
-    margin-right: 0;
-}
-
-.product-image img{
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-h4{
-    font-family:optima;
-}
-h5 {
-   
-    font-family:optima;
-} 
-
-  
-   
-
-
-
-
-  

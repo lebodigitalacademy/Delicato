@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 
 
@@ -8,11 +10,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-content.component.css']
 })
 export class HomeContentComponent {
-
-  handleImageClick(category: string){
-    // Handle the click event for the image
-
-    console.log('Clicked category:', category);
-     // Perform any desired actions based on the clicked category
-  }
 }
