@@ -9,31 +9,44 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./get-one.component.css']
 })
 export class GetOneComponent implements OnInit {
+  TotalPrice!: number;
   product: any;
-  id:any;
+  id: any;
 
   constructor(private fakestore: ServiceService, private cartService: CartService,
-    private router: Router, private route: ActivatedRoute){
+    private router: Router, private route: ActivatedRoute) {
 
-      this.route.params.subscribe((params) => {
-        this.id = params['id'];
-      });
-    
+    this.route.params.subscribe((params) => {
+      this.id = params['id'];
+    });
   }
 
   ngOnInit() {
     console.log("prudct id: " + this.id);
-    if(this.id) {
-      this.fakestore.getOneProduct(this.id).subscribe((data) =>{
+    if (this.id) {
+      this.fakestore.getOneProduct(this.id).subscribe((data) => {
         this.product = data;
       });
     }
+
     console.log(this.product);
-    
-     
+    location.reload;
   }
 
-addToCart(item: any) {
-  this.cartService.addToCart(item);
-}
+  get products() {
+    return this.cartService.products;
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart({ product });
+    this.router.navigate(['/navigation-bar'], { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/viewProduct/' + this.id]);
+    });
+    this.router.navigate(['/shop'])
+  }
+
+  clear() {
+    this.cartService.clearCart();
+    this.ngOnInit;
+  }
 }

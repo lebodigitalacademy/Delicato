@@ -17,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './about/about.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -29,11 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     AllSidePanelComponent,
     AllCardsComponent,
     NavigationBarComponent,
-
     AboutComponent,
-     FooterComponent
-
-
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +39,7 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
     RouterModule.forRoot(routes)
   ],
   // providers: [CartServiceService],

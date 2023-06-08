@@ -5,11 +5,10 @@
 }
 h1{
     text-align: center;
-    margin-top: 18%;
     margin-bottom: 4%;
     margin-left:-12%;
     font-family: optima;
-    color: orange;
+    color: #F16B44;
 }
 .row1{
     margin-left: 8.5%;
@@ -75,6 +74,23 @@ cursor: pointer;
     text-align: center;
  }
 
-  
 
- 
+.search-hero {
+  margin-top: 9%;
+  max-width: 400px;
+  padding-bottom: 30px;
+  margin-left:35%;
+}
+
+
+.form-control {
+  border: 0.2px solid #F16B44;
+  box-shadow: 0 2px 2px 0 #F16B44;
+}
+.form-control::placeholder  {
+  font-family: optima;
+}
+
+ .category-list{
+  font-family: optima;
+ }
