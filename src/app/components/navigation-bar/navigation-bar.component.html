@@ -21,7 +21,7 @@
                      <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="about">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="shop">
                     <a class="nav-link" href="/shop">Shop</a>
@@ -29,24 +29,16 @@
                 </div>
             </ul>
 
-        <form class="search">
-            <input class="inputSearch" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn" type="submit">
-                <fa-icon 
-                [icon]="searchIcon"
-                [styles]="{ color: 'gray' }"
-                size="lg"></fa-icon>
-            </button>
-        </form>
 
         <div class="rightContent">
             <ul class="navbar-nav mr-auto">
             <li class="cart">
-                <a class="nav-link" href="#">
+                <a class="nav-link" routerLink="/cart">
                     <fa-icon 
                     [icon]="cartIcon"
                     [styles]="{ color: 'white' }"
                     size="lg"></fa-icon>
+                    <span class="cart-counter">{{ cartItemCount }}</span>
                 </a>
             </li>
         </ul>
@@ -67,31 +59,3 @@
   </nav>
 </div>
 
-
-
-//copied and modified from figma
-<!-- <div class="header">
-    <div class="logo">
-            <img src="https://i.ibb.co/znTssF3/Delicato-Logo.png" alt="Delicato-Logo" height="40" width="40"/>
-        <h3>Delicato</h3>
-    </div>
-    <div class="options">
-        <p>Home</p>
-        <p>About Us</p>
-        <p>Shop</p>
-    </div>
-    <div class="search">
-        <p>Search</p>
-    </div>
-    <div class="rightContent">
-        <fa-icon 
-        [icon]="cartIcon"
-        [styles]="{ color: 'white' }"
-        size="lg"></fa-icon>
-        <fa-icon 
-        [icon]="profileIcon"
-        [styles]="{ color: 'white' }"
-        size="lg"></fa-icon>
-
-    </div>
-</div> -->

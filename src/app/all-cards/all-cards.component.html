@@ -1,33 +1,55 @@
+<app-navigation-bar></app-navigation-bar>
 <div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #38A8AE;">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/" class="d-flex align-items-center text-white text-decoration-none">
-                    <span class="panelHeading" style="margin-top: 200px;">Categories</span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a href="/">
-                            <i class="cat1"></i> <span>Fruit & Veg</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/">
-                            <i class="cat2"></i> <span>Meat & Poultry</span> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/">
-                            <i class="cat2"></i> <span>Cereal</span></a>
-                    </li>
-                    <li class="nav-item">
-                    <a href="/">
-                            <i class="cat3"></i> <span>Bakery</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/">
-                            <i class="cat4"></i> <span>Frozen Food</span> </a>
-                </ul>
-                <hr>               
-            </div>
+  <div class="row">
+    <div class=" firstCol col-lg-2">
+      <div class="sideBar d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
+        <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+            <span class="panelHeading">Categories</span>
+        </a>
+        <div class="category-list">
+          <div class="list-group">
+            <a  (click)="fetchItems()" class="list-group-item list-group-item-action">All</a>
+            <a *ngFor="let category of categories" (click)="selectCategory(category)" class="list-group-item list-group-item-action">{{ category }}</a>
+          </div>
         </div>
+        <hr>               
     </div>
-</div>
+    </div>
+   
+      <div class="col-lg-10 align-self-center">
+       
+        <div class="search-hero">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Enter text to Search">
+        </div>
+        <div class="row1 row">
+      
+          <div *ngIf="selectedCategory; else emptyValue">
+            <!-- HTML content to display when value is not empty -->
+            <h1>Shop {{selectedCategory}}</h1>
+              <div class="product-grid">
+                <div class="product-card" *ngFor="let item of filteredItems | filter:searchText">
+                  <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
+                  <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.title }}</h3>
+                  <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+        
+        <ng-template #emptyValue>
+          <div *ngIf="selectedCategory===''">
+            <h1>Shop All</h1>
+            <!-- HTML content to display when value is null -->
+            <div class="product-grid">
+              <div class="product-card" *ngFor="let item of items | filter:searchText">
+                <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
+                <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.title }}</h3>
+                <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+    </div>
+  </div>
