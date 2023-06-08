@@ -15,42 +15,41 @@
         <hr>               
     </div>
     </div>
-    <div class="col-lg-10 align-self-center">
-      <div class="row1 row">
-        
-
-        <div *ngIf="selectedCategory; else emptyValue">
-        
-          <!-- HTML content to display when value is not empty -->
-          <h1>Shop {{selectedCategory}}</h1>
-            <div class="product-grid">
-              <div class="product-card" *ngFor="let item of filteredItems">
-                <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
-                <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.title }}</h3>
-                <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+   
+      <div class="col-lg-10 align-self-center">
+       
+        <div class="search-hero">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Enter text to Search">
+        </div>
+        <div class="row1 row">
+      
+          <div *ngIf="selectedCategory; else emptyValue">
+            <!-- HTML content to display when value is not empty -->
+            <h1>Shop {{selectedCategory}}</h1>
+              <div class="product-grid">
+                <div class="product-card" *ngFor="let item of filteredItems | filter:searchText">
+                  <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
+                  <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.title }}</h3>
+                  <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+                </div>
               </div>
-            </div>
           </div>
         </div>
-     
-    
-        </div>
+      </div>
         
         <ng-template #emptyValue>
-          <div *ngIf="selectedCategory===''"y>
+          <div *ngIf="selectedCategory===''">
             <h1>Shop All</h1>
             <!-- HTML content to display when value is null -->
-
             <div class="product-grid">
-              <div class="product-card" *ngFor="let item of items">
+              <div class="product-card" *ngFor="let item of items | filter:searchText">
                 <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
                 <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.title }}</h3>
                 <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
-
-
               </div>
             </div>
           </div>
         </ng-template>
+
     </div>
   </div>
