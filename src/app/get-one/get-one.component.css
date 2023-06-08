@@ -1,5 +1,3 @@
-.card {
-    padding: 23px;
-    font-family: optima;
-    margin: 23px;
+.py-5{
+    min-height: 80vh;
 }
