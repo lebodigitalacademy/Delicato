@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './interface/product';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,11 +9,18 @@ import { Product } from './interface/product';
 })
 export class ServiceService {
 
+  //private apiUrl = "https://fakestoreapi.com/products";
+
   constructor(private http:HttpClient) { }
 
   // backend url
 
   private url ="https://fakestoreapi.com/products";
+
+  searchProducts(query: string): Observable<any> {
+    const apiUrl = `${this.url}?q=${query}`;
+    return this.http.get(apiUrl);
+  }
 
   // GET, ADD, UPDATE and DELETE Http methods that make calls to our restful API (backend)
   getEmployeeAll(){
