@@ -15,9 +15,10 @@ h2{
     text-align: center;
     margin-top: 80px;
     font-family:optima;
+    color: #F16B44;
  }
  .col-md-2{
-    margin-left: 26px;
+    margin-left: 86px;
     width: 230px;
     
  }  
@@ -34,7 +35,7 @@ h1{
     margin-bottom: 4%;
     margin-left:-12%;
     font-family: optima;
-    color: orange;
+    color: #F16B44;
 }
 .row1{
     margin-left: 8.5%;
@@ -98,6 +99,10 @@ cursor: pointer;
     cursor: pointer;
     border-style: none;
     text-align: center;
+ }
+
+ .container{
+  font-family: optima;
  }
  
  
