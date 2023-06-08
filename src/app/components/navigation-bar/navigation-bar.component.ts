@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { faShoppingCart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/cart.service';
 //import { CartServiceService } from 'src/app/services/cart-service.service';
@@ -8,7 +8,8 @@ import { CartService } from 'src/app/cart.service';
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css']
 })
-export class NavigationBarComponent {
+export class NavigationBarComponent implements OnInit {
+  products:any[] = []; 
   cartIcon = faShoppingCart;
   profileIcon = faUser;
   searchIcon = faSearch;
@@ -19,10 +20,8 @@ export class NavigationBarComponent {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartService.cartItems.subscribe(items => {
-      this.cartItemCount = items.length;
-    });
+      this.products = this.cartService.getProducts();
+      this.cartItemCount = this.products.length;       
   }
-  
 
 }
