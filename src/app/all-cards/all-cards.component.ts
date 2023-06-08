@@ -1,26 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../service.service';
+import { Product } from '../interface/product';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-all-cards',
   templateUrl: './all-cards.component.html',
   styleUrls: ['./all-cards.component.css']
 })
-export class AllCardsComponent {
+export class AllCardsComponent implements OnInit {
   proCat:any;
   items:any;
+  searchText: any;
   // id?: number
   categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
   selectedCategory: any = '';
   filteredItems: any[] = [];
+  
 
-  constructor(private route: ActivatedRoute,private service:ServiceService, private router: Router) {}
+
+  constructor(private route: ActivatedRoute,private service:ServiceService, private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
     this.fetchItems();
-   
-}
+  }
+
+
 fetchItems(){
   this.service.getEmployeeAll()
       .subscribe(data => {
