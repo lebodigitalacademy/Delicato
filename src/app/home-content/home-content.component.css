@@ -16,9 +16,10 @@ h2{
     margin-top: 80px;
     font-family:optima;
     color: #F16B44;
+    margin-bottom: 80px;
  }
  .col-md-2{
-    margin-left: 86px;
+    margin-left: 66px;
     width: 230px;
     
  }  
@@ -105,5 +106,7 @@ cursor: pointer;
   font-family: optima;
  }
  
- 
+ .sellers{
+  margin-bottom: 40px;
+ }
 
