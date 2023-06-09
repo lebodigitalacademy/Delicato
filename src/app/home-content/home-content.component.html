@@ -150,28 +150,28 @@
             <div class="row justify-content-center">
            
                 <div class="card" style="width: 18rem;">
-                    <img src="{{items[5].image}}" (click)="viewProduct(items[5].id)" class="card-img-top" alt="...">
+                    <img src="{{items[5].image.imageURL}}" (click)="viewProduct(items[5].productId)" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[5].title}}  <br> R {{items[5].price}}</p>
+                      <p class="card-text">{{items[5].name}}  <br> R {{items[5].price}}</p>
                     </div>
                   </div>
 
                   <div class="card" style="width: 18rem;">
-                    <img src="{{items[6].image}}"  (click)="viewProduct(items[6].id)" class="card-img-top" alt="...">
+                    <img src="{{items[6].image.imageURL}}"  (click)="viewProduct(items[6].productId)" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[6].title}}  <br> R {{items[6].price}}</p>
+                      <p class="card-text">{{items[6].name}}  <br> R {{items[6].price}}</p>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem;">
-                    <img src="{{items[7].image}} " (click)="viewProduct(items[7].id)"class="card-img-top" alt="...">
+                    <img src="{{items[7].image.imageURL}} " (click)="viewProduct(items[7].productId)"class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[7].title}}  <br> R {{items[7].price}}</p>
+                      <p class="card-text">{{items[7].name}}  <br> R {{items[7].price}}</p>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem;">
-                    <img src="{{items[8].image}} " (click)="viewProduct(items[8].id)" class="card-img-top" alt="...">
+                    <img src="{{items[8].image.imageURL}} " (click)="viewProduct(items[8].productId)" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[8].title}}  <br> R {{items[8].price}}</p>
+                      <p class="card-text">{{items[8].name}}  <br> R {{items[8].price}}</p>
                     </div>
                   </div>
         </div>
@@ -202,33 +202,33 @@
     <!-- HTML content to display when value is not empty -->
     <h1>Shop {{selectedCategory}}</h1>
       <div class="product-grid">
-        <div class="product-card" *ngFor="let item of filteredItems">
-          <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
-          <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.title }}</h3>
-          <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
+       
+        <div *ngIf="selectedCategory; else emptyValue">
+          <!-- HTML content to display when value is not empty -->
+          <h1>Shop {{selectedCategory}}</h1>
+            <div class="product-grid">
+              <div class="product-card" *ngFor="let item of filteredItems">
+                <img (click)="viewProduct(item.productId)" class="proImg" src="{{item.image}}">
+                <h3 (click)="viewProduct(item.productId)"  class="proTitle">{{ item.name }}</h3>
+                <p (click)="viewProduct(item.productId)" class="proPrice">R {{ item.price }}</p>
+              </div>
+            </div>
         </div>
       </div>
     </div>
-  </div>
-
-
-  </div>
-  
-  <ng-template #emptyValue>
-    <div *ngIf="selectedCategory===''"y>
-      <h1>Shop All</h1>
-      <!-- HTML content to display when value is null -->
-
-      <div class="product-grid">
-        <div class="product-card" *ngFor="let item of items">
-          <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
-          <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.title }}</h3>
-          <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
-
-
+      
+      <ng-template #emptyValue>
+        <div *ngIf="selectedCategory===''">
+          <h1>Shop All</h1>
+          <!-- HTML content to display when value is null -->
+          <div class="product-grid">
+            <div class="product-card" *ngFor="let item of items">
+              <img (click)="viewProduct(item.productId)" class="proImg" src="{{item.image.imageURL}}">
+              <h3 (click)="viewProduct(item.productId)" class="proTitle">{{ item.name }}</h3>
+              <p (click)="viewProduct(item.productId)" class="proPrice">R {{ item.price }}</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
   </ng-template>
 </div>
 </div>

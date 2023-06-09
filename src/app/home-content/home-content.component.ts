@@ -11,7 +11,7 @@ import { ServiceService } from '../service.service';
 })
 export class HomeContentComponent {
   check:boolean=false;
- 
+  items1:any;
   items:any;
   // id?: number
   categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
@@ -26,9 +26,12 @@ export class HomeContentComponent {
 }
 
 fetchItems(){
-  this.service.getEmployeeAll()
-      .subscribe(data => {
-        this.items = data;
+  this.service.getAllProducts()
+      .subscribe(res => {
+        this.items1 = res;
+        this.items=this.items1.data;
+        console.log(this.items1);
+        console.log(this.items);
         console.log(this.items)
       this.selectedCategory='' });
 }

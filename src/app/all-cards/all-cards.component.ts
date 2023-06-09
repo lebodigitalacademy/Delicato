@@ -35,13 +35,13 @@ fetchItems(){
         this.items=this.items1.data;
         console.log(this.items1);
         console.log(this.items);
+        console.log(this.items)
       this.selectedCategory='' });
-      
 }
 
 filterItems() {
   if (this.selectedCategory) {
-    this.filteredItems = this.items.category.name.filter((item: { category: string; }) => item.category === this.selectedCategory);
+    this.filteredItems = this.items.category.filter((item: { category: string; }) => item.category === this.selectedCategory);
   } else {
     this.filteredItems = this.items;
   }

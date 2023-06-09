@@ -32,7 +32,7 @@ export class ServiceService {
   }
 
   getOneProduct(id:number){
-    return this.http.get('http://localhost:8081/api/products/getAllProducts/'+id);
+    return this.http.get('http://localhost:8081/api/products/'+id);
    }
 
   createProduct(body: Product){
