@@ -15,7 +15,7 @@ export class AllCardsComponent implements OnInit {
   items1:any;
   searchText: any;
   // id?: number
-  categories: string[] = ["fruit and vegetables", "Meat and Poultry","Cereal", "Bakery", "Frozen Food"]; // Add your list of categories
+  categories: string[] = ["Fruit and Vegetables", "meat and poultry","cereal", "bakery", "frozen food"]; // Add your list of categories
   selectedCategory: any = '';
   filteredItems: any[] = [];
   
@@ -41,7 +41,7 @@ fetchItems(){
 
 filterItems() {
   if (this.selectedCategory) {
-    this.filteredItems = this.items.category.filter((item: { category: string; }) => item.category === this.selectedCategory);
+    this.filteredItems = [...this.items.filter((item: { category: { name: string | any[]; }; }) => item.category.name.includes(this.selectedCategory))];
   } else {
     this.filteredItems = this.items;
   }
