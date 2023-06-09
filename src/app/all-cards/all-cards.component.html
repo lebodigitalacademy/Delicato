@@ -29,7 +29,7 @@
               <div class="product-grid">
                 <div class="product-card" *ngFor="let item of filteredItems | filter:searchText">
                   <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
-                  <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.title }}</h3>
+                  <h3 (click)="viewProduct(item.id)"  class="proTitle">{{ item.name }}</h3>
                   <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
                 </div>
               </div>
@@ -43,8 +43,8 @@
             <!-- HTML content to display when value is null -->
             <div class="product-grid">
               <div class="product-card" *ngFor="let item of items | filter:searchText">
-                <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image}}">
-                <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.title }}</h3>
+                <img (click)="viewProduct(item.id)" class="proImg" src="{{item.image.imageURL}}">
+                <h3 (click)="viewProduct(item.id)" class="proTitle">{{ item.name }}</h3>
                 <p (click)="viewProduct(item.id)" class="proPrice">R {{ item.price }}</p>
               </div>
             </div>
