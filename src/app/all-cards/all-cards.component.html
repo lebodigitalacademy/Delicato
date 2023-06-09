@@ -1,4 +1,4 @@
-<app-navigation-bar></app-navigation-bar>
+
 <div class="container-fluid">
   <div class="row">
     <div class=" firstCol col-lg-2">
@@ -23,7 +23,7 @@
         </div>
         <div class="row1 row">
       
-          <div *ngIf="selectedCategory; else emptyValue">
+          <div *ngIf="selectedCategory">
             <!-- HTML content to display when value is not empty -->
             <h1>Shop {{selectedCategory}}</h1>
               <div class="product-grid">
@@ -37,7 +37,6 @@
         </div>
       </div>
         
-        <ng-template #emptyValue>
           <div *ngIf="selectedCategory===''">
             <h1>Shop All</h1>
             <!-- HTML content to display when value is null -->
@@ -48,8 +47,9 @@
                 <p (click)="viewProduct(item.productId)" class="proPrice">R {{ item.price }}</p>
               </div>
             </div>
-          </div>
-        </ng-template>
+       
 
     </div>
-  </div>
+</div>
+
+<app-navigation-bar></app-navigation-bar>
