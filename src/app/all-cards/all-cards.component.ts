@@ -15,7 +15,7 @@ export class AllCardsComponent implements OnInit {
   items1:any;
   searchText: any;
   // id?: number
-  categories: string[] = ["Fruit and Vegetables", "meat and poultry","cereal", "bakery", "frozen food"]; // Add your list of categories
+  categories: string[] = ["fruit and vegetables", "meat and poultry","cereal", "bakery", "frozen food"]; // Add your list of categories
   selectedCategory: any = '';
   filteredItems: any[] = [];
   
