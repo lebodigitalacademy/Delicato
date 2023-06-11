@@ -14,7 +14,7 @@ export class HomeContentComponent {
   items1:any;
   items:any;
   // id?: number
-  categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
+  categories: string[] = ["Fruit and Veg", "Meat and Poultry","Cereal", "Bakery", "Frozen Food"]; // Add your list of categories
   selectedCategory: any = '';
   filteredItems: any[] = [];
 
@@ -38,9 +38,8 @@ fetchItems(){
 
 filterItems() {
   if (this.selectedCategory) {
-    this.filteredItems = this.items.filter((item: { category: string; }) => item.category === this.selectedCategory);
+    this.filteredItems = [...this.items.filter((item: { category: { name: string | any[]; }; }) => item.category.name.includes(this.selectedCategory))];
     this.check=true;
-
   } else {
     this.filteredItems = this.items;
   }
