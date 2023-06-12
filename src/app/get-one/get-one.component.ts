@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class GetOneComponent implements OnInit {
   TotalPrice!: number;
   product: any;
+  product1:any;
   id: any;
 
   constructor(private fakestore: ServiceService, private cartService: CartService,
@@ -24,8 +25,10 @@ export class GetOneComponent implements OnInit {
   ngOnInit() {
     console.log("prudct id: " + this.id);
     if (this.id) {
-      this.fakestore.getOneProduct(this.id).subscribe((data) => {
-        this.product = data;
+      this.fakestore.getOneProduct(this.id).subscribe((res) => {
+        this.product1 = res;
+        this.product=this.product1.data;
+        console.log(this.product)
       });
     }
 
