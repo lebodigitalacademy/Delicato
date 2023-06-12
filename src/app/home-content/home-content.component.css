@@ -34,7 +34,7 @@ h1{
     text-align: center;
     margin-top: 7%;
     margin-bottom: 4%;
-    margin-left:-12%;
+    margin-left:-6%;
     font-family: optima;
     color: #F16B44;
 }
@@ -105,6 +105,17 @@ cursor: pointer;
  .container{
   font-family: optima;
  }
+ .card{
+margin-left:5px;
+
+ }
+ .col-md-2{
+  margin-left: 0%;
+}
+
+.cat1{
+  margin-left: 9%;
+}
  
  .sellers{
   margin-bottom: 40px;
