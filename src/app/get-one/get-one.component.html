@@ -6,11 +6,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-5">
-                                <img src="{{product?.image}}" class="card-img-top" alt="...">
+                                <img src="{{product.image.imageURL}}" class="card-img-top" alt="...">
                             </div>
                             <div class="col-md-7">
-                                <h5 class="card-title">{{product?.title}}</h5>
-                                <p class="card-text">{{product?.description}}</p>
+                                <h5 class="card-title">{{product.name}}</h5>
+                                <p class="card-text">{{product.description}}</p>
                             </div>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">R{{product?.price}}</h4>
+                        <h4 class="card-title">R{{product.price}}</h4>
                         <br><br><br>
                         <div class="d-flex">
                             <button (click)="addToCart(product)">Add Item</button>
