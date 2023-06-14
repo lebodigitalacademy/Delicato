@@ -1,1 +1,59 @@
-<p>all-cards works!</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class=" firstCol col-lg-2">
+            <div class="sideBar d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
+                <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                    <span class="panelHeading">Categories</span>
+                </a>
+                <div class="category-list">
+                    <div class="list-group">
+                        <a (click)="fetchItems()" class="list-group-item list-group-item-action">All</a>
+                        <a *ngFor="let category of categories" (click)="selectCategory(category)"
+                            class="list-group-item list-group-item-action">{{ category }}</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="products col-lg-10 align-self-center">
+
+            <div class="search-hero">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                    placeholder="Enter text to Search">
+            </div>
+            <div class="row1 row">
+
+                <div *ngIf="selectedCategory; else emptyValue">
+                    <!-- HTML content to display when value is not empty -->
+                    <h1>Shop {{selectedCategory}}</h1>
+                    <div class="product-grid">
+                        <div class="product-card" *ngFor="let item of filteredItems | filter:searchText">
+                          <img (click)="viewProduct(item.productId)" class="proImg" src="{{item.image.imageURL}}">
+                          <h3 (click)="viewProduct(item.productId)" class="proTitle">{{ item.name }}</h3>
+                          <p (click)="viewProduct(item.productId)" class="proPrice">R {{ item.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #emptyValue>
+            <div *ngIf="selectedCategory===''">
+                <h1>Shop All</h1>
+                <!-- HTML content to display when value is null -->
+                <div class="product-grid">
+                    <div class="product-card" *ngFor="let item of items | filter:searchText">
+                        <img (click)="viewProduct(item.productId)" class="proImg" src="{{item.image.imageURL}}">
+                        <h3 (click)="viewProduct(item.productId)" class="proTitle">{{ item.name }}</h3>
+                        <p (click)="viewProduct(item.productId)" class="proPrice">R {{ item.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+    </div>
+</div>
+
+<app-navigation-bar></app-navigation-bar>

@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  font-family: optima;
+  flex: 1;
+}
+
+
+.text-white{
+text-decoration: none;
+}
+
