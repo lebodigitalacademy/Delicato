@@ -8,6 +8,7 @@ import { HomeContentComponent } from './home-content/home-content.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 export const routes: Routes = [
@@ -15,7 +16,7 @@ export const routes: Routes = [
   {path : 'viewProduct/:id', component : GetOneComponent},
   {path : '', component: HomeContentComponent},
   {path : 'about', component : AboutComponent},
-
+  {path : 'cart', component: CartComponent}
 
 ];
 
