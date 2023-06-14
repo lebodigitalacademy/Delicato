@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 import { CardComponent } from './card/card.component';
 import { GetOneComponent } from './get-one/get-one.component';
-import { AllCardsComponent } from './all-cards/all-cards.component';
 import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component';
 import { AllCardsComponent } from './all-cards/all-cards.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
