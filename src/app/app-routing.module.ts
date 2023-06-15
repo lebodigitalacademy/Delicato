@@ -8,12 +8,14 @@ import { HomeContentComponent } from './home-content/home-content.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
 
 
 export const routes: Routes = [
   {path : 'viewProduct/:id', component : GetOneComponent},
   {path : '', component: AllCardsComponent},
   {path : 'about', component : AboutComponent},
+  {path : 'login', component : LoginComponent},
 
 
 ];
