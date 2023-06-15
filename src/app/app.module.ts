@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -34,6 +36,8 @@ import { RegisterComponent } from './register/register.component';
     AboutComponent,
     FooterComponent,
     RegisterComponent,
+    LoginComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
