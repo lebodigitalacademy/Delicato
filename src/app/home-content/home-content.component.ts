@@ -11,10 +11,10 @@ import { ServiceService } from '../service.service';
 })
 export class HomeContentComponent {
   check:boolean=false;
- 
+  items1:any;
   items:any;
   // id?: number
-  categories: string[] = ["electronics", "jewelery","women's clothing", "men's clothing"]; // Add your list of categories
+  categories: string[] = ["Fruit and Veg", "Meat and Poultry","Cereal", "Bakery", "Frozen Food"]; // Add your list of categories
   selectedCategory: any = '';
   filteredItems: any[] = [];
 
@@ -26,18 +26,20 @@ export class HomeContentComponent {
 }
 
 fetchItems(){
-  this.service.getEmployeeAll()
-      .subscribe(data => {
-        this.items = data;
+  this.service.getAllProducts()
+      .subscribe(res => {
+        this.items1 = res;
+        this.items=this.items1.data;
+        console.log(this.items1);
+        console.log(this.items);
         console.log(this.items)
       this.selectedCategory='' });
 }
 
 filterItems() {
   if (this.selectedCategory) {
-    this.filteredItems = this.items.filter((item: { category: string; }) => item.category === this.selectedCategory);
+    this.filteredItems = [...this.items.filter((item: { category: { name: string | any[]; }; }) => item.category.name.includes(this.selectedCategory))];
     this.check=true;
-
   } else {
     this.filteredItems = this.items;
   }
