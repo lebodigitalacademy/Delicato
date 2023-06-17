@@ -1,0 +1,12 @@
+.checkoutHeading{
+    font-family: optima;
+    color:orangered;
+    margin-top:6%;
+    margin-bottom:2%;
+}
+.errorMsg{
+    color: red;
+}
+paymentForm{
+    margin-bottom: 5%;
+}
