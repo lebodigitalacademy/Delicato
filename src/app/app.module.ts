@@ -44,6 +44,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
