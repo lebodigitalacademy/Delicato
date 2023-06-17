@@ -7,11 +7,12 @@
     </div>
     <div class="row">
 <div style="background-color: lightgray;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="shippingForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="content">
         <div>
           <input type="text" id="addressLine1" formControlName="addressLine1" placeholder="Address Line 1"/>
           <div class="errorMsg" *ngIf="form.controls['addressLine1'].invalid && form.controls['addressLine1'].touched">
-            Address Line 1 is required.
+            <label class="errorMsg"> Address Line 1 is required</label>
           </div>
         </div>
         <div>
@@ -19,51 +20,71 @@
         </div>
         <div>
           <input type="text" id="town" formControlName="town" placeholder="Town/City"/>
-          <div *ngIf="form.controls['town'].invalid && form.controls['town'].touched">
-            Town is required.
+          <div class="errorMsg" *ngIf="form.controls['town'].invalid && form.controls['town'].touched">
+            <label class="errorMsg"> Town is required</label>
           </div>
         </div>
         <div>
           <input type="text" id="postalCode" formControlName="postalCode" placeholder="Postal Code"/>
           <div *ngIf="form.controls['postalCode'].invalid && form.controls['postalCode'].touched">
-            Postal Code is required and must be a valid format (e.g., 12345 or 12345-6789).
+            <label class="errorMsg"> Enter a valid postal code</label>
           </div>
         </div>
-        <button type="submit" [disabled]="form.invalid">Submit</button>
+        <button class="submit" type="submit" [disabled]="form.invalid">Submit</button>
+    </div>
       </form>
         </div>
-<div style="background-color: aqua;" class="order details col-lg-4 offset-lg-1 col-sm-10 offset-sm-1">
-Hi
-</div>
+            <div style="background-color: lightgray;" class="orderDetails col-lg-4 offset-lg-1 col-sm-10 offset-sm-1">
+                <div class="upperProducts">
+                    <label class="subTotalLabel">Sub Total</label>
+                    <label class="labelValue">R160</label>
+                    <br>
+                    <label>Shipping</label>
+                    <label class="shippingLabel"></label>
+                    <label class="labelValue">R20</label>
+                    <br>
+                    <label class="taxLabel" >Tax</label>
+                    <label class="labelValue">R20</label>
+                    <hr>
+                    <label class="balanceLabel">Balance</label>
+                    <label class="labelValue">R200</label>
+
+                </div>
+            </div>
     
 
     </div>
     <br>
     <div class="paymentForm row">
         <div style="background-color: lightgray;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
+            
             <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
+                <div class="content">
                 <div>
-                  <label for="cardNumber">Card Number:</label>
-                  <input type="text" id="cardNumber" formControlName="cardNumber" />
-                  <div *ngIf="form2.controls['cardNumber'].invalid && form2.controls['cardNumber'].touched">
-                    Card Number is required and must be a 16-digit number.
+                  
+                  <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="Card Number"/>
+                  <div  class="errorMsg" *ngIf="form2.controls['cardNumber'].invalid && form2.controls['cardNumber'].touched">
+                    <label class="errorMsg">*Card is required</label>
                   </div>
+                  
                 </div>
                 <div>
-                  <label for="expiryDate">Expiry Date (MM/YY):</label>
-                  <input type="text" id="expiryDate" formControlName="expiryDate" />
+                  <input type="text" id="expiryDate" formControlName="expiryDate" placeholder="Expiry Date (MM/YY)"/>
                   <div *ngIf="form2.controls['expiryDate'].invalid && form2.controls['expiryDate'].touched">
-                    Expiry Date is required and must be in the format MM/YY.
-                  </div>
+                    <label class="errorMsg"> *Enter a valid expiry date</label>
+                </div>
                 </div>
                 <div>
-                  <label for="cvv">CVV Number:</label>
-                  <input type="text" id="cvv" formControlName="cvv" />
+                  <input type="text" id="cvv" formControlName="cvv" placeholder="CVV"/>
                   <div *ngIf="form2.controls['cvv'].invalid && form2.controls['cvv'].touched">
-                    CVV Number is required and must be a 3 or 4-digit number.
-                  </div>
+                    <label class="errorMsg"> *Invalid CVV number</label>
                 </div>
-                <button type="submit" [disabled]="form2.invalid">Submit</button>
+               
+                </div>
+                <button class="submit" type="submit" [disabled]="form2.invalid">Submit</button>
+            </div>
+             
+            
               </form>
                 </div>
             </div>
