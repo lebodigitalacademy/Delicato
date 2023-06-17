@@ -20,6 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 //import { CartServiceService } from './services/cart-service.service';
 
