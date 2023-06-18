@@ -1,0 +1,11 @@
+form {
+    padding-top: 20rem;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin: .5em 0;
+    font-weight: bold;
+  }
+  
