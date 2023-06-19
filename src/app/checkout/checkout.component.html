@@ -6,7 +6,9 @@
         </div>
     </div>
     <div class="row">
+        
 <div style="background-color: lightgray;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
+    <h1 class="shippingHeading" style="text-align: center;">Shipping Details</h1>
     <form class="shippingForm" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="content">
         <div>
@@ -35,6 +37,7 @@
       </form>
         </div>
             <div style="background-color: lightgray;" class="orderDetails col-lg-4 offset-lg-1 col-sm-10 offset-sm-1">
+                <h1 class="shippingHeading" style="text-align: center;">Order Details</h1>
                 <div class="upperProducts">
                     <label class="subTotalLabel">Sub Total</label>
                     <label class="labelValue">R160</label>
@@ -56,8 +59,9 @@
     </div>
     <br>
     <div class="paymentForm row">
+ 
         <div style="background-color: lightgray;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
-            
+            <h1 class="paymentHeading">Payment Details</h1>
             <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
                 <div class="content">
                 <div>
