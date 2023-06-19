@@ -7,26 +7,60 @@
 </div>
 <div class="card">
     <div class="card-body">
-        <form [formGroup]="profileForm" (ngSubmit)="onSubmit">
-            <label for="name">Name:</label>
-            <input type="text" id="name" formControlName="name" required>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-            <label for="surname">Surname:</label>
-            <input type="text" id="surname" formControlName="surname">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+            <div class="form-text text-danger" *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)">
+                Name is required.
+            </div>
+           <div class="form-text text-danger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
+                Name is too short.
+           </div>
+           <div class="form-text text-danger" *ngIf="Name.errors?.['pattern'] && (Name.dirty || Name.touched)">
+                Name should start with an Alphabet. 
+           </div>
 
-            <label for="email">Email:</label>
+            <label for="surname" class="form-label">Surname:</label>
+            <input type="text" id="surname" class="form-control" formControlName="surname">
+            <div class="form-text text-danger" *ngIf="Surname.errors?.['required'] && (Surname.touched || Surname.dirty)">
+                Surname is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="Surname.errors?.['minlength'] && (Surname.touched || Surname.dirty)">
+                Surname is too short.
+           </div>
+           <div class="form-text text-danger" *ngIf="Surname.errors?.['pattern'] && (Surname.dirty || Surname.touched)">
+            Surname should start with an Alphabet. 
+           </div>
+
+            <label for="email" class="form-label">Email:</label>
             <input type="email" id="email" formControlName="email">
+            <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+                Email is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+                Email is invalid.
+            </div>
 
-            <label for="choosePassword">Choose Password:</label>
-            <input type="password" id="choosePassword" formControlName="choosePassword">
+            <label for="choosePassword" class="form-label">Choose Password:</label>
+            <input type="password" class="form-control" id="choosePassword" formControlName="choosePassword">
+            <div class="form-text text-danger" *ngIf="ChoosePassword.errors?.['required'] && (ChoosePassword.dirty || ChoosePassword.touched)">
+                Password is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="ChoosePassword.errors?.['minlength'] || ChoosePassword.errors?.['maxlength'] && (ChoosePassword.dirty || ChoosePassword.touched)">
+                Password should be atleast 6 and at the maximum 15 characters long.
+            </div>
 
-            <label for="retypePassword">Re-type Password:</label>
-            <input type="password" id="retypePassword" formControlName="retypePassword">
+            <label for="retypePassword" class="form-label">Re-type Password:</label>
+            <input type="password" class="form-control" id="retypePassword" formControlName="retypePassword">
+            <div class="form-text text-danger" [ngStyle]="{ 'display': retypePass }">
+                Re-type Password is invalid.
+            </div>
             <br><br>
         </form>
     </div>
 </div>
 <div class="container">
-    <button type="submit" class="btn btn-success" [disabled]="!profileForm.valid">Register</button>
+    <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success">Register</button>
     <p>Already have an account? <a href="#">Login</a></p>
 </div>

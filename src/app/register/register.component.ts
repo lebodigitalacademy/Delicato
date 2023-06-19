@@ -1,36 +1,64 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder, Validators } from '@angular/forms';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-    profileForm: any;
-    // profileForm: FormGroup;
+    retypePass: string = 'none';
+  constructor() {}
 
-  constructor(private fb: FormBuilder) {
-    // this.profileForm = this.fb.group({
-      // Define your form controls and validation rules here
-    // });
-  }
+  ngOnInit(): void {}
 
-  ngOnInit() {
-    this.profileForm = this.fb.group({
-      name: ['', Validators.required],
-      surname: [''],
-      email: ['', [Validators.required, Validators.email]],
-      choosePassword: ['', Validators.minLength(6)],
-      retypePassword: ['']
-    });
-  }
+  registerForm = new FormGroup({
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.pattern('[a-zA-Z].*'),
+    ]),
+    surname: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern('[a-zA-Z].*'),
+      ]),
+    email: new FormControl('',[Validators.required, Validators.email]),
+    choosePassword: new FormControl('',[Validators.required, Validators.minLength(6), Validators.maxLength(16),
+    ]),
+    retypePassword: new FormControl(''),
+  });
 
-    onSubmit() {
-        // Use EventEmitter with form value to notify the user of the registration
-        // Handle form submission logic here
-        // console.warn(this.profileForm.value);
+  onSubmit() {
+    if (this.ChoosePassword.value == this.RetypePassword.value) {
+        console.log(this.registerForm.valid);
+        this.retypePass = 'none'
+    }else {
+        this.retypePass = 'inline'
     }
-    
+    // console.log(this.registerForm.get('name'));
+  }
+
+  get Name(): FormControl {
+    return this.registerForm.get('name') as FormControl;
+  }
+
+  get Surname(): FormControl {
+    return this.registerForm.get('surname') as FormControl;
+  }
+
+  get Email(): FormControl {
+    return this.registerForm.get('email') as FormControl;
+  }
+
+  get ChoosePassword(): FormControl {
+    return this.registerForm.get('choosePassword') as FormControl;
+  }
+
+  get RetypePassword(): FormControl {
+    return this.registerForm.get('retypePassword') as FormControl;
+  }
 }
+
+
+
