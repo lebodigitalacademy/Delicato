@@ -7,7 +7,8 @@
     </div>
     <div class="row">
         
-<div style="border-style: solid;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
+<div  class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
+  <div class="shippingSection" style="border-style:solid ;">
     <h1 class="Heading" style="text-align: center;">Shipping Details</h1>
     <form class="shippingForm" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="content">
@@ -35,6 +36,38 @@
         <button class="submit" type="submit" [disabled]="form.invalid">Save</button>
     </div>
       </form>
+    </div>
+      <div style="border-style: solid;" class=" paymentSection offset-lg-1 col-sm-10 offset-sm-1">
+        <h1 class="Heading">Payment Details</h1>
+        <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
+            <div class="content">
+            <div>
+              
+              <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="Card Number"/>
+              <div  class="errorMsg" *ngIf="form2.controls['cardNumber'].invalid && form2.controls['cardNumber'].touched">
+                <label class="errorMsg">*Card is required</label>
+              </div>
+              
+            </div>
+            <div>
+              <input type="text" id="expiryDate" formControlName="expiryDate" placeholder="Expiry Date (MM/YY)"/>
+              <div *ngIf="form2.controls['expiryDate'].invalid && form2.controls['expiryDate'].touched">
+                <label class="errorMsg"> *Enter a valid expiry date</label>
+            </div>
+            </div>
+            <div>
+              <input type="text" id="cvv" formControlName="cvv" placeholder="CVV"/>
+              <div *ngIf="form2.controls['cvv'].invalid && form2.controls['cvv'].touched">
+                <label class="errorMsg"> *Invalid CVV number</label>
+            </div>
+           
+            </div>
+            <button class="submit" type="submit" [disabled]="form2.invalid">Save</button>
+        </div>
+         
+        
+          </form>
+            </div>
         </div>
             <div style="border-style: solid;" class="orderDetails col-lg-4 offset-lg-1 col-sm-10 offset-sm-1">
               <!-- start of table -->
@@ -71,7 +104,6 @@
                         <td data-title="Quantity">1</td>
                         <td data-title="Price">R1</td>
                       </tr>
-                      
                     </tbody>
                   </table>
                 </div>
@@ -88,46 +120,9 @@
                     <hr>
                     <label class="balanceLabel">Balance</label>
                     <label class="labelValue">R200</label>
-
+                    <button class="placeOrder">Place Order</button>
                 </div>
             </div>
-    
-
     </div>
-    <br>
-    <div class="paymentForm row">
- 
-        <div style="border-style: solid;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
-            <h1 class="Heading">Payment Details</h1>
-            <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
-                <div class="content">
-                <div>
-                  
-                  <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="Card Number"/>
-                  <div  class="errorMsg" *ngIf="form2.controls['cardNumber'].invalid && form2.controls['cardNumber'].touched">
-                    <label class="errorMsg">*Card is required</label>
-                  </div>
-                  
-                </div>
-                <div>
-                  <input type="text" id="expiryDate" formControlName="expiryDate" placeholder="Expiry Date (MM/YY)"/>
-                  <div *ngIf="form2.controls['expiryDate'].invalid && form2.controls['expiryDate'].touched">
-                    <label class="errorMsg"> *Enter a valid expiry date</label>
-                </div>
-                </div>
-                <div>
-                  <input type="text" id="cvv" formControlName="cvv" placeholder="CVV"/>
-                  <div *ngIf="form2.controls['cvv'].invalid && form2.controls['cvv'].touched">
-                    <label class="errorMsg"> *Invalid CVV number</label>
-                </div>
-               
-                </div>
-                <button class="submit" type="submit" [disabled]="form2.invalid">Save</button>
-            </div>
-             
-            
-              </form>
-                </div>
-            </div>
 </div>
 <app-navigation-bar></app-navigation-bar>
