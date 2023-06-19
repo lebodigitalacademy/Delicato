@@ -1,11 +1,87 @@
-form {
-    padding-top: 20rem;
-    text-align: center;
-  }
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+}
+
+.logo h3 {
+  color: #F16B44;
+  font-family: optimal;
+}
+
+.card {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #38A8AE;
+
+}
+
+.card-heading {
+  color: #F16B44;
+  font-size: 18px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
   
-  label {
-    display: block;
-    margin: .5em 0;
-    font-weight: bold;
-  }
+}
+
+form label {
+  color: #ffffff;
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #F16B44;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+p {
+  margin-top: 20px;
+}
+
+p a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 435px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: 4px;
+}
+
+.container a {
+  color: #F16B44;
+}
+
   

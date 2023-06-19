@@ -1,55 +1,32 @@
+<div class="logo">
+    <img src="https://i.ibb.co/znTssF3/Delicato-Logo.png" alt="Delicato-Logo" height="50" width="120" />
+    <h3>Delicato</h3>
+</div>
+<div class="card-heading">
+    <h2 class="heading">Create an Account</h2>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit">
+            <label for="name">Name:</label>
+            <input type="text" id="name" formControlName="name" required>
 
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit">
-    <label for="name">Name: </label>
-    <input type="text" id="name" formControlName = "name" required>
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" formControlName="surname">
 
-    <label for="surname">Surname: </label>
-    <input type="text" id="surname" formControlName = "surname">
+            <label for="email">Email:</label>
+            <input type="email" id="email" formControlName="email">
 
-    <label for="email">Email: </label>
-    <input type="email" id="email" formControlName = "email">
+            <label for="choosePassword">Choose Password:</label>
+            <input type="password" id="choosePassword" formControlName="choosePassword">
 
-    <label for="choosePassword">Choose Password: </label>
-    <input type="password" id="choosePassword" formControlName = "choosePassword">
-
-    <label for="email">Re-type Password: </label>
-    <input type="password" id="retypePassword" formControlName = "retypePassword">
-
-    <p>Complete the Registration form to enable button.</p>
-    <button type="submit" [disabled]="!profileForm.valid">Register</button>
-
-    <p>Already have an account? Login</p>
-</form>
-
-<app-navigation-bar> </app-navigation-bar>
-
-
-
-
-<!-- <form class="needs-validation" novalidate>
-    <div class="mb-3">
-        <label for="name">Name</label>
-        <input id="name" type="text" [formControl]="name">
-        <div class="invalid-feedback">
-            Please provide a name.  
-        </div>
+            <label for="retypePassword">Re-type Password:</label>
+            <input type="password" id="retypePassword" formControlName="retypePassword">
+            <br><br>
+        </form>
     </div>
-
-    <div class="mb-3">
-        <label for="name">Surname</label>
-        <input type="text" class="form-control" id="name" required>
-        <div class="invalid-feedback">
-            Please provide a surname.
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" required>
-        <div class="invalid-feedback">
-            Please provide a valid email address.
-        </div>
-    </div>
-
-    <button class="btn btn-primary" type="submit">Submit</button>
-</form> -->
+</div>
+<div class="container">
+    <button type="submit" class="btn btn-success" [disabled]="!profileForm.valid">Register</button>
+    <p>Already have an account? <a href="#">Login</a></p>
+</div>
