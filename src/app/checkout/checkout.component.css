@@ -1,7 +1,7 @@
 .checkoutHeading{
     font-family: optima;
     color:orangered;
-    margin-top:6%;
+    margin-top:8%;
     margin-bottom:2%;
 }
 .errorMsg{
@@ -24,7 +24,7 @@
 .content{
     display: inline-block;
   text-align: left; 
-  margin-top: 10%;
+  margin-top: 4%;
   margin-bottom: 10%;
 }
 .balance{
@@ -50,4 +50,71 @@ input{
     background-color: #38A8AE;
     color: white;
 }
+.submit:disabled{
+    background-color: grey;
+}
+.orderHeading{
+    font-family: optima;
+    color:orangered;
+    font-size: 195%;
+
+}
+.Heading{
+    font-family: optima;
+    color:orangered;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    font-size: 195%;
+
+}
+.orderImg{
+    max-height: 30%;
+    max-width: 30%;
+}
+.tdImage{
+    max-width: 10%;
+}
+.table{
+    font-family: optima;
+    font-size: 80%;
+}
+
+
+/* Extra small devices (portrait phones) */
+@media only screen and (max-width: 576px) {
+    input{
+        min-width: 150%;
+        margin-left: -26%;
+    }
+    .submit{
+        min-width: 150%;
+        margin-left: -26%;
+        
+    }
+    .checkoutHeading{
+        margin-top:30%;
+        margin-bottom:2%;
+    }
+    .orderDetails{
+        margin-top: 10%;;
+    }
+    .paymentForm{
+        margin-top: 4%;
+    }
+    }
+    
+    /* Small devices (landscape phones) */
+    @media only screen and (min-width: 576px) and (max-width: 768px) {
+    
+    }
+    
+    /* Medium devices (tablets) */
+    @media only screen and (min-width: 768px) and (max-width: 992px) {
+    
+    }
+    
+    /* Large devices (desktops) */
+    @media only screen and (min-width: 992px) {
+   
+    }
 

@@ -18,7 +18,7 @@ export class CheckoutComponent {
       addressLine1: ['', Validators.required],
       addressLine2: [''],
       town: ['', Validators.required],
-      postalCode: ['', [Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]]
+      postalCode: ['', [Validators.required, Validators.pattern('^[0-9]{4}(?:-[0-9]{4})?$')]]
 
       
     });
@@ -32,8 +32,9 @@ export class CheckoutComponent {
   
 
   onSubmit() {
-    if (this.form.valid && this.form2.valid) {
+    if (this.form.valid) {
       console.log(this.form.value);
+      this.form.reset();
       // You can perform further actions with the form data
     } else {
       // Handle form validation errors
@@ -42,6 +43,7 @@ export class CheckoutComponent {
   onSubmit2() {
     if (this.form2.valid) {
       console.log(this.form2.value);
+      this.form2.reset();
       // You can perform further actions with the form data
     } else {
       // Handle form validation errors
