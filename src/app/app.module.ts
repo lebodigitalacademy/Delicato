@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './components/cart/cart.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -35,6 +36,7 @@ import { CartComponent } from './components/cart/cart.component';
     AboutComponent,
     FooterComponent,
     CartComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

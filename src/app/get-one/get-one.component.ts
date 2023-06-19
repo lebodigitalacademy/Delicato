@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../interface/product';
 
 @Component({
   selector: 'app-get-one',
@@ -40,16 +41,13 @@ export class GetOneComponent implements OnInit {
     return this.cartService.products;
   }
 
-  addToCart(product: any) {
-    this.cartService.addToCart({ product });
-    this.router.navigate(['/navigation-bar'], { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/viewProduct/' + this.id]);
-    });
-    this.router.navigate(['/shop'])
+  // addToCart(product: Product): void {
+  //   this.cartService.addToCart(product);
+  // }
+
+  addToCart(product: Product): void {
+    this.cartService.addToCart(product);
   }
 
-  clear() {
-    this.cartService.clearCart();
-    this.ngOnInit;
-  }
+
 }
