@@ -7,14 +7,14 @@
     </div>
     <div class="row">
         
-<div style="background-color: lightgray;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
-    <h1 class="shippingHeading" style="text-align: center;">Shipping Details</h1>
+<div style="border-style: solid;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
+    <h1 class="Heading" style="text-align: center;">Shipping Details</h1>
     <form class="shippingForm" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="content">
         <div>
           <input type="text" id="addressLine1" formControlName="addressLine1" placeholder="Address Line 1"/>
           <div class="errorMsg" *ngIf="form.controls['addressLine1'].invalid && form.controls['addressLine1'].touched">
-            <label class="errorMsg"> Address Line 1 is required</label>
+            <label class="errorMsg">*Address Line 1 is required</label>
           </div>
         </div>
         <div>
@@ -23,21 +23,58 @@
         <div>
           <input type="text" id="town" formControlName="town" placeholder="Town/City"/>
           <div class="errorMsg" *ngIf="form.controls['town'].invalid && form.controls['town'].touched">
-            <label class="errorMsg"> Town is required</label>
+            <label class="errorMsg">*Town is required</label>
           </div>
         </div>
         <div>
           <input type="text" id="postalCode" formControlName="postalCode" placeholder="Postal Code"/>
           <div *ngIf="form.controls['postalCode'].invalid && form.controls['postalCode'].touched">
-            <label class="errorMsg"> Enter a valid postal code</label>
+            <label class="errorMsg">*Enter a valid postal code</label>
           </div>
         </div>
-        <button class="submit" type="submit" [disabled]="form.invalid">Submit</button>
+        <button class="submit" type="submit" [disabled]="form.invalid">Save</button>
     </div>
       </form>
         </div>
-            <div style="background-color: lightgray;" class="orderDetails col-lg-4 offset-lg-1 col-sm-10 offset-sm-1">
-                <h1 class="shippingHeading" style="text-align: center;">Order Details</h1>
+            <div style="border-style: solid;" class="orderDetails col-lg-4 offset-lg-1 col-sm-10 offset-sm-1">
+              <!-- start of table -->
+ 
+                <h1 class="orderHeading" style="text-align: center;">Order Details</h1>
+                <div class="table-responsive" id="no-more-tables">
+                  <table class="table table-hover">
+                    <!-- table headings -->
+                    <thead class="thead-dark">
+                      <tr>
+                        <th style="max-width: fit-content;">Image</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- for each row display the following columns -->
+                      <tr>
+                        <td class="tdImage"  data-title="Image" ><img class="orderImg" src="https://cdn-prd-02.pnp.co.za/sys-master/images/hf0/hed/11012565598238/silo-product-image-v2-12Nov2022-180117-6001306002914-Straight_on-72261-7417_400Wx400H"></td>
+                        <td  class="tdName"  data-title="Name">Morvite Sorghum Instant Porridge Strawberry Flavour 1kg</td>
+                        <td data-title="Quantity">1</td>
+                        <td data-title="Price">R1</td>
+                      </tr>
+                      <tr>
+                        <td class="tdImage"  data-title="Image" ><img class="orderImg" src="https://cdn-prd-02.pnp.co.za/sys-master/images/hf0/hed/11012565598238/silo-product-image-v2-12Nov2022-180117-6001306002914-Straight_on-72261-7417_400Wx400H"></td>
+                        <td  class="tdName"  data-title="Name">Morvite Sorghum Instant Porridge Strawberry Flavour 1kg</td>
+                        <td data-title="Quantity">1</td>
+                        <td data-title="Price">R1</td>
+                      </tr>
+                      <tr>
+                        <td class="tdImage"  data-title="Image" ><img class="orderImg" src="https://cdn-prd-02.pnp.co.za/sys-master/images/hf0/hed/11012565598238/silo-product-image-v2-12Nov2022-180117-6001306002914-Straight_on-72261-7417_400Wx400H"></td>
+                        <td  class="tdName"  data-title="Name">Morvite Sorghum Instant Porridge Strawberry Flavour 1kg</td>
+                        <td data-title="Quantity">1</td>
+                        <td data-title="Price">R1</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
                 <div class="upperProducts">
                     <label class="subTotalLabel">Sub Total</label>
                     <label class="labelValue">R160</label>
@@ -60,8 +97,8 @@
     <br>
     <div class="paymentForm row">
  
-        <div style="background-color: lightgray;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
-            <h1 class="paymentHeading">Payment Details</h1>
+        <div style="border-style: solid;" class="col-lg-5 offset-lg-1 col-sm-10 offset-sm-1">
+            <h1 class="Heading">Payment Details</h1>
             <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
                 <div class="content">
                 <div>
@@ -85,7 +122,7 @@
                 </div>
                
                 </div>
-                <button class="submit" type="submit" [disabled]="form2.invalid">Submit</button>
+                <button class="submit" type="submit" [disabled]="form2.invalid">Save</button>
             </div>
              
             
