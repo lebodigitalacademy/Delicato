@@ -7,9 +7,12 @@
 .errorMsg{
     color: red;
 }
-.paymentForm{
+.paymentSection{
     margin-bottom: 5%;
     text-align: center;
+    margin-top: 10%;
+    width:100%;
+    margin-left: 0%;
 }
 .shippingForm{
     text-align: center;
@@ -32,6 +35,8 @@
 }
 .orderDetails{
     padding: 2%;
+    align-items: center;
+    margin-bottom: 10%;
    
 }
 .labelValue{
@@ -77,6 +82,15 @@ input{
 .table{
     font-family: optima;
     font-size: 80%;
+}
+.placeOrder{
+    justify-content: center;
+    min-width: 100%;
+    margin-top: 8%;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #38A8AE;
+    color: white;
+
 }
 
 
