@@ -40,39 +40,48 @@
 
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Product } from './interface/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+
   
   cartItemList : any =[]
   productsList = new BehaviorSubject<any>([]);
 
 
   products: any[] = [];
-  cartQuantity = 0;
+  private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  
+  private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
-  constructor() {
-    const local = localStorage.getItem('products');
-    const products = local ? JSON.parse(local) : [];
-    this.products = products.map((x: any) => ({
-      ...x,
-      price: +(x.price || 0),
-    }));
-    this.cartQuantity = products ? products.length : 0;
+
+  // cartItems = this.cartItemsSubject.asObservable();
+  public cartItems$ = this.cartItemsSubject.asObservable();
+
+  constructor(){}
+
+  addToCart(product: Product) {
+    // const currentItems = this.cartProducts.value;
+    // currentItems.push(product);
+    // this.cartProducts.next(currentItems);
+    const currentItems = this.cartItemsSubject.getValue();
+
+    const isProductInCart = currentItems.some(item => item.productId === product.id);
+
+    if (!isProductInCart) {
+      const updatedItems = [...currentItems, product];
+      this.cartItemsSubject.next(updatedItems);
+    }
+    // const updatedItems = [...currentItems, product];
+    // this.cartItemsSubject.next(updatedItems);
   }
 
-  addToCart(product: any) {
-    this.products.push({ 
-      name: product.Name,
-      image: product.Attachment,
-      price: +product.PriceWithIVA,
-    });
-    this.cartQuantity = this.products ? this.products.length : 0;
-
-    localStorage.setItem('products', JSON.stringify(this.products));
+  getCartItems(): Observable<Product[]> {
+    return this.cartProducts.asObservable();
   }
 
   getProducts() {

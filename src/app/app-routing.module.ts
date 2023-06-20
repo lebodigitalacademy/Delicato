@@ -8,6 +8,8 @@ import { HomeContentComponent } from './home-content/home-content.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartComponent } from './cart/cart.component';
@@ -18,7 +20,8 @@ export const routes: Routes = [
   {path : 'viewProduct/:id', component : GetOneComponent},
   {path : '', component: AllCardsComponent},
   {path : 'about', component : AboutComponent},
-  {path : 'login', component : LoginComponent},
+  {path : 'cart', component: CartComponent},
+  {path : 'profile', component: ProfileComponent}  {path : 'login', component : LoginComponent},
   {path : 'checkout', component : CheckoutComponent},
   {path : 'cart' , component : CartComponent},
   {path : 'card' , component : CardComponent},
