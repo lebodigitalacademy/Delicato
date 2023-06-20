@@ -12,7 +12,6 @@ import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { CartComponent } from './cart/cart.component';
 import { CardComponent } from './card/card.component';
 
 
@@ -21,9 +20,9 @@ export const routes: Routes = [
   {path : '', component: AllCardsComponent},
   {path : 'about', component : AboutComponent},
   {path : 'cart', component: CartComponent},
-  {path : 'profile', component: ProfileComponent}  {path : 'login', component : LoginComponent},
+  {path : 'profile', component: ProfileComponent}, 
+  {path : 'login', component : LoginComponent},
   {path : 'checkout', component : CheckoutComponent},
-  {path : 'cart' , component : CartComponent},
   {path : 'card' , component : CardComponent},
 
 ];

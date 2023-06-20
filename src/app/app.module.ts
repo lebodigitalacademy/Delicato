@@ -18,10 +18,9 @@ import { AboutComponent } from './about/about.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { StoreModule } from '@ngrx/store';
+// import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
