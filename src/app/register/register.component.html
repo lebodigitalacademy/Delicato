@@ -57,10 +57,11 @@
                 Re-type Password is invalid.
             </div>
             <br><br>
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success">Register</button>
         </form>
     </div>
 </div>
 <div class="container">
-    <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success">Register</button>
-    <p>Already have an account? <a href="#">Login</a></p>
+    
+    <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
 </div>

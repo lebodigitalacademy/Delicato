@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,8 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-    retypePass: string = 'none';
-  constructor() {}
+  retypePass: string = 'none';
+
+  //Inject Router Dependency
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -19,24 +22,26 @@ export class RegisterComponent implements OnInit {
       Validators.pattern('[a-zA-Z].*'),
     ]),
     surname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.pattern('[a-zA-Z].*'),
-      ]),
-    email: new FormControl('',[Validators.required, Validators.email]),
-    choosePassword: new FormControl('',[Validators.required, Validators.minLength(6), Validators.maxLength(16),
+      Validators.required,
+      Validators.minLength(3),
+      Validators.pattern('[a-zA-Z].*'),
+    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    choosePassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.maxLength(16),
     ]),
     retypePassword: new FormControl(''),
   });
 
   onSubmit() {
     if (this.ChoosePassword.value == this.RetypePassword.value) {
-        console.log(this.registerForm.valid);
-        this.retypePass = 'none'
-    }else {
-        this.retypePass = 'inline'
+      console.log(this.registerForm.valid);
+      this.retypePass = 'none';
+    } else {
+      this.retypePass = 'inline';
     }
-    // console.log(this.registerForm.get('name'));
   }
 
   get Name(): FormControl {
@@ -58,7 +63,10 @@ export class RegisterComponent implements OnInit {
   get RetypePassword(): FormControl {
     return this.registerForm.get('retypePassword') as FormControl;
   }
+
+  // Fires on button click
+  onBtnClick() {
+    // Navigate to /login page
+    this.router.navigate(['/login']);
+  }
 }
-
-
-
