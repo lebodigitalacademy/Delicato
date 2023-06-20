@@ -21,6 +21,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 //import { CartServiceService } from './services/cart-service.service';
@@ -44,6 +46,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
