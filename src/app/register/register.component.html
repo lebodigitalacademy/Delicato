@@ -1,0 +1,67 @@
+<div class="logo">
+    <img src="https://i.ibb.co/znTssF3/Delicato-Logo.png" alt="Delicato-Logo" height="50" width="120" />
+    <h3>Delicato</h3>
+</div>
+<div class="card-heading">
+    <h2 class="heading">Create an Account</h2>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+            <div class="form-text text-danger" *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)">
+                Name is required.
+            </div>
+           <div class="form-text text-danger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
+                Name is too short.
+           </div>
+           <div class="form-text text-danger" *ngIf="Name.errors?.['pattern'] && (Name.dirty || Name.touched)">
+                Name should start with an Alphabet. 
+           </div>
+
+            <label for="surname" class="form-label">Surname:</label>
+            <input type="text" id="surname" class="form-control" formControlName="surname">
+            <div class="form-text text-danger" *ngIf="Surname.errors?.['required'] && (Surname.touched || Surname.dirty)">
+                Surname is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="Surname.errors?.['minlength'] && (Surname.touched || Surname.dirty)">
+                Surname is too short.
+           </div>
+           <div class="form-text text-danger" *ngIf="Surname.errors?.['pattern'] && (Surname.dirty || Surname.touched)">
+            Surname should start with an Alphabet. 
+           </div>
+
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" formControlName="email">
+            <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+                Email is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+                Email is invalid.
+            </div>
+
+            <label for="choosePassword" class="form-label">Choose Password:</label>
+            <input type="password" class="form-control" id="choosePassword" formControlName="choosePassword">
+            <div class="form-text text-danger" *ngIf="ChoosePassword.errors?.['required'] && (ChoosePassword.dirty || ChoosePassword.touched)">
+                Password is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="ChoosePassword.errors?.['minlength'] || ChoosePassword.errors?.['maxlength'] && (ChoosePassword.dirty || ChoosePassword.touched)">
+                Password should be atleast 6 and at the maximum 15 characters long.
+            </div>
+
+            <label for="retypePassword" class="form-label">Re-type Password:</label>
+            <input type="password" class="form-control" id="retypePassword" formControlName="retypePassword">
+            <div class="form-text text-danger" [ngStyle]="{ 'display': retypePass }">
+                Re-type Password is invalid.
+            </div>
+            <br><br>
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success">Register</button>
+        </form>
+    </div>
+</div>
+<div class="container">
+    
+    <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
+</div>

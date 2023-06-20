@@ -18,8 +18,10 @@ import { AboutComponent } from './about/about.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -34,11 +36,13 @@ import { CheckoutComponent } from './checkout/checkout.component';
     NavigationBarComponent,
     AboutComponent,
     FooterComponent,
+    RegisterComponent,
     LoginComponent,
     CheckoutComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     FontAwesomeModule,
