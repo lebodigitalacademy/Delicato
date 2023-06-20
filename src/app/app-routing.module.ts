@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { RegisterComponent } from './register/register.component';
 
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {path : 'about', component : AboutComponent},
   {path : 'login', component : LoginComponent},
   {path : 'checkout', component : CheckoutComponent},
+  {path : 'register', component : RegisterComponent},
 
 
 ];
