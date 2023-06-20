@@ -1,1 +1,108 @@
-<p>cart works!</p>
+   <!-- <div class="container">
+        <div class="card-table">
+         <div class="card-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let product of products; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{product.name}}</td>
+                        <td><img style = "width: 120px;" src="{{product.image}}" alt=""></td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.total}}</td>
+                        <td>
+                            <button c(click) = "removeItem(product)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+         </div>
+        </div>
+    </div>
+    </ng-container>
+    
+    
+    <ng-container *ngIf="false">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+            </div>
+            <div class="center">
+                <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+                <h4>Your cart is empty!</h4>
+                <h6>Add item to it now</h6>
+                <button class="btn btn-primary">Shop Now</button>
+            </div>
+    </div>
+    </ng-container>
+    <app-navigation-bar></app-navigation-bar><ng-container *ngIf="true"> -->
+ 
+    
+
+      <div class="container">
+        <div class="card-table">
+          <div class="card-product">
+            <table class="table table-responsive">
+              <thead>
+                <tr>
+                  <th>Sr.No</th>
+                  <th>Product Name</th>
+                  <th>Product Image</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of products; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ product.name }}</td>
+                  <td>
+                    <img *ngIf="product.image && product.image.imageURL" [src]="product.image.imageURL" style="width: 120px;" alt="">
+                  </td>
+                  <td>{{ product.description }}</td>
+                  <td>{{ product.price }}</td>
+                  <td>{{ product.quantity }}</td>
+                  <td>{{ product.total }}</td>
+                  <td>
+                    <button (click)="removeItem(product)" class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container" *ngIf="products.length === 0">
+        <div class="card">
+          <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+          <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="" />
+          <h4>Your cart is empty!</h4>
+          <h6>Add items to it now</h6>
+          <button class="btn btn-primary">Shop Now</button>
+        </div>
+      </div>
+      
+      <app-navigation-bar></app-navigation-bar>
+      

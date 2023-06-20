@@ -6,3 +6,8 @@ py-5{
     font-family: optima;
     margin: 23px;
 }
+.add-to-cart{
+    background-color: #38a8ae;
+    border:0px solid rgba(0,0,0.2);
+    border-radius: 9px;
+}
