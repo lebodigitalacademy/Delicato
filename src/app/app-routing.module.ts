@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
   {path : '', component: AllCardsComponent},
   {path : 'about', component : AboutComponent},
   {path : 'login', component : LoginComponent},
+  {path : 'checkout', component : CheckoutComponent},
 
 
 ];

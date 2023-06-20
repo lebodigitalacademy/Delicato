@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './login/login.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -34,6 +35,7 @@ import { LoginComponent } from './login/login.component';
     AboutComponent,
     FooterComponent,
     LoginComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
