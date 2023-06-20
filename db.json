@@ -1,19 +1,645 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "password": "password"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "name": "Lebo",
+      "surname": "Lebo",
+      "email": "Lebo@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": 3,
+      "name": "Tili",
+      "surname": "Tili",
+      "email": "Tili@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": 4,
+      "name": "Mukosi",
+      "surname": "Mukosi",
+      "email": "Mukosi@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": 5,
+      "name": "Delphias",
+      "surname": "Delphias",
+      "email": "Delphias@gmail.com",
+      "password": "password"
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "Destiny",
+      "retypePassword": "destiny",
+      "id": 6
+    },
+    {
+      "name": "Moe",
+      "surname": "Bad",
+      "email": "M@gmail.com",
+      "choosePassword": "DestinyIsAll",
+      "retypePassword": "DestinyIsAll",
+      "id": 7
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "products": [
+    {
+      "productId": 1,
+      "name": "Pack of Bananas",
+      "price": 18,
+      "description": " No matter how you use them, these high-quality bananas are delightful. Ideal for smoothies, baking and other things.",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 1,
+        "imageURL": "https://pbs.twimg.com/media/DkQbpdQUwAEDKXN.jpg:large"
+      }
+    },
+    {
+      "productId": 2,
+      "name": "Pack of Apples",
+      "price": 25,
+      "description": "High quality, sweet juicy and cruchy apples.",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 2,
+        "imageURL": "https://th.bing.com/th/id/OIP.Izwto-EtMUuKgtxb2Xi3XQHaFj?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 3,
+      "name": "2kg Sock of Oranges",
+      "price": 20,
+      "description": "Big, sweet juicy orages, packed with vitamin C",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 3,
+        "imageURL": "https://th.bing.com/th/id/OIP.gx7cP2NOmR5aCE9XhOWSOgAAAA?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 4,
+      "name": "Wrapped Cabbage",
+      "price": 19,
+      "description": "Big, fresh and sourced reputable farms.",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 4,
+        "imageURL": "https://th.bing.com/th/id/OIP.M0vnH5W1-a8QHAdZH8u8zgAAAA?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 5,
+      "name": "Sock of Gem Squash",
+      "price": 30,
+      "description": "Fresh, delicious gem squash ready to be served as a side dish.",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 5,
+        "imageURL": "https://www.evergreenspta.co.za/766-large_default/gem-squash-carry-bag-.jpg"
+      }
+    },
+    {
+      "productId": 6,
+      "name": "Bag of potatoes.",
+      "price": 100,
+      "description": "These a class 1 potatoes, they are top quality and ready to satisfy any cooking needs.",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 6,
+        "imageURL": "https://th.bing.com/th/id/R.8fb2fb6127c544df5147817d5b019e82?rik=PNrs%2fW0%2f39FvZQ&pid=ImgRaw&r=0"
+      }
+    },
+    {
+      "productId": 7,
+      "name": "Pack Tomatoes",
+      "price": 21,
+      "description": "Big, juicy and crisp red tomatoes, perfect for salads.",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 7,
+        "imageURL": "https://th.bing.com/th/id/OIP.PZ4sv2nt8dxCGzqYMER-mgHaHa?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 8,
+      "name": "Head of lettuce",
+      "price": 15,
+      "description": "Fresh, crispy lettuce, perfect for sanwiches and salads.",
+      "category": {
+        "categoryId": 1,
+        "name": "Fruit and Veg"
+      },
+      "image": {
+        "imageId": 8,
+        "imageURL": "https://th.bing.com/th/id/OIP.Pria03KY94nqYpu4Olk_2wHaGB?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 9,
+      "name": "1kg Pack of Chicken Legs",
+      "price": 70,
+      "description": "Chicken legs fresh from the farm and cut into perfect portions.",
+      "category": {
+        "categoryId": 2,
+        "name": "Meat and Poultry"
+      },
+      "image": {
+        "imageId": 9,
+        "imageURL": "https://th.bing.com/th/id/OIP.ofLQYqb3DUhbVwXu0sn0UAHaE7?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 10,
+      "name": "1kg Pack of Hake Fillets",
+      "price": 150,
+      "description": "Fresh, boneless, cut into perfect portions and ready to be served as dinner.",
+      "category": {
+        "categoryId": 2,
+        "name": "Meat and Poultry"
+      },
+      "image": {
+        "imageId": 10,
+        "imageURL": "https://th.bing.com/th/id/OIP.JZNs4yEMQuFQmbqhwr0IPQHaHa?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 11,
+      "name": "1kg of Rump Beef Steak",
+      "price": 130,
+      "description": "Delicious, juicy and tender, this piece of rump beef is perfect for family lunches and dinners.",
+      "category": {
+        "categoryId": 2,
+        "name": "Meat and Poultry"
+      },
+      "image": {
+        "imageId": 11,
+        "imageURL": "https://th.bing.com/th/id/OIP.hFFwG_YFouJ6VsICPjukfgHaE1?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 12,
+      "name": "1kg of Mutton",
+      "price": 130,
+      "description": "Fresh and tender mutton, obtained only from the most reputable farms, ready to be served as a main course.",
+      "category": {
+        "categoryId": 2,
+        "name": "Meat and Poultry"
+      },
+      "image": {
+        "imageId": 12,
+        "imageURL": "https://th.bing.com/th/id/OIP.GJaGEPbENQmT8oaIOYQhtgHaFC?pid=ImgDet&rs=1"
+      }
+    },
+    {
+      "productId": 13,
+      "name": "Kelloggs Corn Flakes 750g",
+      "price": 56.99,
+      "description": "Delighting families for over 100 years, this popular Kelloggs Toasted Golden Cereal Flakes is high in energy, vitamins, zinc and iron. ",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 13,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/he5/h21/11012539449374/silo-product-image-v2-12Nov2022-180123-6001306001009-Straight_on-72255-7482_400Wx400H"
+      }
+    },
+    {
+      "productId": 14,
+      "name": "Futurelife Smart Food Chocolate 1.25kg",
+      "price": 114.99,
+      "description": "FUTURELIFE Smart Food can be enjoyed as a meal, shake or smoothie at breakfast, lunch, dinner or as a snack. Scientifically formulated Low GI food that combines 22 Vitamins and Minerals, 19 Amino Acids, Omega-3, Inulin (prebiotic), and Selenium.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 14,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h40/h9c/11120846602270/silo-product-image-v2-16Mar2023-181126-6009801741284-Straight_on-116291-2274_400Wx400H"
+      }
+    },
+    {
+      "productId": 15,
+      "name": "Bokomo Pronutro Whole Wheat Original 750g",
+      "price": 82.99,
+      "description": "With plant-based protein, Pronutro whole-wheat cereal is high in dietary fibre, vitamins and minerals, a great way to kick-start your day.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 15,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h78/h74/11121049370654/silo-product-image-v2-16Mar2023-181239-6001156930023-Straight_on-122946-2591_400Wx400H"
+      }
+    },
+    {
+      "productId": 16,
+      "name": "Kelloggs Granola Crunchy 700g",
+      "price": 73.99,
+      "description": "Crunchy Granola is the perfect combination of rolled oat clusters with shredded coconut and a hint of cinnamon.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 16,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h39/h67/11012541120542/silo-product-image-v2-12Nov2022-180123-6001306002785-Straight_on-72297-7485_400Wx400H"
+      }
+    },
+    {
+      "productId": 17,
+      "name": "Jungle Oats 1kg",
+      "price": 44.99,
+      "description": "Jungle Oats is a 100% wholegrain pure oats cereal, high in energy and fibre to sustain you throughout the day.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 17,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h6c/h81/11125548580894/silo-product-image-v2-16Mar2023-184402-6001275000003-Straight_on-123678-9912_400Wx400H"
+      }
+    },
+    {
+      "productId": 18,
+      "name": "Jungle Oatso Easy Strawberry Yoghurt 500g",
+      "price": 67.99,
+      "description": "Start the day with Jungle Oatso Easy, the same high dietary fibre, high-energy wholesome Oats you love, packed in single-serving sachets for convenience. Just like Jungle Instant Oats, you only have to add boiling water to Oats.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 18,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hf4/hac/11185370857502/silo-product-image-v2-01Jun2023-180319-6001275100680-Straight_on-140578-827_400Wx400H"
+      }
+    },
+    {
+      "productId": 19,
+      "name": "Nestle Milo Duo Cereal 400g",
+      "price": 68.99,
+      "description": "A tasty combination of Milo cereal and vanilla-flavoured flakes, this delicious Nestle Milo Duo Energy Cereal is fun, flavourful, and nutritious.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 19,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h48/h3d/11122248155166/silo-product-image-v2-16Mar2023-181955-5900020034830-Straight_on-119992-4500_400Wx400H"
+      }
+    },
+    {
+      "productId": 20,
+      "name": "Morvite Sorghum Instant Porridge Strawberry Flavour 1kg",
+      "price": 36.99,
+      "description": "Breakfast is the most important meal of the day. This instant strawberry flavoured porridge provides you with the energy you need for a full day of activity. Simply add water or milk and enjoy this instant breakfast cereal to get you going.\n\n",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 20,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h41/h9f/10857483534366/silo-product-image-v2-01Jun2022-180118-6009518203273-Straight_on-38690-29716_400Wx400H "
+      }
+    },
+    {
+      "productId": 21,
+      "name": "Nestle Cheerios Honey Cereal 375g",
+      "price": 61.99,
+      "description": "Honey-flavoured whole-grain, doughnut-shaped breakfast cereal.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 21,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hd3/hf7/11122216566814/silo-product-image-v2-16Mar2023-181943-5900020022745-Straight_on-119932-4445_400Wx400H"
+      }
+    },
+    {
+      "productId": 22,
+      "name": "Nutrific Wholewheat Biscuits 900g",
+      "price": 62.99,
+      "description": "Providing a great start to every day, Nutrific is the breakfast cereal for every taste, perfect with hot or cold milk.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 22,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h90/h79/11124469628958/silo-product-image-v2-16Mar2023-183703-6009606260324-Straight_on-120556-8137_400Wx400H"
+      }
+    },
+    {
+      "productId": 23,
+      "name": "Kelloggs Rice Krispies Vanilla 400g",
+      "price": 51,
+      "description": "Support the growth and development of your kids by giving them a daily bowl of Kellogg’s Rice Krispies in a delicious Vanilla Flavour.",
+      "category": {
+        "categoryId": 3,
+        "name": "Cereal"
+      },
+      "image": {
+        "imageId": 23,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hf0/hed/11012565598238/silo-product-image-v2-12Nov2022-180117-6001306002914-Straight_on-72261-7417_400Wx400H"
+      }
+    },
+    {
+      "productId": 24,
+      "name": "Blue Ribbon Classic White Sliced Bread 700g",
+      "price": 18.99,
+      "description": "Blue Ribbon Classic White loaves are packed with energy and fortified with extra vitamins and minerals for great taste and extra nutrition.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 24,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hd1/h29/10899798294558/silo-product-image-v2-13Jul2022-180125-6009629181064-Straight_on-49401-7090_400Wx400H"
+      }
+    },
+    {
+      "productId": 25,
+      "name": "Delicato White Bread 600g",
+      "price": 12.99,
+      "description": "Fortified with vitamins and minerals, our white bread is freshly baked using the finest ingredients.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 25,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/he5/h4a/10855684571166/silo-product-image-v2-31May2022-180208-2005100000000-Straight_on-37952-28894_400Wx400H"
+      }
+    },
+    {
+      "productId": 26,
+      "name": "Delicato Hot Dog Rolls 12 Pack",
+      "price": 30,
+      "description": "Only the best ingredients go into our hotdog rolls, freshly baked to a golden brown with a perfect light and fluffy texture.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 26,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hcd/h17/10873250643998/silo-product-image-v2-09Jun2022-180104-2005012000000-Straight_on-45217-41944_400Wx400H"
+      }
+    },
+    {
+      "productId": 27,
+      "name": "Blue Ribbon Whole Wheat Brown Bread 800g",
+      "price": 19,
+      "description": "Blue Ribbon Wholewheat Brown loaves are the perfect choice for the health-conscious consumer. Packed with fibre for happy tummies and high in vitamin D.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 27,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hdc/h3a/10899739705374/silo-product-image-v2-13Jul2022-180120-6001205731977-Straight_on-49373-6988_400Wx400H"
+      }
+    },
+    {
+      "productId": 28,
+      "name": "Delicato Panini 4s",
+      "price": 16.5,
+      "description": "Our Panini Rolls are perfect for making grilled sandwiches, dunking into soup or serving as burger buns.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 28,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h99/h17/11187068305438/silo-product-image-v2-01Jun2023-181734-2051442000000-Straight_on-148260-3533_400Wx400H"
+      }
+    },
+    {
+      "productId": 29,
+      "name": "Delicato Ring Doughnuts 6s",
+      "price": 55,
+      "description": "Decadent, rich and moreish, Pick n Pay Assorted Ring Doughnuts will melt in your mouth.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 29,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h11/h36/10855662157854/silo-product-image-v2-31May2022-180205-2005764000000-Straight_on-37915-28855_400Wx400H"
+      }
+    },
+    {
+      "productId": 30,
+      "name": "Delicato Soft Rolls 6 Pack",
+      "price": 16,
+      "description": "Baked to a delicious golden brown. these batched soft rolls are packed to perfection.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 30,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h24/hb2/10855567130654/silo-product-image-v2-31May2022-180153-2005029000000-Straight_on-37831-28611_400Wx400H"
+      }
+    },
+    {
+      "productId": 31,
+      "name": "Delicato Brown Bread 600g",
+      "price": 11.99,
+      "description": "Baked from the finest ingredients and fortified with vitamins and minerals, our brown bread is wholesome and delicious.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 31,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hd2/hdc/10855555727390/silo-product-image-v2-31May2022-180153-2005101000000-Straight_on-37832-28615_400Wx400H"
+      }
+    },
+    {
+      "productId": 32,
+      "name": "Delicato Swiss Roll",
+      "price": 36,
+      "description": "Our Swiss roll is made from the finest ingredients. It is the perfect tea time treat.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 32,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hec/ha9/10855685226526/silo-product-image-v2-31May2022-180207-2005200000000-Straight_on-37931-28875_400Wx400H"
+      }
+    },
+    {
+      "productId": 33,
+      "name": "Delicato Mini Snowballs 10s",
+      "price": 43.99,
+      "description": "Decadent, rich and moreish, Pick n Pay Mini Snowballs will melt in your mouth.",
+      "category": {
+        "categoryId": 4,
+        "name": "Bakery"
+      },
+      "image": {
+        "imageId": 33,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/hb2/h60/10855250919454/silo-product-image-v2-31May2022-180114-2051566000000-Straight_on-37894-27950_400Wx400H"
+      }
+    },
+    {
+      "productId": 34,
+      "name": "Sea Harvest Crisp & Chunky Garlic & Herb 500g",
+      "price": 99.99,
+      "description": "Wild-caught hake fillet portions coated in a garlic and herb crumb.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 34,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h5a/h09/10898297192478/silo-product-image-v2-12Jul2022-180134-6001050209744-Straight_on-48813-6090_400Wx400H"
+      }
+    },
+    {
+      "productId": 35,
+      "name": "Nice and Easy Spaghetti Bolognaise 350g",
+      "price": 59.99,
+      "description": "Simply heat Dr Oetker Nice and Easy Spaghetti Bolognaise in the microwave or oven to enjoy a heart-warming meal of spaghetti covered in bolognaise sauce and topped with cheddar cheese.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 35,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h6b/h82/10772366196766/silo-product-image-v2-15Mar2022-180447-6003797001001-Straight_on-11806-21260_400Wx400H"
+      }
+    },
+    {
+      "productId": 36,
+      "name": "Mccain Crispy Sweet Potato Fries 750g",
+      "price": 55,
+      "description": "McCain sweet potato fries are like no other. The skin is crisp while the inside is soft and sweet. They are a great source of fiber, potassium and vitamins A and C.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 36,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h9d/h23/11121890951198/silo-product-image-v2-16Mar2023-181746-6009650906674-Straight_on-119008-3930_400Wx400H"
+      }
+    },
+    {
+      "productId": 37,
+      "name": "Goldi Chicken Livers 250g",
+      "price": 15.99,
+      "description": "Chicken livers are the perfect quick to make meal for you and your family for when you have limited time but want something filling.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 37,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h05/h52/11033576046622/silo-product-image-v2-30Nov2022-180203-6001342350505-Straight_on-75771-2409_400Wx400H"
+      }
+    },
+    {
+      "productId": 38,
+      "name": "Natures Garden Mixed Vegetables 1kg",
+      "price": 48,
+      "description": " A wonderful balance of frozen vegetables mixed together to create healthy, delicious meals.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 38,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h71/hc7/11122184912926/silo-product-image-v2-16Mar2023-181932-6007826003172-Straight_on-119814-4398_400Wx400H"
+      }
+    },
+    {
+      "productId": 39,
+      "name": "Sea Harvest Oven Crisp Garlic & Parsley 400g",
+      "price": 81.99,
+      "description": "We harvest only the best that the sea has to offer and then we bring it to you at its freshest. This is our promise of superior quality",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 39,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/had/h8a/10400403488798/silo-product-image-v2-21Aug2021-180049-6001050229940-front-1545059-915_400Wx400H"
+      }
+    },
+    {
+      "productId": 40,
+      "name": "McCain Hawaiian Stir Fry Vegetable Mix 700g",
+      "price": 39.99,
+      "description": "McCain Hawaiian Stir Fry Vegetable Mix is made using only the best quality locally grown vegetables, harvested at its nutritional peak and frozen at its freshest to preserve quality, nutrition and taste.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 40,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/ha5/hec/11121892622366/silo-product-image-v2-16Mar2023-181748-6009650908340-Straight_on-119016-3934_400Wx400H"
+      }
+    },
+    {
+      "productId": 41,
+      "name": "Ital Pizza Classic Spare Rib & Bacon 350g",
+      "price": 62.49,
+      "description": "Enjoy South Africas No. 1 frozen pizza with its thin, classic Italian style base, topped with the freshest selected ingredients. Make more mmmmmms at home with this spare rib and bacon Ital Pizza.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 41,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h7d/hec/10797008617502/silo-product-image-v2-06Apr2022-180104-6001428000805-Straight_on-19329-5888_400Wx400H"
+      }
+    },
+    {
+      "productId": 42,
+      "name": "Eskort Mediterranean Pork Sausages 375g",
+      "price": 64,
+      "description": "South Africas best-loved gold standard peppadew and feta pork sausages that are packed with flavour whether its grilled, pan-fried or braaied.",
+      "category": {
+        "categoryId": 5,
+        "name": "Frozen Food"
+      },
+      "image": {
+        "imageId": 42,
+        "imageURL": "https://cdn-prd-02.pnp.co.za/sys-master/images/h21/h6a/10855477608478/silo-product-image-v2-31May2022-180145-6001336020742-Straight_on-37538-28454_400Wx400H"
+      }
+    }
+  ]
 }
