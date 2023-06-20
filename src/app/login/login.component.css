@@ -1,17 +1,84 @@
-h1{
-    color: white;
+.content{
+  min-height: 75vh;
+}
+h1 {
+    color: #F16B44;
     text-align: center;
+    padding-top: 7rem;
+    font-family: optimal ;
+  }
+  h3
+  {
+    color: #F16B44;
+    font-family: optimal ;
+  }
+  
+  .logo{
+     display: flex;
+    flex-direction: row;
+    padding: 5px;  
 }
-form{
-    width: 350px;
-    margin-left:450px ;
-    margin-top: 150px;
-}
-button{
-   background-color: orange;
-   width: 350px;
-}
-.container{
-    color: white;
+  .container {
     background-color: #38A8AE;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+    
+  }
+  form {
+    padding-top: 2rem;
+    text-align: center;
+    color: aliceblue;
+    font-family: optimal ;
+    
+  }
+  button {
+    background-color: #F16B44;
+    width: 330px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
+
+button:hover {
+  background-color: #38A8AE; 
+}
+  p{
+  
+    font-family: optimal ;
+    margin-left: 550px;
+    text-decoration: none;
+    
+  }
+ 
+  p a {
+    text-decoration: none;
+    color: #F16B44;
+  }
+  
+  p a:hover {
+    text-decoration: none;
+  }
+  @media (max-width: 768px) {
+    h1 {
+      padding-top: 3rem;
+    }
+
+    .container {
+      width: 90%;
+    }
+
+    button {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    p {
+      margin-left: 0;
+    }}
+
+  
+  
+
+

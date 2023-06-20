@@ -51,6 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     HttpClientModule,
     Ng2SearchPipeModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   // providers: [CartServiceService],
