@@ -29,12 +29,18 @@
         </ul>
         <ul class="navbar-nav mr-auto">
             <li class="cart">
-                <a class="nav-link" href="/profile">
-            <fa-icon 
-            [icon]="profileIcon"
-            [styles]="{ color: 'white' }"
-            size="lg"></fa-icon>
-        </a>
+                <a class="nav-link" [matMenuTriggerFor]="menu">
+                    <fa-icon 
+                    [icon]="profileIcon"
+                    [styles]="{ color: 'white' }"
+                    size="lg">
+                </fa-icon>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="signup()">Signup</button>
+                    <button mat-menu-item (click)="login()">Login</button>
+                    <button mat-menu-item (click)="profile()">View Profile</button>
+                </mat-menu>
+                </a>
     </li>
 </ul>
         </div>
