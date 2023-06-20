@@ -51,6 +51,23 @@ export class RegisterComponent implements OnInit {
     } else {
       this.retypePass = 'inline';
     }
+
+    if(this.registerForm.valid){
+      this.service.createUser(this.registerForm.value).subscribe({
+        next: (val: any) => {
+          // once the employee has been addedng, display the success notification and reset the form
+        //  this.successNotification();
+        console.log('Successfully registered'+this.registerForm.value)
+          this.registerForm.reset();
+        },
+        // log a console error if the employee was not deleted
+        error: (err: any) => {
+          console.error (err);
+        },
+        
+      });
+    
+  }
     
   }
 

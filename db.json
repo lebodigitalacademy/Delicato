@@ -50,6 +50,14 @@
       "choosePassword": "DestinyIsAll",
       "retypePassword": "DestinyIsAll",
       "id": 7
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "Destiny",
+      "retypePassword": "Destiny",
+      "id": 8
     }
   ],
   "products": [
