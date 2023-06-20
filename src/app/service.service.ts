@@ -47,4 +47,12 @@ export class ServiceService {
     return this.http.delete(''+id);
    }
 
+   createUser(body: any){
+    return this.http.post('http://localhost:3000/users', body);
+  }
+  getAllUsers(){
+    return this.http.get('http://localhost:3000/users');
+   }
+   
+
 }

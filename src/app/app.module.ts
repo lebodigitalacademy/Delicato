@@ -15,9 +15,15 @@ import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -35,12 +41,17 @@ import { ProfileComponent } from './components/profile/profile.component';
     NavigationBarComponent,
     AboutComponent,
     FooterComponent,
+    RegisterComponent,
+    LoginComponent,
+    CheckoutComponent,
     CartComponent,
     ProfileComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
