@@ -91,7 +91,7 @@ export class CartService {
   clearCart() {
     localStorage.removeItem('products');
     this.products = [];
-    this.cartQuantity = 0;
+    // this.cartQuantity = 0;
   }
 
   addtoCart(product : any){

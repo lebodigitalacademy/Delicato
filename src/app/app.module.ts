@@ -22,13 +22,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { LoginComponent } from './login/login.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -60,7 +55,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HttpClientModule,
     Ng2SearchPipeModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({}, {})
   ],
   // providers: [CartServiceService],
   bootstrap: [AppComponent]
