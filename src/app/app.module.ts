@@ -15,7 +15,7 @@ import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './login/login.component';
@@ -42,6 +42,7 @@ import { LoginComponent } from './login/login.component';
     FontAwesomeModule,
     HttpClientModule,
     Ng2SearchPipeModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   // providers: [CartServiceService],
