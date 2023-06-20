@@ -20,7 +20,7 @@ export class NavigationBarComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.cartItems.subscribe(products => {
+    this.cartService.cartItems$.subscribe(products => {
       this.cartItemCount = products.length;
     });
   }

@@ -13,22 +13,25 @@ export class CartService {
   private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
 
-  cartItems = this.cartItemsSubject.asObservable();
+  // cartItems = this.cartItemsSubject.asObservable();
+  public cartItems$ = this.cartItemsSubject.asObservable();
 
   constructor(){}
 
-  // addToCart(product: Product): void {
-  //   const currentItems = this.cartItems.value;
-  //   currentItems.push(product);
-  //   this.cartItems.next(currentItems);
-  // }
-
   addToCart(product: Product) {
-    const currentItems = this.cartProducts.value;
-    currentItems.push(product);
-    this.cartProducts.next(currentItems);
-    const updatedItems = [...currentItems, product];
-    this.cartItemsSubject.next(updatedItems);
+    // const currentItems = this.cartProducts.value;
+    // currentItems.push(product);
+    // this.cartProducts.next(currentItems);
+    const currentItems = this.cartItemsSubject.getValue();
+
+    const isProductInCart = currentItems.some(item => item.productId === product.id);
+
+    if (!isProductInCart) {
+      const updatedItems = [...currentItems, product];
+      this.cartItemsSubject.next(updatedItems);
+    }
+    // const updatedItems = [...currentItems, product];
+    // this.cartItemsSubject.next(updatedItems);
   }
 
   getCartItems(): Observable<Product[]> {
