@@ -40,7 +40,7 @@
 
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map, take} from 'rxjs';
 import { Product } from './interface/product';
 
 @Injectable({
@@ -64,20 +64,40 @@ export class CartService {
 
   constructor(){}
 
-  addToCart(product: Product) {
-    // const currentItems = this.cartProducts.value;
-    // currentItems.push(product);
-    // this.cartProducts.next(currentItems);
+  addToCart(product: Product, quantity: number = 1): void {
     const currentItems = this.cartItemsSubject.getValue();
+    const existingProductIndex = currentItems.findIndex(item => item.id === product.id);
 
-    const isProductInCart = currentItems.some(item => item.productId === product.id);
-
-    if (!isProductInCart) {
-      const updatedItems = [...currentItems, product];
-      this.cartItemsSubject.next(updatedItems);
+    if (existingProductIndex !== -1) {
+      // If the product already exists in the cart, update the quantity
+      const existingProduct = currentItems[existingProductIndex];
+      const updatedQuantity = existingProduct.quantity + quantity;
+      existingProduct.quantity = updatedQuantity;
+      currentItems[existingProductIndex] = existingProduct;
+    } else {
+      // If the product does not exist in the cart, add it
+      const newProduct = { ...product, quantity };
+      currentItems.push(newProduct);
     }
-    // const updatedItems = [...currentItems, product];
-    // this.cartItemsSubject.next(updatedItems);
+
+    this.cartItemsSubject.next(currentItems);
+  }
+
+
+getCartItemById(productId: number): Observable<Product | undefined> {
+  return this.cartItems$.pipe(
+    map(items => items.find(item => item.id === productId))
+  );
+}
+  updateCartItemQuantity(product: Product, quantity: number): void {
+    const currentItems = this.cartItemsSubject.getValue();
+    const productIndex = currentItems.findIndex(item => item.id === product.id);
+
+    if (productIndex !== -1) {
+      const updatedProduct = { ...product, quantity };
+      currentItems[productIndex] = updatedProduct;
+      this.cartItemsSubject.next(currentItems);
+    }
   }
 
   getCartItems(): Observable<Product[]> {
@@ -109,14 +129,28 @@ export class CartService {
       })
       }
 // a method to remove 1 item from the cart
-      removeCartItem(product: any){
-        this.cartItemList.map((a:any, index:any)=>{
-        //check if the product id match with the id which is inside our list and if it match t will remove the item
-        if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
-        }
-        })
-        }
+      // removeCartItem(product: any){
+      //   this.cartItemList.map((a:any, index:any)=>{
+      //   //check if the product id match with the id which is inside our list and if it match t will remove the item
+      //   if(product.id=== a.id){
+      //   this.cartItemList.splice(index,1);
+      //   }
+      //   })
+      //   }
+
+      removeCartItem(product: Product): Observable<void> {
+        return new Observable<void>((observer) => {
+          this.cartItems$.pipe(
+            take(1),
+            map(items => items.filter(item => item.id !== product.id)),
+          ).subscribe(updatedItems => {
+            this.cartItemsSubject.next(updatedItems);
+            observer.next();
+            observer.complete();
+          });
+        });
+      }
+        
 // A method to remove all the items from the cart/ to clear the cart
         removeAllCart(){
           this.cartItemList = []

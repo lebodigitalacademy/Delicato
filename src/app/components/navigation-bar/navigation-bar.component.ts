@@ -17,11 +17,37 @@ export class NavigationBarComponent implements OnInit {
 
   cartItemCount: number = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(public cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
       this.cartItemCount = products.length;
     });
+  }
+
+  incrementValue(fieldName: string): void {
+    const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
+    const currentVal = parseInt(inputElement.value, 10);
+
+    if (!isNaN(currentVal)) {
+      inputElement.value = String(currentVal + 1);
+      this.cartItemCount = currentVal + 1; // Update cartItemCount
+    } else {
+      inputElement.value = '0';
+      this.cartItemCount = 0; // Update cartItemCount
+    }
+  }
+  
+  decrementValue(fieldName: string): void {
+    const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
+    const currentVal = parseInt(inputElement.value, 10);
+
+    if (!isNaN(currentVal) && currentVal > 0) {
+      inputElement.value = String(currentVal - 1);
+      this.cartItemCount = currentVal - 1; // Update cartItemCount
+    } else {
+      inputElement.value = '0';
+      this.cartItemCount = 0; // Update cartItemCount
+    }
   }
 }

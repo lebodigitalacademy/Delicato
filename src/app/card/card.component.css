@@ -1,3 +1,10 @@
+.h-100{
+    margin: 50px 0px;
+}
+.container{
+    min-height:100vh;
+}
+
 .icon-shape {
     display: inline-flex;
     align-items: center;
@@ -11,3 +18,10 @@
     height: 2rem;
     
 }
+.chekout{
+    font-size: 18px; 
+    padding: 8px 20px; 
+    background-color: #38A8AE; 
+    color: #ffffff; 
+    border-radius: 20px;
+  }

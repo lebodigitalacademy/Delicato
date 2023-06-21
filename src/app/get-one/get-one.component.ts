@@ -14,6 +14,7 @@ export class GetOneComponent implements OnInit {
   product: any;
   product1:any;
   id: any;
+  public quantity: number = 1;
 
   constructor(private service: ServiceService, private cartService: CartService,
     private router: Router, private route: ActivatedRoute) {
@@ -41,9 +42,12 @@ export class GetOneComponent implements OnInit {
     return this.cartService.products;
   }
 
-  addToCart(product: Product): void {
-    this.cartService.addToCart(product);
-  }
+  // addToCart(product: Product): void {
+  //   this.cartService.addToCart(product);
+  // }
 
+  addToCart(product: Product, quantity: number): void {
+    this.cartService.addToCart(product, quantity);
+  }
 
 }
