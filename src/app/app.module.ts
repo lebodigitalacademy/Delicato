@@ -22,8 +22,14 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './components/cart/cart.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -41,6 +47,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent,
     LoginComponent,
     CheckoutComponent,
+    CartComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
   ],
   // providers: [CartServiceService],
   bootstrap: [AppComponent]

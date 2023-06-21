@@ -1,6 +1,8 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { faShoppingCart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/cart.service';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 //import { CartServiceService } from 'src/app/services/cart-service.service';
 
 @Component({
@@ -13,15 +15,30 @@ export class NavigationBarComponent implements OnInit {
   cartIcon = faShoppingCart;
   profileIcon = faUser;
   searchIcon = faSearch;
+
   cartItemCount: number = 0;
 
-  
+  constructor(private cartService: CartService, private router: Router) { }
 
-  constructor(private cartService: CartService) { }
-
-  ngOnInit() {
-      this.products = this.cartService.getProducts();
-      this.cartItemCount = this.products.length;       
+  ngOnInit(): void {
+    this.cartService.cartItems$.subscribe(products => {
+      this.cartItemCount = products.length;
+    });
   }
 
+  signup(){
+    this.router.navigate(['/register']);
+  }
+
+  login(){
+    this.router.navigate(['/login']);
+  }
+
+  profile(){
+    this.router.navigate(['/profile']);
+  }
+
+  signout(){
+    
+  }
 }
