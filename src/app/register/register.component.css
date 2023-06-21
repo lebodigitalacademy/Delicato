@@ -11,6 +11,7 @@
 }
 
 .card {
+  font-family: optimal ;
   width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -21,6 +22,7 @@
 }
 
 .card-heading {
+  font-family: optimal ;
   color: #F16B44;
   font-size: 18px;
   width: 400px;
@@ -30,6 +32,7 @@
 }
 
 form label {
+  font-family: optimal ;
   color: #ffffff;
   display: block;
   margin-bottom: 5px;
@@ -47,6 +50,7 @@ form input[type="password"] {
 }
 
 button[type="submit"] {
+  font-family: optimal ;
   padding: 10px 20px;
   background-color: #F16B44;
   color: white;
@@ -74,6 +78,7 @@ p a:hover {
 }
 
 .container {
+  font-family: optimal ;
   width: 435px;
   margin: 0 auto;
   padding: 20px;
