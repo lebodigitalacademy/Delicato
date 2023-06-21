@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-register',
@@ -10,19 +9,11 @@ import { ServiceService } from '../service.service';
 })
 export class RegisterComponent implements OnInit {
   retypePass: string = 'none';
-  items:any;
 
   //Inject Router Dependency
-  constructor(private router: Router, private service:ServiceService) {}
+  constructor(private router: Router) {}
 
-  ngOnInit(
-    
-  ): void {
-    this.service.getAllProducts()
-      .subscribe(res => {
-        this.items = res;
-       });
-  }
+  ngOnInit(): void {}
 
   registerForm = new FormGroup({
     name: new FormControl('', [
@@ -51,24 +42,6 @@ export class RegisterComponent implements OnInit {
     } else {
       this.retypePass = 'inline';
     }
-
-    if(this.registerForm.valid){
-      this.service.createUser(this.registerForm.value).subscribe({
-        next: (val: any) => {
-          // once the employee has been addedng, display the success notification and reset the form
-        //  this.successNotification();
-        console.log('Successfully registered'+this.registerForm.value)
-          this.registerForm.reset();
-        },
-        // log a console error if the employee was not deleted
-        error: (err: any) => {
-          console.error (err);
-        },
-        
-      });
-    
-  }
-    
   }
 
   get Name(): FormControl {

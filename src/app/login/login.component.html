@@ -13,23 +13,27 @@
 <div class="col-mol-3 offset-col-md-3">
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
-<div class="form-group">
-  <label for="Email">Email Address</label>
-  <input formControlName="email" #emailInput [ngClass]="{'is-invalid': submitted && loginForm.controls['email'].errors && !emailInput.value}" type="email" class="form-control">
-</div>
-
-<div class="form-group">
-  <label for="password">Password</label>
-  <input formControlName="password" #passwordInput [ngClass]="{'is-invalid': submitted && loginForm.controls['password'].errors && !passwordInput.value}" type="password" class="form-control">
-</div>
-
-<div class="form-group">
-  <button [disabled]="loginForm.invalid" class="btn btn-info">login</button>
-</div>
-
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input formControlName="email"  type="email" #emailInput [ngClass]="{'is-invalid': submitted && loginForm.controls['email'].errors && !emailInput.value}" class="form-control">
+      <div *ngIf="loginForm.controls['email'].errors && !emailInput.value" class="invalid-feedback">
+        Please enter a valid email address.
+      </div>
+      <small class="text-danger" *ngIf="emailControl?.errors?.['invalidEmail']">Invalid email format</small>
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input formControlName="password" #passwordInput [ngClass]="{'is-invalid': submitted && loginForm.controls['password'].errors && !passwordInput.value}" type="password" class="form-control">
+      <div *ngIf="submitted && loginForm.controls['password'].errors && !passwordInput.value" class="invalid-feedback">
+        Please enter a password.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <button class="btn btn-info">Login</button>
+    </div>
   </form>
- 
 </div>
 </div>
 </div>

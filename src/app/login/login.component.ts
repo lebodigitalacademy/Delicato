@@ -6,33 +6,42 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  submitted = false;
 
-  title = 'login';
-  
-submitted= false;
+  constructor(private formBuilder: FormBuilder) {}
 
-constructor(private formBuilder: FormBuilder){
-}
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, this.emailValidator]],
+      password: ['', Validators.required]
+    });
 
-ngOnInit(){
+    console.log(this.loginForm.controls);
+    console.log(this.loginForm.get('email'));
+    
+  }
 
-  this.loginForm=this.formBuilder.group({
+  onSubmit() {
+    this.submitted = true;
 
-    email:['', Validators.required ],
-    password:['', Validators.required]
-  })
-}
+    if (this.loginForm.invalid) {
+      return;
+    }
 
+  }
 
-onSubmit(){
-this.submitted=true;
-
-if(this.loginForm.errors){
-  return
-}
-
-}
+  // Custom email validator function
+  emailValidator(control: any) {
+    const emailRegex =  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+   
+    if (control.value && !emailRegex.test(control.value)) {
+      return { invalidEmail: true };
+    }
+    return null;
+  }
+  get emailControl() {
+    return this.loginForm.get('email');
+  }
 }
