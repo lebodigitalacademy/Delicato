@@ -188,6 +188,12 @@ getCartItems(): Observable<Product[]> {
     return this.products;
   }
 
+  removeFromCart(product: Product): void {
+    const currentItems = this.cartItemsSubject.getValue();
+    const updatedItems = currentItems.filter(item => item.id !== product.id);
+    this.cartItemsSubject.next(updatedItems);
+  }
+
   updateQuantity(item: any) {
     const existingItem = this.products.find(i => i.id === item.id);
 
@@ -199,7 +205,6 @@ getCartItems(): Observable<Product[]> {
 
 
 }
-
   
   
   
