@@ -1,0 +1,134 @@
+.checkoutHeading{
+    font-family: optima;
+    color:orangered;
+    margin-top:8%;
+    margin-bottom:2%;
+}
+.errorMsg{
+    color: red;
+}
+.paymentSection{
+    margin-bottom: 5%;
+    text-align: center;
+    margin-top: 10%;
+    width:100%;
+    margin-left: 0%;
+}
+.shippingForm{
+    text-align: center;
+    padding: 2%;
+}
+.upperProducts{
+    min-height:50%;
+}
+::placeholder{
+    text-align: center;
+}
+.content{
+    display: inline-block;
+  text-align: left; 
+  margin-top: 4%;
+  margin-bottom: 10%;
+}
+.balance{
+    font-weight: bold;
+}
+.orderDetails{
+    padding: 2%;
+    align-items: center;
+    margin-bottom: 10%;
+   
+}
+.labelValue{
+    float: right;
+  
+}
+input{
+   min-width: 200%;
+   margin-left: -50%;
+}
+.submit{
+    min-width: 200%;
+    margin-left: -50%;
+    margin-top: 15%;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #38A8AE;
+    color: white;
+}
+.submit:disabled{
+    background-color: grey;
+}
+.orderHeading{
+    font-family: optima;
+    color:orangered;
+    font-size: 195%;
+
+}
+.Heading{
+    font-family: optima;
+    color:orangered;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    font-size: 195%;
+
+}
+.orderImg{
+    max-height: 30%;
+    max-width: 30%;
+}
+.tdImage{
+    max-width: 10%;
+}
+.table{
+    font-family: optima;
+    font-size: 80%;
+}
+.placeOrder{
+    justify-content: center;
+    min-width: 100%;
+    margin-top: 8%;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #38A8AE;
+    color: white;
+
+}
+
+
+/* Extra small devices (portrait phones) */
+@media only screen and (max-width: 576px) {
+    input{
+        min-width: 150%;
+        margin-left: -26%;
+    }
+    .submit{
+        min-width: 150%;
+        margin-left: -26%;
+        
+    }
+    .checkoutHeading{
+        margin-top:30%;
+        margin-bottom:2%;
+    }
+    .orderDetails{
+        margin-top: 10%;;
+    }
+    .paymentForm{
+        margin-top: 4%;
+    }
+    }
+    
+    /* Small devices (landscape phones) */
+    @media only screen and (min-width: 576px) and (max-width: 768px) {
+    
+    }
+    
+    /* Medium devices (tablets) */
+    @media only screen and (min-width: 768px) and (max-width: 992px) {
+    
+    }
+    
+    /* Large devices (desktops) */
+    @media only screen and (min-width: 992px) {
+   
+    }
+
