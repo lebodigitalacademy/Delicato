@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,13 +8,31 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-
+  cartItemCount: number = 0;
+  product: any;
+  cartItems: any[] = [];
+  totalPrice:number=0;
   form!: FormGroup;
   form2!:FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.cartItems$.subscribe(products => {
+      this.cartItemCount = products.length;
+      this.cartItems = products;
+    });
+
+    this.cartService.cartItems$.subscribe(products => {
+      this.cartItems = products;
+    });
+
+    this.cartService.cartPrice$.subscribe(price => {
+      this.totalPrice = price;
+    });
+
+
+
     this.form = this.formBuilder.group({
       addressLine1: ['', Validators.required],
       addressLine2: [''],
