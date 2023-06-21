@@ -86,30 +86,17 @@
                     </thead>
                     <tbody>
                       <!-- for each row display the following columns -->
-                      <tr>
-                        <td class="tdImage"  data-title="Image" ><img class="orderImg" src="https://cdn-prd-02.pnp.co.za/sys-master/images/hf0/hed/11012565598238/silo-product-image-v2-12Nov2022-180117-6001306002914-Straight_on-72261-7417_400Wx400H"></td>
-                        <td  class="tdName"  data-title="Name">Morvite Sorghum Instant Porridge Strawberry Flavour 1kg</td>
-                        <td data-title="Quantity">1</td>
-                        <td data-title="Price">R1</td>
-                      </tr>
-                      <tr>
-                        <td class="tdImage"  data-title="Image" ><img class="orderImg" src="https://cdn-prd-02.pnp.co.za/sys-master/images/hf0/hed/11012565598238/silo-product-image-v2-12Nov2022-180117-6001306002914-Straight_on-72261-7417_400Wx400H"></td>
-                        <td  class="tdName"  data-title="Name">Morvite Sorghum Instant Porridge Strawberry Flavour 1kg</td>
-                        <td data-title="Quantity">1</td>
-                        <td data-title="Price">R1</td>
-                      </tr>
-                      <tr>
-                        <td class="tdImage"  data-title="Image" ><img class="orderImg" src="https://cdn-prd-02.pnp.co.za/sys-master/images/hf0/hed/11012565598238/silo-product-image-v2-12Nov2022-180117-6001306002914-Straight_on-72261-7417_400Wx400H"></td>
-                        <td  class="tdName"  data-title="Name">Morvite Sorghum Instant Porridge Strawberry Flavour 1kg</td>
-                        <td data-title="Quantity">1</td>
-                        <td data-title="Price">R1</td>
-                      </tr>
+                      <tr *ngFor="let product of cartItems">
+                        <td class="tdImage"  data-title="Image" ><img class="orderImg" src="{{product.image.imageURL}}"></td>
+                        <td  class="tdName"  data-title="Name">{{product.name}}</td>
+                        <td data-title="Quantity">{{product.quantity}}</td>
+                        <td data-title="Price">{{product.price}}</td>
                     </tbody>
                   </table>
                 </div>
                 <div class="upperProducts">
                     <label class="subTotalLabel">Sub Total</label>
-                    <label class="labelValue">R160</label>
+                    <label class="labelValue">{{this.totalPrice}}</label>
                     <br>
                     <label>Shipping</label>
                     <label class="shippingLabel"></label>
