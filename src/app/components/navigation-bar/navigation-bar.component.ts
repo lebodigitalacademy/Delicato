@@ -37,4 +37,8 @@ export class NavigationBarComponent implements OnInit {
   profile(){
     this.router.navigate(['/profile']);
   }
+
+  signout(){
+    
+  }
 }
