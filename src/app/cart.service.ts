@@ -193,22 +193,9 @@ getCartItems(): Observable<Product[]> {
 
     if (existingItem) {
       existingItem.quantity = item.quantity;
-      this.updateCart();
     }
   }
 
- updateCart() {
- 
-
-  
-    this.cartItemsSubject.next([...this.products]);
-  
-  }
-
-  loadCart(cartItems: any[]) {
-    this.products = [...cartItems];
-    this.updateCart();
-  }
 
 
 }
