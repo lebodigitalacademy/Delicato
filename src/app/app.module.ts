@@ -59,6 +59,7 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
     FontAwesomeModule,
     HttpClientModule,
     Ng2SearchPipeModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatIconModule,
