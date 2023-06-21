@@ -14,7 +14,7 @@
             <div class="form-text text-danger" *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)">
                 Name is required.
             </div>
-           <div class="form-text text-danger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
+           <div class="form-text text-danAger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
                 Name is too short.
            </div>
            <div class="form-text text-danger" *ngIf="Name.errors?.['pattern'] && (Name.dirty || Name.touched)">
