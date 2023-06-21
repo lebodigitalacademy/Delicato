@@ -37,12 +37,11 @@ export class GetOneComponent implements OnInit {
     location.reload;
   }
 
-  get products() {
-    return this.cartService.products;
-  }
 
-  addToCart(product: Product): void {
+
+  addToCart(product: any): void {
     this.cartService.addToCart(product);
+    console.log(product);
   }
 
 
