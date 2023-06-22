@@ -13,6 +13,69 @@
       "surname": "Lebo",
       "email": "Lebo@gmail.com",
       "password": "password"
+    },
+    {
+      "id": 3,
+      "name": "Tili",
+      "surname": "Tili",
+      "email": "Tili@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": 4,
+      "name": "Mukosi",
+      "surname": "Mukosi",
+      "email": "Mukosi@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": 5,
+      "name": "Delphias",
+      "surname": "Delphias",
+      "email": "Delphias@gmail.com",
+      "password": "password"
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "Destiny",
+      "retypePassword": "destiny",
+      "id": 6
+    },
+    {
+      "name": "Moe",
+      "surname": "Bad",
+      "email": "M@gmail.com",
+      "choosePassword": "DestinyIsAll",
+      "retypePassword": "DestinyIsAll",
+      "id": 7
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "Destiny",
+      "retypePassword": "Destiny",
+      "id": 8
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "Destiny",
+      "retypePassword": "Destiny",
+      "id": 9
+    }
+  ],
+  "shipping": [
+    {
+  
+    }
+  ],
+  "payment": [
+    {
+  
     }
   ]
 }

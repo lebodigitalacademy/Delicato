@@ -229,6 +229,14 @@ h1{
 }
 }
 
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
 /* Large devices (desktops) */
 @media only screen and (min-width: 992px) {
 .firstCol {
