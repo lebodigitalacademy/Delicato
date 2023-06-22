@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { ServiceService } from '../service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout',
@@ -15,6 +16,13 @@ export class CheckoutComponent {
   totalPrice:number=0;
   form!: FormGroup;
   form2!:FormGroup;
+
+  shippingSuccess(){
+    Swal.fire('Shipping info successfully saved')
+  }
+  paymentSuccess(){
+    Swal.fire('Payment info successfully saved')
+  }
 
   constructor(private formBuilder: FormBuilder,private cartService: CartService, private service:ServiceService) { }
 
@@ -57,6 +65,7 @@ export class CheckoutComponent {
       this.service.addShipping(this.form.value).subscribe({
         next: (val: any) => {
           // once the employee has been addedng, display the success notification and reset the form
+          this.shippingSuccess();
           this.form.reset();
           
         },
@@ -80,6 +89,7 @@ export class CheckoutComponent {
       this.service.addPayment(this.form2.value).subscribe({
         next: (val: any) => {
           // once the employee has been addedng, display the success notification and reset the form
+          this.paymentSuccess();
           this.form2.reset();
           
         },
@@ -96,5 +106,12 @@ export class CheckoutComponent {
       // Handle form validation errors
     }
   }
+
+  displayOrderSuccess(){
+    Swal.fire('Thank you! Your Order has been placed')
+  }
+
+
 }
+
 
