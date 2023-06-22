@@ -9,29 +9,28 @@ export class CartService {
 
   products: any[] = [];
   private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public cartItems$ = this.cartItemsSubject.asObservable();
   
   private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
-
-  // cartItems = this.cartItemsSubject.asObservable();
-  public cartItems$ = this.cartItemsSubject.asObservable();
+  private cartCountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  public cartCount$ = this.cartCountSubject.asObservable();
 
   constructor(){}
 
   addToCart(product: Product) {
-    // const currentItems = this.cartProducts.value;
-    // currentItems.push(product);
-    // this.cartProducts.next(currentItems);
+  
     const currentItems = this.cartItemsSubject.getValue();
-
     const isProductInCart = currentItems.some(item => item.productId === product.id);
-
     if (!isProductInCart) {
       const updatedItems = [...currentItems, product];
       this.cartItemsSubject.next(updatedItems);
+
+      const currentCount = this.cartCountSubject.getValue();
+      const updatedCount = currentCount + 1;
+      this.cartCountSubject.next(updatedCount);
     }
-    // const updatedItems = [...currentItems, product];
-    // this.cartItemsSubject.next(updatedItems);
+   
   }
 
   getCartItems(): Observable<Product[]> {
@@ -42,5 +41,14 @@ export class CartService {
     return this.products;
   }
   
+  removeFromCart(product: Product): void {
+    const currentItems = this.cartItemsSubject.getValue();
+    const updatedItems = currentItems.filter(item => item.id !== product.id);
+    this.cartItemsSubject.next(updatedItems);
+
+    const currentCount = this.cartCountSubject.getValue();
+    const updatedCount = currentCount - 1;
+    this.cartCountSubject.next(updatedCount);
+  }
   
 }

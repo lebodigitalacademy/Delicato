@@ -16,13 +16,13 @@ export class NavigationBarComponent implements OnInit {
   profileIcon = faUser;
   searchIcon = faSearch;
 
-  cartItemCount: number = 0;
+  cartCount: number = 0;
 
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
-      this.cartItemCount = products.length;
+      this.cartCount = products.length;
     });
   }
 
@@ -39,6 +39,6 @@ export class NavigationBarComponent implements OnInit {
   }
 
   signout(){
-    
+    this.router.navigate(['/']);
   }
 }

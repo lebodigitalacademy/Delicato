@@ -8,7 +8,7 @@ import { Product } from 'src/app/interface/product';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartItemCount: number = 0;
+  cartCount: number = 0;
   product: any;
   cartItems: Product[] = [];
 
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
-      this.cartItemCount = products.length;
+      this.cartCount = products.length;
       this.cartItems = products;
     });
 
@@ -29,5 +29,8 @@ export class CartComponent implements OnInit {
     });
   }
   
+  removeFromCart(product: Product): void {
+    this.cartService.removeFromCart(product);
+  }
   
 }

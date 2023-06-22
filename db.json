@@ -66,6 +66,14 @@
       "choosePassword": "Destiny",
       "retypePassword": "Destiny",
       "id": 9
+    },
+    {
+      "name": "Thilivhali",
+      "surname": "Ravhutulu",
+      "email": "trav@da.co.za",
+      "choosePassword": "ravhutulu",
+      "retypePassword": "ravhutulu",
+      "id": 10
     }
   ],
   "products": [
