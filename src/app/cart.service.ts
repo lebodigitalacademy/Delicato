@@ -130,7 +130,6 @@ export class CartService {
     // currentItems.push(product);
     // this.cartProducts.next(currentItems);
     const currentItems = this.cartItemsSubject.getValue();
-    const existingProductIndex = currentItems.findIndex(item => item.id === product.id);
 
     const isProductInCart = currentItems.some(item => item.productId === product.productId);
     console.log('HI'+product.productId)
@@ -145,7 +144,6 @@ export class CartService {
       this.cartItemsSubject.next(updatedItems);
     }
 
-    this.cartItemsSubject.next(currentItems);
   }
 
 
