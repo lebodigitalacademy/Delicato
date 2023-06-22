@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { ServiceService } from '../service.service';
 import Swal from 'sweetalert2';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -24,7 +25,9 @@ export class CheckoutComponent {
     Swal.fire('Payment info successfully saved')
   }
 
-  constructor(private formBuilder: FormBuilder,private cartService: CartService, private service:ServiceService) { }
+  constructor(private formBuilder: FormBuilder,private cartService: CartService, private service:ServiceService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(products => {
@@ -61,57 +64,40 @@ export class CheckoutComponent {
 
   onSubmit() {
     if (this.form.valid) {
-
-      this.service.addShipping(this.form.value).subscribe({
-        next: (val: any) => {
-          // once the employee has been addedng, display the success notification and reset the form
-          this.shippingSuccess();
-          this.form.reset();
-          
-        },
-        // log a console error if the employee was not deleted
-        error: (err: any) => {
-          console.error (err);
-        },
-        
-      });
-      console.log(this.form.value);
+      console.log(this.form.value)
+      this.shippingSuccess();
       this.form.reset();
-      // You can perform further actions with the form data
-    } else {
-      // Handle form validation errors
+
+     
     }
   }
   onSubmit2() {
     if (this.form2.valid) {
-      console.log(this.form2.value)
+      console.log(this.form.value)
+      this.paymentSuccess();
+      this.form.reset();
 
-      this.service.addPayment(this.form2.value).subscribe({
-        next: (val: any) => {
-          // once the employee has been addedng, display the success notification and reset the form
-          this.paymentSuccess();
-          this.form2.reset();
-          
-        },
-        // log a console error if the employee was not deleted
-        error: (err: any) => {
-          console.error (err);
-        },
-        
-      });
-      console.log(this.form2.value);
-      this.form2.reset();
-      // You can perform further actions with the form data
-    } else {
-      // Handle form validation errors
+     
     }
   }
 
   displayOrderSuccess(){
-    Swal.fire('Thank you! Your Order has been placed')
-  }
+    Swal.fire({
+      title: 'Confirmation',
+      text: 'Your order has been placed',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cartService.resetCart();
+        // User clicked "Yes" button, perform the routing
+        this.router.navigate(['']); // Replace '/new-page' with the desired route
+
+      } else {
+        // User clicked "No" button, do nothing or handle accordingly
+      }
+    });
 
 
+}
 }
 
 
