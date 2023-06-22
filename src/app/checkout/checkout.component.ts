@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartService } from '../cart.service';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -15,7 +16,7 @@ export class CheckoutComponent {
   form!: FormGroup;
   form2!:FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private cartService: CartService) { }
+  constructor(private formBuilder: FormBuilder,private cartService: CartService, private service:ServiceService) { }
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(products => {
@@ -52,6 +53,19 @@ export class CheckoutComponent {
 
   onSubmit() {
     if (this.form.valid) {
+
+      this.service.addShipping(this.form.value).subscribe({
+        next: (val: any) => {
+          // once the employee has been addedng, display the success notification and reset the form
+          this.form.reset();
+          
+        },
+        // log a console error if the employee was not deleted
+        error: (err: any) => {
+          console.error (err);
+        },
+        
+      });
       console.log(this.form.value);
       this.form.reset();
       // You can perform further actions with the form data
@@ -61,6 +75,20 @@ export class CheckoutComponent {
   }
   onSubmit2() {
     if (this.form2.valid) {
+      console.log(this.form2.value)
+
+      this.service.addPayment(this.form2.value).subscribe({
+        next: (val: any) => {
+          // once the employee has been addedng, display the success notification and reset the form
+          this.form2.reset();
+          
+        },
+        // log a console error if the employee was not deleted
+        error: (err: any) => {
+          console.error (err);
+        },
+        
+      });
       console.log(this.form2.value);
       this.form2.reset();
       // You can perform further actions with the form data
