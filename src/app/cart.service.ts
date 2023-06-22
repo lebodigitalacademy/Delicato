@@ -39,9 +39,62 @@
 // }
 
 
-import { Injectable } from '@angular/core';
+  // getProducts() {
+  //   return this.products;
+  // }
+
+  // clearCart() {
+  //   localStorage.removeItem('products');
+  //   this.products = [];
+  //   // this.cartQuantity = 0;
+  // }
+
+  // addtoCart(product : any){
+  //   this.cartItemList.push(product);
+  //   this.productsList.next(this.cartItemList); //.next to pass the cartItemList whenever is subscribed
+  //   this.getTotalPrice();
+  //   }
+
+//get all the items amount total them to grandtotal
+    // getTotalPrice(){
+    //   let grandTotal = 0;
+    //   //the a will have all the items inside the cartItemList
+    //   this.cartItemList.map((a:any)=>{
+    //   grandTotal += a.total;
+    //   })
+    //   }
+// a method to remove 1 item from the cart
+      // removeCartItem(product: any){
+      //   this.cartItemList.map((a:any, index:any)=>{
+      //   //check if the product id match with the id which is inside our list and if it match t will remove the item
+      //   if(product.id=== a.id){
+      //   this.cartItemList.splice(index,1);
+      //   }
+      //   })
+      //   }
+
+     
+        
+// A method to remove all the items from the cart/ to clear the cart
+        // removeAllCart(){
+        //   this.cartItemList = []
+        //   this.productsList.next(this.cartItemList);
+        //   }
+
+        //   removeFromCart(product: any) {
+        //     const index = this.products.indexOf(product);
+        //     if (index !== -1) {
+        //       this.products.splice(index, 1);
+        //       localStorage.setItem('products', JSON.stringify(this.products));
+        //     }
+        //   }
+
+
+
+        import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, take} from 'rxjs';
 import { Product } from './interface/product';
+import { mergeMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +103,7 @@ export class CartService {
 
   
   cartItemList : any =[]
-  productsList = new BehaviorSubject<any>([]);
+  // productsList = new BehaviorSubject<any>([]);
 
 
   products: any[] = [];
@@ -89,6 +142,11 @@ getCartItemById(productId: number): Observable<Product | undefined> {
     map(items => items.find(item => item.id === productId))
   );
 }
+
+getCartItems(): Observable<Product[]> {
+  return this.cartProducts.asObservable();
+}
+
   updateCartItemQuantity(product: Product, quantity: number): void {
     const currentItems = this.cartItemsSubject.getValue();
     const productIndex = currentItems.findIndex(item => item.id === product.id);
@@ -100,68 +158,18 @@ getCartItemById(productId: number): Observable<Product | undefined> {
     }
   }
 
-  getCartItems(): Observable<Product[]> {
-    return this.cartProducts.asObservable();
+
+  removeCartItem(product: Product): Observable<void> {
+    return new Observable<void>((observer) => {
+      this.cartItems$.pipe(
+        take(1),
+        map(items => items.filter(item => item.id !== product.id)),
+      ).subscribe(updatedItems => {
+        this.cartItemsSubject.next(updatedItems);
+        observer.next();
+        observer.complete();
+      });
+    });
   }
 
-  getProducts() {
-    return this.products;
-  }
-
-  clearCart() {
-    localStorage.removeItem('products');
-    this.products = [];
-    // this.cartQuantity = 0;
-  }
-
-  addtoCart(product : any){
-    this.cartItemList.push(product);
-    this.productsList.next(this.cartItemList); //.next to pass the cartItemList whenever is subscribed
-    this.getTotalPrice();
-    }
-
-//get all the items amount total them to grandtotal
-    getTotalPrice(){
-      let grandTotal = 0;
-      //the a will have all the items inside the cartItemList
-      this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
-      })
-      }
-// a method to remove 1 item from the cart
-      // removeCartItem(product: any){
-      //   this.cartItemList.map((a:any, index:any)=>{
-      //   //check if the product id match with the id which is inside our list and if it match t will remove the item
-      //   if(product.id=== a.id){
-      //   this.cartItemList.splice(index,1);
-      //   }
-      //   })
-      //   }
-
-      removeCartItem(product: Product): Observable<void> {
-        return new Observable<void>((observer) => {
-          this.cartItems$.pipe(
-            take(1),
-            map(items => items.filter(item => item.id !== product.id)),
-          ).subscribe(updatedItems => {
-            this.cartItemsSubject.next(updatedItems);
-            observer.next();
-            observer.complete();
-          });
-        });
-      }
-        
-// A method to remove all the items from the cart/ to clear the cart
-        removeAllCart(){
-          this.cartItemList = []
-          this.productsList.next(this.cartItemList);
-          }
-
-          removeFromCart(product: any) {
-            const index = this.products.indexOf(product);
-            if (index !== -1) {
-              this.products.splice(index, 1);
-              localStorage.setItem('products', JSON.stringify(this.products));
-            }
-          }
 }

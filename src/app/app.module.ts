@@ -24,6 +24,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CardComponent } from './card/card.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 

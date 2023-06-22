@@ -1,29 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-
-// @Component({
-//   selector: 'app-card',
-//   templateUrl: './card.component.html',
-//   styleUrls: ['./card.component.css']
-// })
-// export class CardComponent {
-  
-// }
-
-
-
+import { CartService } from '../cart.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../interface/product';
 
 
 @Component({
-  selector: 'app-card-component',
-  templateUrl: './card-component.component.html',
-  styleUrls: ['./card-component.component.css']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
+
 export class CardComponent implements OnInit {
   products: any[] = [];
-  cartItemCount: number = 0;
+  cartItemCount: number = 1;
   product: any;
   cartItems: Product[] = [];
+  cartTotal: number = 0; // Declare the cartTotal property
 
   constructor(public cartService: CartService, private router: Router, private route: ActivatedRoute) { 
     this.cartService.getCartItems().subscribe(products => {
@@ -41,12 +33,16 @@ export class CardComponent implements OnInit {
       this.cartItems = products;
     });
 
-    // this.products = this.cartService.getProducts();
   }
 
   checkout(): void {
     this.router.navigate(['/login']);
   }
+
+  home(): void {
+    this.router.navigate(['/all-cards']);
+  }
+
 
   addToCart(product: Product, quantity: number): void {
     this.cartService.getCartItemById(product.id).subscribe(existingProduct => {
@@ -60,6 +56,7 @@ export class CardComponent implements OnInit {
       }
     });
   }
+    
   
 
   removeCartItem(product: Product): void {
@@ -73,13 +70,51 @@ export class CardComponent implements OnInit {
     );
   }
 
-  incrementValue(fieldName: string): void {
+
+//   incrementValue(fieldName: string): void {
+//   const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
+//   const currentVal = parseInt(inputElement.value, 10);
+
+//   if (!isNaN(currentVal)) {
+//     inputElement.value = String(currentVal + 1);
+//     this.cartItemCount++; // Increment the cart item count
+//   } else {
+//     inputElement.value = '0';
+//   }
+// }
+
+// decrementValue(fieldName: string): void {
+//   const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
+//   const currentVal = parseInt(inputElement.value, 10);
+
+//   if (!isNaN(currentVal) && currentVal > 0) {
+//     inputElement.value = String(currentVal - 1);
+//     this.cartItemCount--; // Decrement the cart item count
+//   } else {
+//     inputElement.value = '0';
+//   }
+// }
+
+updateCartTotal(): void {
+  let cartTotal = 0;
+  for (const product of this.cartItems) {
+    cartTotal += product.price * product.quantity;
+  }
+  // You can assign the calculated cartTotal to a variable or update it as needed
+  // console.log('Cart Total:', cartTotal);
+  this.cartTotal = this.cartItemCount * this.product.price;
+}
+
+
+
+incrementValue(fieldName: string): void {
   const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
   const currentVal = parseInt(inputElement.value, 10);
 
   if (!isNaN(currentVal)) {
     inputElement.value = String(currentVal + 1);
     this.cartItemCount++; // Increment the cart item count
+    this.updateCartTotal(); // Update the cart total
   } else {
     inputElement.value = '0';
   }
@@ -92,9 +127,11 @@ decrementValue(fieldName: string): void {
   if (!isNaN(currentVal) && currentVal > 0) {
     inputElement.value = String(currentVal - 1);
     this.cartItemCount--; // Decrement the cart item count
+    this.updateCartTotal(); // Update the cart total
   } else {
     inputElement.value = '0';
   }
 }
+
  
 }

@@ -38,15 +38,15 @@ export class GetOneComponent implements OnInit {
     location.reload;
   }
 
-  get products() {
-    return this.cartService.products;
-  }
+  // get products() {
+  //   return this.cartService.products;
+  // }
 
   // addToCart(product: Product): void {
   //   this.cartService.addToCart(product);
   // }
 
-  addToCart(product: Product, quantity: number): void {
+  addToCart(product: Product, quantity: number){
     this.cartService.addToCart(product, quantity);
   }
 

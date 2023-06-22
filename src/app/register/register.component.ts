@@ -8,6 +8,7 @@ import { ServiceService } from '../service.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
+
 export class RegisterComponent implements OnInit {
   retypePass: string = 'none';
   items:any;
