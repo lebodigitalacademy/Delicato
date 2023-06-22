@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeContentComponent } from './home-content/home-content.component';
-import { CardComponent } from './card/card.component';
+// import { CardComponent } from './card/card.component';
 import { GetOneComponent } from './get-one/get-one.component';
 import { AllCardsComponent } from './all-cards/all-cards.component';
 import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component';
@@ -22,8 +22,9 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { CartComponent } from './components/cart/cart.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CardComponent } from './card/card.component';
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -39,6 +40,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     FooterComponent,
     RegisterComponent,
+    CartComponent,
+    ProfileComponent,
+    CartComponent,
     LoginComponent,
     CheckoutComponent,
   ],
@@ -52,7 +56,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   // providers: [CartServiceService],
   bootstrap: [AppComponent]
