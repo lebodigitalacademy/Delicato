@@ -73,9 +73,9 @@ export class CheckoutComponent {
   }
   onSubmit2() {
     if (this.form2.valid) {
-      console.log(this.form.value)
+      console.log(this.form2.value)
       this.paymentSuccess();
-      this.form.reset();
+      this.form2.reset();
 
      
     }
@@ -83,7 +83,7 @@ export class CheckoutComponent {
 
   displayOrderSuccess(){
     Swal.fire({
-      title: 'Confirmation',
+      title: 'Thank you!',
       text: 'Your order has been placed',
     }).then((result) => {
       if (result.isConfirmed) {
