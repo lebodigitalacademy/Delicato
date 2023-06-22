@@ -8,14 +8,26 @@ import { HomeContentComponent } from './home-content/home-content.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { RegisterComponent } from './register/register.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CardComponent } from './card/card.component';
 
 
 export const routes: Routes = [
-  {path : 'shop', component : AllCardsComponent},
   {path : 'viewProduct/:id', component : GetOneComponent},
-  {path : '', component: HomeContentComponent},
+  {path : '', component: AllCardsComponent},
   {path : 'about', component : AboutComponent},
-
+  {path : 'cart', component: CartComponent},
+  {path : 'profile', component: ProfileComponent}, 
+  {path : 'login', component : LoginComponent},
+  {path : 'checkout', component : CheckoutComponent},
+  {path : 'register', component : RegisterComponent},
+  {path : 'cart', component: CartComponent},
+  {path : 'profile', component: ProfileComponent},
+  {path : 'card', component: CardComponent},
 
 ];
 

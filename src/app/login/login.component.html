@@ -1,0 +1,43 @@
+<div class="content">
+<div class="logo">
+  
+  <img src="https://i.ibb.co/znTssF3/Delicato-Logo.png" alt="Delicato-Logo" height="60" width="120"/>
+
+<h3>Delicato</h3>
+
+</div>
+<h1>Login Here</h1>
+
+<div class="container">
+  <div class="row">
+<div class="col-mol-3 offset-col-md-3">
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input formControlName="email"  type="email" #emailInput [ngClass]="{'is-invalid': submitted && loginForm.controls['email'].errors && !emailInput.value}" class="form-control">
+      <div *ngIf="loginForm.controls['email'].errors && !emailInput.value" class="invalid-feedback">
+        Please enter a valid email address.
+      </div>
+      <small class="text-danger" *ngIf="emailControl?.errors?.['invalidEmail']">Invalid email format</small>
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input formControlName="password" #passwordInput [ngClass]="{'is-invalid': submitted && loginForm.controls['password'].errors && !passwordInput.value}" type="password" class="form-control">
+      <div *ngIf="submitted && loginForm.controls['password'].errors && !passwordInput.value" class="invalid-feedback">
+        Please enter a password.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <button  class="btn btn-info">Login</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+  <p>No Account ? <a routerLink="/register" href="">Register</a></p>
+</div>

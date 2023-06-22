@@ -29,7 +29,23 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+    
 }
+
+/* .form-control{
+    border-radius: 3px;
+    width: 600px;
+    margin-left: 20px; 
+}
+
+.search-icon{
+    position: absolute;
+    z-index: 10;
+    right: 30%;
+    top: 30px;
+    color:blue;
+
+} */
 
 .collapse{
   
@@ -64,10 +80,11 @@
   
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
     padding: 0px;
     gap: 120px;
+    margin-left: 65%;
 
     width: 30%;
     /* height: 60px; */

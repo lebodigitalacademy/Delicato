@@ -1,6 +1,7 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { faShoppingCart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/cart.service';
+import { BehaviorSubject } from 'rxjs';
 //import { CartServiceService } from 'src/app/services/cart-service.service';
 
 @Component({
@@ -13,15 +14,40 @@ export class NavigationBarComponent implements OnInit {
   cartIcon = faShoppingCart;
   profileIcon = faUser;
   searchIcon = faSearch;
+
   cartItemCount: number = 0;
 
-  
+  constructor(public cartService: CartService) { }
 
-  constructor(private cartService: CartService) { }
-
-  ngOnInit() {
-      this.products = this.cartService.getProducts();
-      this.cartItemCount = this.products.length;       
+  ngOnInit(): void {
+    this.cartService.cartItems$.subscribe(products => {
+      this.cartItemCount = products.length;
+    });
   }
 
+  incrementValue(fieldName: string): void {
+    const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
+    const currentVal = parseInt(inputElement.value, 10);
+
+    if (!isNaN(currentVal)) {
+      inputElement.value = String(currentVal + 1);
+      this.cartItemCount = currentVal + 1; // Update cartItemCount
+    } else {
+      inputElement.value = '0';
+      this.cartItemCount = 0; // Update cartItemCount
+    }
+  }
+  
+  decrementValue(fieldName: string): void {
+    const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
+    const currentVal = parseInt(inputElement.value, 10);
+
+    if (!isNaN(currentVal) && currentVal > 0) {
+      inputElement.value = String(currentVal - 1);
+      this.cartItemCount = currentVal - 1; // Update cartItemCount
+    } else {
+      inputElement.value = '0';
+      this.cartItemCount = 0; // Update cartItemCount
+    }
+  }
 }

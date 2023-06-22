@@ -15,7 +15,7 @@ export class ServiceService {
 
   // backend url
 
-  private url ="https://fakestoreapi.com/products";
+  private url ='http://localhost:8081/api/products/getAllProducts';
 
   searchProducts(query: string): Observable<any> {
     const apiUrl = `${this.url}?q=${query}`;
@@ -28,11 +28,11 @@ export class ServiceService {
   }
 
   getAllProducts(){
-   return this.http.get('https://fakestoreapi.com/products');
+   return this.http.get('http://localhost:8081/api/products/getAllProducts');
   }
 
   getOneProduct(id:number){
-    return this.http.get('https://fakestoreapi.com/products/'+id);
+    return this.http.get('http://localhost:8081/api/products/'+id);
    }
 
   createProduct(body: Product){
@@ -46,5 +46,13 @@ export class ServiceService {
    deleteProduct(id:number){
     return this.http.delete(''+id);
    }
+
+   createUser(body: any){
+    return this.http.post('http://localhost:3000/users', body);
+  }
+  getAllUsers(){
+    return this.http.get('http://localhost:3000/users');
+   }
+   
 
 }
