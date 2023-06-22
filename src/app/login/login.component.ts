@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
-   apiUrl = 'http://localhost:3000/users'; // URL for retrieving the list of registered users
+   
+   
 
-  constructor(private formBuilder: FormBuilder, private http:HttpClient,private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private http:HttpClient,private router: Router, private loginService:LoginService) {}
 
   ngOnInit() {
 
@@ -30,38 +32,6 @@ export class LoginComponent implements OnInit {
  
 
   onSubmit() {
-    console.log(this.loginForm.value.email );
-
-    this.http.get<any[]>(this.apiUrl).subscribe(
-      res => {
-        var registeredUsers = res;
-        console.log(registeredUsers)
-        const user = registeredUsers.find((registeredUser: any) => {
-          return (
-            registeredUser.email === this.loginForm.value.email &&
-            registeredUser.password === this.loginForm.value.password
-          );
-        });
-      
-        if (user) {
-          alert('Login Successful');
-          this.loginForm.reset();
-          this.router.navigate(['']);
-        } else {
-          alert('User not found');
-        }
-
-       
-        });
-
-    
-   
-      // Get the list of registered users from the endpoint or service
-     // Retrieve the list of registered users
-    
-      
-    
-
     
 
 
@@ -70,7 +40,13 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+  
+  const email = this.loginForm.value.email;
+  const password = this.loginForm.value.password;
+  
+  this.loginService.makeAuthenticatedRequest(email, password);
 
+  console.log(this.loginService);
   }
 
   // Custom email validator function

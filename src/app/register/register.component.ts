@@ -18,23 +18,23 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   registerForm = new FormGroup({
-    name: new FormControl('', [
+    firstName: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
       Validators.pattern('[a-zA-Z].*'),
     ]),
-    surname: new FormControl('', [
+    lastName: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
       Validators.pattern('[a-zA-Z].*'),
     ]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    choosePassword: new FormControl('', [
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(16),
     ]),
-    retypePassword: new FormControl('',[
+    confirmPassword: new FormControl('',[
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(16)
@@ -44,8 +44,8 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.ChoosePassword.value !== this.RetypePassword.value) {
-      this.RetypePassword.setErrors({ mismatch: true });
+    if (this.password.value !== this.confirmPassword.value) {
+      this.confirmPassword.setErrors({ mismatch: true });
       this.retypePass = 'mismatch';
     } else {
       this.retypePass = '';
@@ -72,24 +72,24 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  get Name(): FormControl {
-    return this.registerForm.get('name') as FormControl;
+  get firstName(): FormControl {
+    return this.registerForm.get('firstName') as FormControl;
   }
 
-  get Surname(): FormControl {
-    return this.registerForm.get('surname') as FormControl;
+  get lastName(): FormControl {
+    return this.registerForm.get('lastName') as FormControl;
   }
 
-  get Email(): FormControl {
+  get email(): FormControl {
     return this.registerForm.get('email') as FormControl;
   }
 
-  get ChoosePassword(): FormControl {
-    return this.registerForm.get('choosePassword') as FormControl;
+  get password(): FormControl {
+    return this.registerForm.get('password') as FormControl;
   }
 
-  get RetypePassword(): FormControl {
-    return this.registerForm.get('retypePassword') as FormControl;
+  get confirmPassword(): FormControl {
+    return this.registerForm.get('confirmPassword') as FormControl;
   }
 
   // Fires on button click

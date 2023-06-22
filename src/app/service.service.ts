@@ -48,10 +48,10 @@ export class ServiceService {
    }
 
    createUser(body: any){
-    return this.http.post('http://localhost:3000/users', body);
+    return this.http.post('http://localhost:3000/api/users/register', body);
   }
   getAllUsers(){
-    return this.http.get('http://localhost:3000/users');
+    return this.http.get('http://localhost:3000/api/users/login');
    }
    addShipping(body:any){
     return this.http.post('http://localhost:3000/shipping', body);
