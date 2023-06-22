@@ -1,16 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from 'src/app/cart.service';
-import { Product } from 'src/app/interface/product';
-import { Navigation } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+
+
+// @Component({
+//   selector: 'app-card',
+//   templateUrl: './card.component.html',
+//   styleUrls: ['./card.component.css']
+// })
+// export class CardComponent {
+  
+// }
+
+
+
+
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-card-component',
+  templateUrl: './card-component.component.html',
+  styleUrls: ['./card-component.component.css']
 })
 export class CardComponent implements OnInit {
+  products: any[] = [];
   cartItemCount: number = 0;
   product: any;
   cartItems: Product[] = [];
@@ -31,7 +41,7 @@ export class CardComponent implements OnInit {
       this.cartItems = products;
     });
 
-
+    // this.products = this.cartService.getProducts();
   }
 
   checkout(): void {
@@ -86,7 +96,5 @@ decrementValue(fieldName: string): void {
     inputElement.value = '0';
   }
 }
-
-  
-  
+ 
 }

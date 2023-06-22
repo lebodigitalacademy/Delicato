@@ -20,7 +20,7 @@ export const routes: Routes = [
   {path : 'viewProduct/:id', component : GetOneComponent},
   {path : '', component: AllCardsComponent},
   {path : 'about', component : AboutComponent},
-  {path : 'car', component: CartComponent},
+  {path : 'cart', component: CartComponent},
   {path : 'profile', component: ProfileComponent}, 
   {path : 'login', component : LoginComponent},
   {path : 'checkout', component : CheckoutComponent},
