@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map, take } from 'rxjs';
 import { Product } from './interface/product';
 
 @Injectable({
@@ -49,6 +49,19 @@ export class CartService {
     const currentCount = this.cartCountSubject.getValue();
     const updatedCount = currentCount - 1;
     this.cartCountSubject.next(updatedCount);
+  }
+
+  removeFromCart(product: Product): Observable<void> {
+    return new Observable<void>((observer) => {
+      this.cartItems$.pipe(
+        take(1),
+        map(items => items.filter(item => item.id !== product.id)),
+      ).subscribe(updatedItems => {
+        this.cartItemsSubject.next(updatedItems);
+        observer.next();
+        observer.complete();
+      });
+    });
   }
   
 }
