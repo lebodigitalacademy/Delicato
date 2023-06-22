@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeContentComponent } from './home-content/home-content.component';
-import { CardComponent } from './card/card.component';
+// import { CardComponent } from './card/card.component';
 import { GetOneComponent } from './get-one/get-one.component';
 import { AllCardsComponent } from './all-cards/all-cards.component';
 import { AllSidePanelComponent } from './all-side-panel/all-side-panel.component';
@@ -25,11 +25,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+
+import { CardComponent } from './card/card.component';
+
 
 //import { CartServiceService } from './services/cart-service.service';
 
@@ -45,6 +49,9 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
     AboutComponent,
     FooterComponent,
     RegisterComponent,
+    CartComponent,
+    ProfileComponent,
+    CartComponent,
     LoginComponent,
     CheckoutComponent,
     CartComponent,
@@ -65,6 +72,7 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+
   ],
   // providers: [CartServiceService],
   bootstrap: [AppComponent]

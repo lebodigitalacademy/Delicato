@@ -3,6 +3,9 @@ export interface Product {
     name: string;
     description: string;
     price: number;
+    quantity: number;
+    total: number;
+
     category:{
         categoryId: number;
         categoryName: string;

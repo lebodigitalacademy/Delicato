@@ -14,7 +14,7 @@
             <div class="form-text text-danger" *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)">
                 Name is required.
             </div>
-           <div class="form-text text-danger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
+           <div class="form-text text-danAger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
                 Name is too short.
            </div>
            <div class="form-text text-danger" *ngIf="Name.errors?.['pattern'] && (Name.dirty || Name.touched)">
@@ -48,7 +48,7 @@
                 Password is required.
             </div>
             <div class="form-text text-danger" *ngIf="ChoosePassword.errors?.['minlength'] || ChoosePassword.errors?.['maxlength'] && (ChoosePassword.dirty || ChoosePassword.touched)">
-                Password should be atleast 6 and at the maximum 15 characters long.
+                Password should be at least 6 and at the maximum 15 characters long.
             </div>
 
             <label for="retypePassword" class="form-label">Re-type Password:</label>

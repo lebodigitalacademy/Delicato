@@ -1,28 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
+
 export class RegisterComponent implements OnInit {
   retypePass: string = 'none';
-  items:any;
 
   //Inject Router Dependency
-  constructor(private router: Router, private service:ServiceService) {}
+  constructor(private router: Router) {}
 
-  ngOnInit(
-    
-  ): void {
-    this.service.getAllProducts()
-      .subscribe(res => {
-        this.items = res;
-       });
-  }
+  ngOnInit(): void {}
 
   registerForm = new FormGroup({
     name: new FormControl('', [
