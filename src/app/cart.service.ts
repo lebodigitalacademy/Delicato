@@ -195,16 +195,31 @@ getCartItems(): Observable<Product[]> {
   }
 
   updateQuantity(item: any) {
-    const existingItem = this.products.find(i => i.id === item.id);
+    const existingItem = this.products.find(i => i.productId === item.productId);
 
     if (existingItem) {
       existingItem.quantity = item.quantity;
     }
   }
 
+  updateCart(cartItems: any[]) {
+    let totalPrice = 0;
+    let totalCount = 0;
 
+    for (const item of cartItems) {
+      totalPrice += item.price * item.quantity;
+      totalCount += item.quantity;
+    }
 
+    this.cartPriceSubject.next(totalPrice);
+    this.cartCountSubject.next(totalCount);
+  }
 }
+
+
+
+
+
   
   
   

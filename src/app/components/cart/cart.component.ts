@@ -10,7 +10,7 @@ import { Product } from 'src/app/interface/product';
 export class CartComponent implements OnInit {
   cartItemCount: number = 0;
   product: any;
-  cartItems: Product[] = [];
+  cartItems: any[] = [];
   totalPrice:number=0;
 
   constructor(private cartService: CartService) { 
@@ -34,5 +34,20 @@ export class CartComponent implements OnInit {
     });
   }
   
+  removeFromCart(product: any): void {
+    this.cartService.removeFromCart(product);
+  }
+
+  updateCart() {
+    this.cartService.updateCart(this.cartItems);
+  }
+
+  onQuantityChange() {
+    this.updateCart();
+  }
+  }
+
+
   
-}
+  
+
