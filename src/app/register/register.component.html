@@ -56,6 +56,10 @@
             <div class="form-text text-danger" [ngStyle]="{ 'display': retypePass }">
                 Re-type Password is invalid.
             </div>
+
+            <div class="form-text text-danger" *ngIf="retypePass === 'mismatch' && (RetypePassword.dirty || RetypePassword.touched)">
+                Passwords do not match
+            </div>
             <br><br>
             <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success">Register</button>
         </form>
