@@ -107,7 +107,7 @@ export class CartService {
 
 
   products: any[] = [];
-  private cartCountSubject = new BehaviorSubject<number>(0);
+  private cartCountSubject = new BehaviorSubject<number>(1);
   private cartPriceSubject = new BehaviorSubject<number>(0);
 
 
@@ -132,7 +132,6 @@ export class CartService {
     const currentItems = this.cartItemsSubject.getValue();
 
     const isProductInCart = currentItems.some(item => item.productId === product.productId);
-    console.log('HI'+product.productId)
 
     if (!isProductInCart) {
       const updatedItems = [...currentItems, product];
@@ -205,8 +204,13 @@ getCartItems(): Observable<Product[]> {
     let totalCount = 0;
 
     for (const item of cartItems) {
-      totalPrice += item.price * item.quantity;
-      totalCount += item.quantity;
+      console.log("moe"+item.quantity)
+      if(item.quantity>0){
+      totalPrice += item.price * item.quantity;}
+      else{  
+        totalPrice += item.price * item.quantity;
+        totalCount += item.quantity+1;}
+      
     }
 
     this.cartPriceSubject.next(totalPrice);
@@ -217,6 +221,13 @@ getCartItems(): Observable<Product[]> {
     this.cartItemsSubject.next([]);
     this.cartCountSubject.next(0);
     this.cartPriceSubject.next(0);
+  }
+  incrementQuantity(itemId: number, quantity: number): void {
+    const item = this.products.find(i => i.id === itemId);
+    if (item) {
+      item.quantity += quantity;
+      this.cartItemsSubject.next([...this.products]);
+    }
   }
 }
 

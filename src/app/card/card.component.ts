@@ -15,17 +15,22 @@ export class CardComponent implements OnInit {
   product: any;
   cartItems: any[] = [];
   totalPrice:number=0;
+  minimumValue = 1;
+  quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 
   constructor(private cartService: CartService) { 
     this.cartService.getCartItems().subscribe(products => {
       // Do something with the cart items
     });
+   
   }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
       this.cartItemCount = products.length;
       this.cartItems = products;
+      console.log(this.cartItems);
     });
 
     this.cartService.cartItems$.subscribe(products => {
@@ -35,6 +40,7 @@ export class CardComponent implements OnInit {
     this.cartService.cartPrice$.subscribe(price => {
       this.totalPrice = price;
     });
+  
   }
   
   removeFromCart(product: any): void {
