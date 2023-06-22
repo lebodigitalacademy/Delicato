@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   retypePass: string = 'none';
+  
 
   //Inject Router Dependency
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service:ServiceService) {}
 
   ngOnInit(): void {}
 
