@@ -56,9 +56,9 @@ export class CartService {
     return this.products;
   }
 
-  removeFromCart(product: Product): void {
+  removeFromCart(product: any): void {
     const currentItems = this.cartItemsSubject.getValue();
-    const updatedItems = currentItems.filter(item => item.id !== product.id);
+    const updatedItems = currentItems.filter(item => item.productId !== product.productId);
     this.cartItemsSubject.next(updatedItems);
   }
 
@@ -81,6 +81,12 @@ export class CartService {
 
     this.cartPriceSubject.next(totalPrice);
     this.cartCountSubject.next(totalCount);
+  }
+
+  resetCart() {
+    this.cartItemsSubject.next([]);
+    this.cartCountSubject.next(0);
+    this.cartPriceSubject.next(0);
   }
 }
 
