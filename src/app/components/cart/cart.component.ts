@@ -10,7 +10,8 @@ import { Product } from 'src/app/interface/product';
 export class CartComponent implements OnInit {
   cartItemCount: number = 0;
   product: any;
-  cartItems: Product[] = [];
+  cartItems: any[] = [];
+  totalPrice:number=0;
 
   constructor(private cartService: CartService) { 
     this.cartService.getCartItems().subscribe(products => {
@@ -27,7 +28,27 @@ export class CartComponent implements OnInit {
     this.cartService.cartItems$.subscribe(products => {
       this.cartItems = products;
     });
+
+    this.cartService.cartPrice$.subscribe(price => {
+      this.totalPrice = price;
+    });
   }
   
+  removeFromCart(product: any): void {
+    this.cartService.removeFromCart(product);
+    this.updateCart();
+  }
+
+  updateCart() {
+    this.cartService.updateCart(this.cartItems);
+  }
+
+  onQuantityChange() {
+    this.updateCart();
+  }
+  }
+
+
   
-}
+  
+
