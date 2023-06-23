@@ -17,6 +17,8 @@ export class CheckoutComponent {
   totalPrice:number=0;
   form!: FormGroup;
   form2!:FormGroup;
+  form2Filled!: Boolean;
+  form1Filled!: Boolean;
 
   shippingSuccess(){
     Swal.fire('Shipping info successfully saved')
@@ -65,6 +67,7 @@ export class CheckoutComponent {
   onSubmit() {
     if (this.form.valid) {
       console.log(this.form.value)
+      this.form1Filled=true;
       this.shippingSuccess();
       this.form.reset();
 
@@ -73,31 +76,47 @@ export class CheckoutComponent {
   }
   onSubmit2() {
     if (this.form2.valid) {
-      console.log(this.form.value)
+      console.log(this.form2.value)
+      this.form2Filled=true;
       this.paymentSuccess();
-      this.form.reset();
+      this.form2.reset();
 
      
     }
   }
+isFormFilled(){
 
-  displayOrderSuccess(){
+  if(this.form1Filled && this.form2Filled){
+    
+      Swal.fire({
+        title: 'Thank you!',
+        text: 'Your order has been placed',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.cartService.resetCart();
+          // User clicked "Yes" button, perform the routing
+          this.router.navigate(['']); // Replace '/new-page' with the desired route
+  
+        }
+      });
+  
+  
+  }else{
     Swal.fire({
-      title: 'Confirmation',
-      text: 'Your order has been placed',
+      icon:"error",
+      title: 'Details not specified',
+      text: 'Please enter your shipping and payment info',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.cartService.resetCart();
-        // User clicked "Yes" button, perform the routing
-        this.router.navigate(['']); // Replace '/new-page' with the desired route
 
-      } else {
-        // User clicked "No" button, do nothing or handle accordingly
       }
     });
 
-
+  }
 }
+  
+
+
 }
 
 

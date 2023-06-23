@@ -12,10 +12,17 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
    apiUrl = 'http://localhost:3000/users'; // URL for retrieving the list of registered users
+   registeredUsers:any
 
   constructor(private formBuilder: FormBuilder, private http:HttpClient,private router: Router) {}
 
   ngOnInit() {
+    this.http.get<any[]>(this.apiUrl).subscribe(
+      res => {
+        this.registeredUsers = res;
+        console.log(this.registeredUsers)
+       
+        });
 
     
     this.loginForm = this.formBuilder.group({
@@ -32,17 +39,13 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.loginForm.value.email );
 
-    this.http.get<any[]>(this.apiUrl).subscribe(
-      res => {
-        var registeredUsers = res;
-        console.log(registeredUsers)
-        const user = registeredUsers.find((registeredUser: any) => {
+   
+        const user = this.registeredUsers.find((registeredUser: any) => {
           return (
-            registeredUser.email === this.loginForm.value.email &&
-            registeredUser.password === this.loginForm.value.password
+            registeredUser.email == this.loginForm.value.email &&
+            registeredUser.password ==this.loginForm.value.password
           );
         });
-      
         if (user) {
           alert('Login Successful');
           this.loginForm.reset();
@@ -50,12 +53,6 @@ export class LoginComponent implements OnInit {
         } else {
           alert('User not found');
         }
-
-       
-        });
-
-    
-   
       // Get the list of registered users from the endpoint or service
      // Retrieve the list of registered users
     

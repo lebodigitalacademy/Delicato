@@ -66,16 +66,50 @@
       "choosePassword": "Destiny",
       "retypePassword": "Destiny",
       "id": 9
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "password",
+      "retypePassword": "password",
+      "id": 10
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "afterwards",
+      "retypePassword": "afterwards",
+      "id": 11
+    },
+    {
+      "name": "Jake",
+      "surname": "Smith",
+      "email": "js@gmail.com",
+      "password": "afterwards",
+      "retypePassword": "afterwards",
+      "id": 12
+    },
+    {
+      "name": "delphy",
+      "surname": "delphy",
+      "email": "delphy@gmail.com",
+      "password": "222222",
+      "retypePassword": "222222",
+      "id": 13
     }
   ],
   "shipping": [
-    {
-  
-    }
+    {}
   ],
   "payment": [
+    {}
+  ],
+  "orders": [
     {
-  
+      "totalPrice": 1,
+      "orderId": 1
     }
   ]
 }
