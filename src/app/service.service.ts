@@ -53,6 +53,12 @@ export class ServiceService {
   getAllUsers(){
     return this.http.get('http://localhost:3000/users');
    }
+   addShipping(body:any){
+    return this.http.post('http://localhost:3000/shipping', body);
+   }
+   addPayment(body:any){
+    return this.http.post('http://localhost:3000/payment', body);
+   }
    
 
 }

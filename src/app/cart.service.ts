@@ -107,33 +107,43 @@ export class CartService {
 
 
   products: any[] = [];
+  private cartCountSubject = new BehaviorSubject<number>(0);
+  private cartPriceSubject = new BehaviorSubject<number>(0);
+
+
   private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   
   private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
 
+  cartCount$ = this.cartCountSubject.asObservable();
+  cartPrice$ = this.cartPriceSubject.asObservable();
+
   // cartItems = this.cartItemsSubject.asObservable();
   public cartItems$ = this.cartItemsSubject.asObservable();
+  
 
   constructor(){}
 
-  addToCart(product: Product, quantity: number = 1): void {
+  addToCart(product: any) {
+    // const currentItems = this.cartProducts.value;
+    // currentItems.push(product);
+    // this.cartProducts.next(currentItems);
     const currentItems = this.cartItemsSubject.getValue();
-    const existingProductIndex = currentItems.findIndex(item => item.id === product.id);
 
-    if (existingProductIndex !== -1) {
-      // If the product already exists in the cart, update the quantity
-      const existingProduct = currentItems[existingProductIndex];
-      const updatedQuantity = existingProduct.quantity + quantity;
-      existingProduct.quantity = updatedQuantity;
-      currentItems[existingProductIndex] = existingProduct;
-    } else {
-      // If the product does not exist in the cart, add it
-      const newProduct = { ...product, quantity };
-      currentItems.push(newProduct);
+    const isProductInCart = currentItems.some(item => item.productId === product.productId);
+    console.log('HI'+product.productId)
+
+    if (!isProductInCart) {
+      const updatedItems = [...currentItems, product];
+      const count = this.products.reduce((total, item) => total + item.quantity, 0);
+      this.cartPriceSubject.next(this.cartPriceSubject.value + product.price);
+
+
+      this.cartCountSubject.next(count);
+      this.cartItemsSubject.next(updatedItems);
     }
 
-    this.cartItemsSubject.next(currentItems);
   }
 
 
@@ -172,4 +182,48 @@ getCartItems(): Observable<Product[]> {
     });
   }
 
+  getProducts() {
+    return this.products;
+  }
+
+  removeFromCart(product: any): void {
+    const currentItems = this.cartItemsSubject.getValue();
+    const updatedItems = currentItems.filter(item => item.productId !== product.productId);
+    this.cartItemsSubject.next(updatedItems);
+  }
+
+  updateQuantity(item: any) {
+    const existingItem = this.products.find(i => i.productId === item.productId);
+
+    if (existingItem) {
+      existingItem.quantity = item.quantity;
+    }
+  }
+
+  updateCart(cartItems: any[]) {
+    let totalPrice = 0;
+    let totalCount = 0;
+
+    for (const item of cartItems) {
+      totalPrice += item.price * item.quantity;
+      totalCount += item.quantity;
+    }
+
+    this.cartPriceSubject.next(totalPrice);
+    this.cartCountSubject.next(totalCount);
+  }
+
+  resetCart() {
+    this.cartItemsSubject.next([]);
+    this.cartCountSubject.next(0);
+    this.cartPriceSubject.next(0);
+  }
 }
+
+
+
+
+
+  
+  
+  

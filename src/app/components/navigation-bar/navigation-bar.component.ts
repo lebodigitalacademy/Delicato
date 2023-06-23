@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { faShoppingCart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/cart.service';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 //import { CartServiceService } from 'src/app/services/cart-service.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class NavigationBarComponent implements OnInit {
 
   cartItemCount: number = 0;
 
-  constructor(public cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
@@ -49,5 +50,20 @@ export class NavigationBarComponent implements OnInit {
       inputElement.value = '0';
       this.cartItemCount = 0; // Update cartItemCount
     }
+  }
+  signup(){
+    this.router.navigate(['/register']);
+  }
+
+  login(){
+    this.router.navigate(['/login']);
+  }
+
+  profile(){
+    this.router.navigate(['/profile']);
+  }
+
+  signout(){
+    
   }
 }
