@@ -108,16 +108,21 @@ export class CartService {
 
   products: any[] = [];
   private cartCountSubject = new BehaviorSubject<number>(0);
-  private cartPriceSubject = new BehaviorSubject<number>(0);
+  // private cartPriceSubject = new BehaviorSubject<number>(0);
 
 
   private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   
   private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
+  private cartPriceSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
+
 
   cartCount$ = this.cartCountSubject.asObservable();
-  cartPrice$ = this.cartPriceSubject.asObservable();
+  // cartPrice$ = this.cartPriceSubject.asObservable();
+  cartPrice$: Observable<number> = this.cartPriceSubject.asObservable();
+
 
   // cartItems = this.cartItemsSubject.asObservable();
   public cartItems$ = this.cartItemsSubject.asObservable();
@@ -138,6 +143,7 @@ export class CartService {
       const updatedItems = [...currentItems, product];
       const count = this.products.reduce((total, item) => total + item.quantity, 0);
       this.cartPriceSubject.next(this.cartPriceSubject.value + product.price);
+      
 
 
       this.cartCountSubject.next(count);
@@ -200,18 +206,31 @@ getCartItems(): Observable<Product[]> {
     }
   }
 
+  // updateCart(cartItems: any[]) {
+  //   let totalPrice = 0;
+  //   let totalCount = 0;
+
+  //   for (const item of cartItems) {
+  //     totalPrice += item.price * item.quantity;
+  //     totalCount += item.quantity;
+  //   }
+
+  //   this.cartPriceSubject.next(totalPrice);
+  //   this.cartCountSubject.next(totalCount);
+  // }
+
   updateCart(cartItems: any[]) {
     let totalPrice = 0;
     let totalCount = 0;
-
+  
     for (const item of cartItems) {
-      totalPrice += item.price * item.quantity;
-      totalCount += item.quantity;
+      totalPrice += item.price;
     }
-
+  
     this.cartPriceSubject.next(totalPrice);
     this.cartCountSubject.next(totalCount);
   }
+  
 
   resetCart() {
     this.cartItemsSubject.next([]);
