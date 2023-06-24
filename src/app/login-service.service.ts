@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class LoginServiceService {
   private loggedInUserSubject = new BehaviorSubject<any>(null);
   loggedInUser$ = this.loggedInUserSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cartService:CartService, private router:Router) { }
 
   get isLoggedIn() {
     return this.loggedIn$.asObservable();
@@ -39,7 +40,8 @@ export class LoginServiceService {
     // Once logout is completed, set loggedIn$ to false
     
       this.loggedInUserSubject.next(null);
-    
     this.loggedIn$.next(false);
+    this.cartService.clearCart();
+    this.router.navigate([""]);
   }
 }

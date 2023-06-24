@@ -71,6 +71,7 @@ export class NavigationBarComponent implements OnInit {
   }
 
   signout(){
+    this.loginService.logout();
     
   }
 }
