@@ -4,6 +4,7 @@ import { CartService } from '../cart.service';
 import { ServiceService } from '../service.service';
 import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -19,6 +20,7 @@ export class CheckoutComponent {
   form2!:FormGroup;
   form2Filled!: Boolean;
   form1Filled!: Boolean;
+  loggedInUserDetails$:any;
 
   shippingSuccess(){
     Swal.fire('Shipping info successfully saved')
@@ -29,7 +31,7 @@ export class CheckoutComponent {
 
   constructor(private formBuilder: FormBuilder,private cartService: CartService, private service:ServiceService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private loginService:LoginServiceService) { }
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(products => {
@@ -44,6 +46,11 @@ export class CheckoutComponent {
     this.cartService.totalPrice$.subscribe(price => {
       this.totalPrice = price;
     });
+     this.loginService.loggedInUser$.subscribe(userDetails => {
+      this.loggedInUserDetails$ = userDetails;
+      console.log("BIG MOE"+this.loggedInUserDetails$)
+    });
+  
 
 
 
@@ -67,7 +74,7 @@ export class CheckoutComponent {
   onSubmit() {
     if (this.form.valid) {
       console.log("HIHIHIHI"+this.form.value)
-      this.service.addShipping(this.form.value).subscribe({
+      this.service.addShipping(this.form.value,).subscribe({
         next: (val: any) => {
           // once the employee has been addedng, display the success notification and reset the form
          this.shippingSuccess();

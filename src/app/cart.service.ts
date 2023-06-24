@@ -119,7 +119,8 @@ export class CartService {
     const cartItem = this.cartItems.find(item => item.productId === product.productId);
 
     if (cartItem) {
-      cartItem.price += product.price;
+      const totalPrice = this.cartItems.reduce((total, item) => total + item.price, 0);
+      this.totalPriceSubject.next(totalPrice);
       cartItem.quantity++;
       this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
       this.updateCartState();
@@ -144,7 +145,7 @@ export class CartService {
    updateCartState() {
     const quantity = this.cartItems.reduce((total, item) => total + item.quantity, 0);
     const count = this.cartItems.reduce((total, item) => total + item.quantity, 0);
-    const totalPrice = this.cartItems.reduce((total, item) => total + (item.price*item.quantity), 0);
+    const totalPrice = this.cartItems.reduce((total, item) => total+item.price *item.quantity, 0);
 
     this.quantitySubject.next(quantity);
     this.countSubject.next(count);
