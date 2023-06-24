@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, this.emailValidator]],
       password: ['', Validators.required]
     });
+    
 
     console.log(this.loginForm.controls);
     console.log(this.loginForm.get('email'));
@@ -60,7 +61,7 @@ export class LoginComponent implements OnInit {
           );
         });
         if (user) {
-            this.loginService.login();
+            this.loginService.login(this.loginForm.value.email, this.loginForm.value.password);
      console.log("HI"+this.loginService.isLoggedIn)
           alert('Login Successful');
           
@@ -100,7 +101,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService.login();
+    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password);
   }
 
   logout() {

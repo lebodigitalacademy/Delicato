@@ -41,7 +41,7 @@ export class CheckoutComponent {
       this.cartItems = products;
     });
 
-    this.cartService.cartPrice$.subscribe(price => {
+    this.cartService.totalPrice$.subscribe(price => {
       this.totalPrice = price;
     });
 
@@ -93,7 +93,7 @@ isFormFilled(){
         text: 'Your order has been placed',
       }).then((result) => {
         if (result.isConfirmed) {
-          this.cartService.resetCart();
+          this.cartService.clearCart();
           // User clicked "Yes" button, perform the routing
           this.router.navigate(['']); // Replace '/new-page' with the desired route
   
