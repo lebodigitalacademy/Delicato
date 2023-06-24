@@ -8,21 +8,14 @@ import { ServiceService } from '../service.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
+
 export class RegisterComponent implements OnInit {
   retypePass: string = 'none';
-  items:any;
 
   //Inject Router Dependency
-  constructor(private router: Router, private service:ServiceService) {}
+  constructor(private router: Router, private service :ServiceService) {}
 
-  ngOnInit(
-    
-  ): void {
-    this.service.getAllProducts()
-      .subscribe(res => {
-        this.items = res;
-       });
-  }
+  ngOnInit(): void {}
 
   registerForm = new FormGroup({
     name: new FormControl('', [
@@ -41,26 +34,33 @@ export class RegisterComponent implements OnInit {
       Validators.minLength(6),
       Validators.maxLength(16),
     ]),
-    retypePassword: new FormControl(''),
+    retypePassword: new FormControl('',[
+      Validators.required,
+      Validators.minLength(6),
+      Validators.maxLength(16)
+    ]),
   });
 
+
+
   onSubmit() {
-    if (this.ChoosePassword.value == this.RetypePassword.value) {
-      console.log(this.registerForm.valid);
-      this.retypePass = 'none';
+    if (this.ChoosePassword.value !== this.RetypePassword.value) {
+      this.RetypePassword.setErrors({ mismatch: true });
+      this.retypePass = 'mismatch';
     } else {
-      this.retypePass = 'inline';
+      this.retypePass = '';
     }
 
     if(this.registerForm.valid){
       this.service.createUser(this.registerForm.value).subscribe({
         next: (val: any) => {
-          // once the employee has been addedng, display the success notification and reset the form
+        // once the item has been added, display the success notification and reset the form
         //  this.successNotification();
-        console.log('Successfully registered'+this.registerForm.value)
-          this.registerForm.reset();
+        this.router.navigate(['/login']);
+        // console.log('Successfully registered'+this.registerForm.value)
+        //   this.registerForm.reset();
         },
-        // log a console error if the employee was not deleted
+        
         error: (err: any) => {
           console.error (err);
         },
@@ -70,6 +70,7 @@ export class RegisterComponent implements OnInit {
   }
     
   }
+
 
   get Name(): FormControl {
     return this.registerForm.get('name') as FormControl;
@@ -94,6 +95,6 @@ export class RegisterComponent implements OnInit {
   // Fires on button click
   onBtnClick() {
     // Navigate to /login page
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
 }

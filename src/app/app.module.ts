@@ -26,6 +26,12 @@ import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CardComponent } from './card/card.component';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+
 //import { CartServiceService } from './services/cart-service.service';
 
 @NgModule({
@@ -57,6 +63,10 @@ import { CardComponent } from './card/card.component';
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
   ],
   // providers: [CartServiceService],
   bootstrap: [AppComponent]
