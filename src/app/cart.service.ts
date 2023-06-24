@@ -101,124 +101,74 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class CartService {
 
-  
-  cartItemList : any =[]
-  // productsList = new BehaviorSubject<any>([]);
+  private cartItems: any[] = [];
+  private quantitySubject = new BehaviorSubject<number>(0);
+  private countSubject = new BehaviorSubject<number>(0);
+  private totalPriceSubject = new BehaviorSubject<number>(0);
+  private cartItemsSubject = new BehaviorSubject<Product[]>([]);
 
+  quantity$ = this.quantitySubject.asObservable();
+  count$ = this.countSubject.asObservable();
+  totalPrice$ = this.totalPriceSubject.asObservable();
+  cartItems$ = this.cartItemsSubject.asObservable();
 
-  products: any[] = [];
-  private cartCountSubject = new BehaviorSubject<number>(0);
-  private cartPriceSubject = new BehaviorSubject<number>(0);
-
-
-  private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  
-  private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
-
-
-  cartCount$ = this.cartCountSubject.asObservable();
-  cartPrice$ = this.cartPriceSubject.asObservable();
-
-  // cartItems = this.cartItemsSubject.asObservable();
-  public cartItems$ = this.cartItemsSubject.asObservable();
-  
-
-  constructor(){}
+  constructor() { }
 
   addToCart(product: any) {
-    // const currentItems = this.cartProducts.value;
-    // currentItems.push(product);
-    // this.cartProducts.next(currentItems);
-    const currentItems = this.cartItemsSubject.getValue();
+    console.log(product)
+    const cartItem = this.cartItems.find(item => item.productId === product.productId);
 
-    const isProductInCart = currentItems.some(item => item.productId === product.productId);
-    console.log('HI'+product.productId)
-
-    if (!isProductInCart) {
-      const updatedItems = [...currentItems, product];
-      const count = this.products.reduce((total, item) => total + item.quantity, 0);
-      this.cartPriceSubject.next(this.cartPriceSubject.value + product.price);
-
-
-      this.cartCountSubject.next(count);
-      this.cartItemsSubject.next(updatedItems);
+    if (cartItem) {
+      const totalPrice = this.cartItems.reduce((total, item) => total + item.price, 0);
+      this.totalPriceSubject.next(totalPrice);
+      cartItem.quantity++;
+      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+      this.updateCartState();
+    } else {
+      this.cartItems.push({ ...product, quantity: 1 });
+      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+      this.updateCartState();
     }
 
+    this.updateCartState();
   }
 
+  removeFromCart(product: any) {
+    const index = this.cartItems.findIndex(item => item.productId === product.productId);
 
-getCartItemById(productId: number): Observable<Product | undefined> {
-  return this.cartItems$.pipe(
-    map(items => items.find(item => item.id === productId))
-  );
+    if (index !== -1) {
+      const removedItem = this.cartItems.splice(index, 1)[0];
+      this.updateCartState();
+    }
+  }
+
+   updateCartState() {
+    const quantity = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+    const count = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+    const totalPrice = this.cartItems.reduce((total, item) => total+item.price *item.quantity, 0);
+
+    this.quantitySubject.next(quantity);
+    this.countSubject.next(count);
+    this.totalPriceSubject.next(totalPrice);
+    this.cartItemsSubject.next([...this.cartItems]);
+  }
+
+  getCartItems(): any[] {
+    return this.cartItems;
+  }
+
+  clearCart() {
+    this.cartItems = [];
+    this.updateCartState();
+  }
 }
 
-getCartItems(): Observable<Product[]> {
-  return this.cartProducts.asObservable();
-}
-
-  updateCartItemQuantity(product: Product, quantity: number): void {
-    const currentItems = this.cartItemsSubject.getValue();
-    const productIndex = currentItems.findIndex(item => item.id === product.id);
-
-    if (productIndex !== -1) {
-      const updatedProduct = { ...product, quantity };
-      currentItems[productIndex] = updatedProduct;
-      this.cartItemsSubject.next(currentItems);
-    }
-  }
 
 
-  removeCartItem(product: Product): Observable<void> {
-    return new Observable<void>((observer) => {
-      this.cartItems$.pipe(
-        take(1),
-        map(items => items.filter(item => item.id !== product.id)),
-      ).subscribe(updatedItems => {
-        this.cartItemsSubject.next(updatedItems);
-        observer.next();
-        observer.complete();
-      });
-    });
-  }
 
-  getProducts() {
-    return this.products;
-  }
 
-  removeFromCart(product: any): void {
-    const currentItems = this.cartItemsSubject.getValue();
-    const updatedItems = currentItems.filter(item => item.productId !== product.productId);
-    this.cartItemsSubject.next(updatedItems);
-  }
 
-  updateQuantity(item: any) {
-    const existingItem = this.products.find(i => i.productId === item.productId);
 
-    if (existingItem) {
-      existingItem.quantity = item.quantity;
-    }
-  }
-
-  updateCart(cartItems: any[]) {
-    let totalPrice = 0;
-    let totalCount = 0;
-
-    for (const item of cartItems) {
-      totalPrice += item.price * item.quantity;
-      totalCount += item.quantity;
-    }
-
-    this.cartPriceSubject.next(totalPrice);
-    this.cartCountSubject.next(totalCount);
-  }
-
-  resetCart() {
-    this.cartItemsSubject.next([]);
-    this.cartCountSubject.next(0);
-    this.cartPriceSubject.next(0);
-  }
-}
 
 
 
