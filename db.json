@@ -98,6 +98,22 @@
       "password": "222222",
       "retypePassword": "222222",
       "id": 13
+    },
+    {
+      "name": "Gmail",
+      "surname": "Gmail",
+      "email": "Gmail@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 14
+    },
+    {
+      "name": "Jason",
+      "surname": "Jason",
+      "email": "Jasno@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 15
     }
   ],
   "shipping": [

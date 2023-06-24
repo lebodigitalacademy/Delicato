@@ -3,6 +3,7 @@ import { faShoppingCart, faUser, faSearch } from '@fortawesome/free-solid-svg-ic
 import { CartService } from 'src/app/cart.service';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { LoginServiceService } from 'src/app/login-service.service';
 //import { CartServiceService } from 'src/app/services/cart-service.service';
 
 @Component({
@@ -15,10 +16,17 @@ export class NavigationBarComponent implements OnInit {
   cartIcon = faShoppingCart;
   profileIcon = faUser;
   searchIcon = faSearch;
+  userName:any;
 
   cartItemCount: number = 0;
 
-  constructor(private cartService: CartService, private router: Router) { }
+  isLoggedIn$ = this.loginService.isLoggedIn;
+
+  constructor(private cartService: CartService, private router: Router,private loginService: LoginServiceService) {
+    this.loginService.userNameObservable.subscribe(usersName => {
+      this.userName = usersName;
+    });
+   }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
@@ -66,4 +74,5 @@ export class NavigationBarComponent implements OnInit {
   signout(){
     
   }
+
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,13 @@ export class LoginComponent implements OnInit {
   submitted = false;
    apiUrl = 'http://localhost:3000/users'; // URL for retrieving the list of registered users
    registeredUsers:any
+   userName:any;
 
-  constructor(private formBuilder: FormBuilder, private http:HttpClient,private router: Router) {}
+
+  constructor(private formBuilder: FormBuilder, private http:HttpClient,private router: Router, private loginService: LoginServiceService) {}
+
+
+  isLoggedIn$ = this.loginService.isLoggedIn;
 
   ngOnInit() {
     this.http.get<any[]>(this.apiUrl).subscribe(
@@ -46,8 +52,13 @@ export class LoginComponent implements OnInit {
             registeredUser.password ==this.loginForm.value.password
           );
         });
+
+    
         if (user) {
+            this.loginService.login(this.userName);
+     console.log("HI"+this.loginService.isLoggedIn)
           alert('Login Successful');
+          
           this.loginForm.reset();
           this.router.navigate(['']);
         } else {
@@ -82,6 +93,14 @@ export class LoginComponent implements OnInit {
   get emailControl() {
     return this.loginForm.get('email');
   }
+
+ 
+
+  logout() {
+    this.loginService.logout();
+  }
+
+
 
   
 }
