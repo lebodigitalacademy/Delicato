@@ -43,9 +43,9 @@
             <div class="content">
             <div>
               
-              <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="Card Number"/>
+              <input type="text" id="cardNumber" formControlName="cardNumber" placeholder="Card Number (16 digits)"/>
               <div  class="errorMsg" *ngIf="form2.controls['cardNumber'].invalid && form2.controls['cardNumber'].touched">
-                <label class="errorMsg">*Card is required</label>
+                <label class="errorMsg">*Card must be 16 digits</label>
               </div>
               
             </div>
@@ -56,7 +56,7 @@
             </div>
             </div>
             <div>
-              <input type="text" id="cvv" formControlName="cvv" placeholder="CVV"/>
+              <input type="text" id="cvv" formControlName="cvv" placeholder="CVV (3 or 4 digits)"/>
               <div *ngIf="form2.controls['cvv'].invalid && form2.controls['cvv'].touched">
                 <label class="errorMsg"> *Invalid CVV number</label>
             </div>
@@ -99,7 +99,7 @@
                     <label class="labelValue">{{this.totalPrice}}</label>
                     <br>
                    
-                    <button class="placeOrder" (click)="displayOrderSuccess()">Place Order</button>
+                    <button class="placeOrder" (click)="isFormFilled()">Place Order</button>
                 </div>
             </div>
     </div>

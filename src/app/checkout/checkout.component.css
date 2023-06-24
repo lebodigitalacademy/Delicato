@@ -56,7 +56,7 @@ input{
     color: white;
 }
 .submit:disabled{
-    background-color: grey;
+    background-color: rgb(189, 187, 187);
 }
 .orderHeading{
     font-family: optima;

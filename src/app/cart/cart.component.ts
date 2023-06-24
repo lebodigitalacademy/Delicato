@@ -120,9 +120,7 @@ export class CartComponent implements OnInit {
   }
 
   clearCart(): void {
-    this.cartService.clearCart();
-    this.products = [];
-    this.grandTotal = 0;
+    this.cartService.resetCart;
   }
 }
 
