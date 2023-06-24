@@ -66,7 +66,19 @@ export class CheckoutComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value)
+      console.log("HIHIHIHI"+this.form.value)
+      this.service.addShipping(this.form.value).subscribe({
+        next: (val: any) => {
+          // once the employee has been addedng, display the success notification and reset the form
+         this.shippingSuccess();
+          this.form.reset();
+        },
+        // log a console error if the employee was not deleted
+        error: (err: any) => {
+          console.error (err);
+        },
+        
+      });
       this.form1Filled=true;
       this.shippingSuccess();
       this.form.reset();
@@ -76,10 +88,24 @@ export class CheckoutComponent {
   }
   onSubmit2() {
     if (this.form2.valid) {
-      console.log(this.form2.value)
-      this.form2Filled=true;
-      this.paymentSuccess();
-      this.form2.reset();
+      this.service.addPayment(this.form2.value).subscribe({
+        next: (val: any) => {
+        // once the item has been added, display the success notification and reset the form
+        //  this.successNotification();
+        // console.log('Successfully registered'+this.registerForm.value)
+        //   this.registerForm.reset();
+        console.log(this.form2.value)
+        this.form2Filled=true;
+        this.paymentSuccess();
+        this.form2.reset();
+        },
+        
+        error: (err: any) => {
+          console.error (err);
+        },
+        
+      });
+    
 
      
     }

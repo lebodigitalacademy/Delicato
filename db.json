@@ -117,10 +117,41 @@
     }
   ],
   "shipping": [
-    {}
+    {
+      "id": 1,
+      "addressLine1": "216 Jason Street",
+      "addressLine2": "Jason",
+      "town": "JJason",
+      "postalcode": "8097"
+    },
+    {
+      "addressLine1": "12341",
+      "addressLine2": "1341",
+      "town": "21341",
+      "postalCode": "1341",
+      "id": 2
+    },
+    {
+      "addressLine1": "asdas",
+      "addressLine2": "adsfa",
+      "town": "adfas",
+      "postalCode": "1234",
+      "id": 3
+    }
   ],
   "payment": [
-    {}
+    {
+      "id": 2,
+      "cardNumber": "0980980980980980",
+      "expiry": "12/12",
+      "cvv": "323"
+    },
+    {
+      "cardNumber": "1231231231231231",
+      "expiryDate": "1233",
+      "cvv": "123",
+      "id": 3
+    }
   ],
   "orders": [
     {
