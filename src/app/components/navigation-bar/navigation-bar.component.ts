@@ -16,17 +16,13 @@ export class NavigationBarComponent implements OnInit {
   cartIcon = faShoppingCart;
   profileIcon = faUser;
   searchIcon = faSearch;
-  userName:any;
 
   cartItemCount: number = 0;
 
   isLoggedIn$ = this.loginService.isLoggedIn;
+  username$ = this.loginService.isLoggedIn;
 
-  constructor(private cartService: CartService, private router: Router,private loginService: LoginServiceService) {
-    this.loginService.userNameObservable.subscribe(usersName => {
-      this.userName = usersName;
-    });
-   }
+  constructor(private cartService: CartService, private router: Router,private loginService: LoginServiceService) { }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
@@ -74,5 +70,4 @@ export class NavigationBarComponent implements OnInit {
   signout(){
     
   }
-
 }

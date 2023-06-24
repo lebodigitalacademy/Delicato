@@ -49,7 +49,7 @@
                     <div  *ngIf="isLoggedIn$ | async; else loggedOutTemplate">
                     <button mat-menu-item (click)="profile()">View Profile</button>
                     <button mat-menu-item (click)="signout()">Sign out</button>
-                    <h1>{{userName}}</h1>
+                    
                 </div>
                 </mat-menu>
                 </a>

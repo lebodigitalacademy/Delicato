@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
    registeredUsers:any
    userName:any;
 
-
   constructor(private formBuilder: FormBuilder, private http:HttpClient,private router: Router, private loginService: LoginServiceService) {}
 
 
@@ -52,10 +51,16 @@ export class LoginComponent implements OnInit {
             registeredUser.password ==this.loginForm.value.password
           );
         });
+        const userName = this.registeredUsers.find((registeredUser: any) => {
+          console.log(registeredUser.name+"Hello user")
+          return (
+            this.userName=registeredUser.name
 
-    
+            
+          );
+        });
         if (user) {
-            this.loginService.login(this.userName);
+            this.loginService.login();
      console.log("HI"+this.loginService.isLoggedIn)
           alert('Login Successful');
           
@@ -94,13 +99,13 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('email');
   }
 
- 
+  login() {
+    this.loginService.login();
+  }
 
   logout() {
     this.loginService.logout();
   }
-
-
 
   
 }

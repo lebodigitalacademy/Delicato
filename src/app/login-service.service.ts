@@ -6,19 +6,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LoginServiceService {
   private loggedIn$ = new BehaviorSubject<boolean>(false);
-  private userName$ = new BehaviorSubject<string>('');
 
   get isLoggedIn() {
     return this.loggedIn$.asObservable();
   }
 
-   userNameObservable=this.userName$.asObservable();
-  
-
-  login(username:any) {
+  login() {
     // Perform login logic, e.g., making an API call
     // Once login is successful, set loggedIn$ to true
-    this.userName$.next(username);
     this.loggedIn$.next(true);
   }
 
