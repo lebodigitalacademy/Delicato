@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CardComponent } from './card/card.component';
 
 
+
 export const routes: Routes = [
   {path : 'viewProduct/:id', component : GetOneComponent},
   {path : '', component: AllCardsComponent},
@@ -27,7 +28,7 @@ export const routes: Routes = [
   {path : 'register', component : RegisterComponent},
   {path : 'cart', component: CartComponent},
   {path : 'profile', component: ProfileComponent},
-  {path : 'card', component: CardComponent},
+  {path : 'card' , component: CardComponent},
 
 ];
 

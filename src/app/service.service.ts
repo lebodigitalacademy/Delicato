@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './interface/product';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -29,6 +30,13 @@ export class ServiceService {
 
   getAllProducts(){
    return this.http.get('http://localhost:8081/api/products/getAllProducts');
+  }
+
+  getProduct(){
+    return this.http.get<any>("http://localhost:8081/api/products/getAllProducts")
+    .pipe(map((res:any)=>{
+      return res;
+      }))
   }
 
   getOneProduct(id:number){

@@ -1,25 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-
-// @Component({
-//   selector: 'app-card',
-//   templateUrl: './card.component.html',
-//   styleUrls: ['./card.component.css']
-// })
-// export class CardComponent {
-  
-// }
-
-
-
+import { CartService } from '../cart.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../interface/product';
 
 
 @Component({
-  selector: 'app-card-component',
-  templateUrl: './card-component.component.html',
-  styleUrls: ['./card-component.component.css']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  
+
+
+
+
+
+
   products: any[] = [];
   cartItemCount: number = 0;
   product: any;
@@ -46,6 +43,10 @@ export class CardComponent implements OnInit {
 
   checkout(): void {
     this.router.navigate(['/login']);
+  }
+
+   home(): void {
+    this.router.navigate(['/all-cards']);
   }
 
   addToCart(product: Product, quantity: number): void {

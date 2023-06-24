@@ -42,6 +42,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, take} from 'rxjs';
 import { Product } from './interface/product';
+import { HttpClient } from '@angular/common/http';
+// import { map, pluck } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +59,10 @@ export class CartService {
   products: any[] = [];
   private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   
+  //shoppingCart$ = cartProducts BehaviorSubject<ShoppingCart>
   private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+
+  // private shoppingCart$: BehaviorSubject<ShoppingCart>;
 
 
   // cartItems = this.cartItemsSubject.asObservable();

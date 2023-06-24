@@ -1,10 +1,9 @@
 .h-100{
-    margin: 50px 0px;
+    margin: 40px 0px;
 }
 .container{
     min-height:100vh;
 }
-
 .icon-shape {
     display: inline-flex;
     align-items: center;
@@ -31,6 +30,10 @@
     margin: 25px;
     padding: 25px;
 }
+.center-empty-cart {
+    margin-top: 50px; 
+  }
+
 .center img{
     text-decoration: none;
     color: inherit;
