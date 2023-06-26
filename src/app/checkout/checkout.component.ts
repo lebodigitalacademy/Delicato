@@ -68,9 +68,31 @@ export class CheckoutComponent {
       expiryDate: ['', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/?([0-9]{2})$')]],
       cvv: ['', [Validators.required, Validators.pattern('^[0-9]{3,4}$')]]
     });
-    
+    this.checkUserLoggedIn();
   }
   
+  checkUserLoggedIn() {
+    this.loginService.loggedInUser$.subscribe(userDetails => {
+      this.loggedInUserDetails$ = userDetails;
+      if (!this.loggedInUserDetails$) {
+        Swal.fire({
+          icon: 'info',
+          title: 'You are not logged in',
+          text: 'Please register an account to proceed to checkout',
+          confirmButtonText: 'Register Now',
+          showCancelButton: true,
+          cancelButtonText: 'Cancel'
+        }).then(result => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/register']);
+          } else {
+            this.router.navigate(['/']);
+          }
+        });
+      }
+    });
+  }
+
 
 /*   onSubmit() {
     if (this.form.valid) {

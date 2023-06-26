@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { LoginServiceService } from '../login-service.service';
 
 @Component({
@@ -63,12 +64,22 @@ export class LoginComponent implements OnInit {
         if (user) {
             this.loginService.login(this.loginForm.value.email, this.loginForm.value.password);
      console.log("HI"+this.loginService.isLoggedIn)
-          alert('Login Successful');
+
+
+          Swal.fire('Hi', 'Login Successful!', 'success');
           
           this.loginForm.reset();
           this.router.navigate(['']);
         } else {
-          alert('User not found');
+
+
+         
+          Swal.fire(
+            'Cancelled',
+            'Please enter correct details',
+            'error'
+          )
+
         }
       // Get the list of registered users from the endpoint or service
      // Retrieve the list of registered users
