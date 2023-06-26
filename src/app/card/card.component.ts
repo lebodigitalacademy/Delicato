@@ -11,127 +11,49 @@ import { Product } from '../interface/product';
 })
 
 export class CardComponent implements OnInit {
-  products: any[] = [];
-  cartItemCount: number = 1;
+  cartItemCount: number = 0;
   product: any;
-  cartItems: Product[] = [];
-  cartTotal: number = 0; // Declare the cartTotal property
+  cartItems: any[] = [];
+  totalPrice:number=0;
+  minimumValue = 1;
+  quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  updatedCart:any;
+  totalQuantity:any;
 
-  constructor(public cartService: CartService, private router: Router, private route: ActivatedRoute) { 
-    this.cartService.getCartItems().subscribe(products => {
-      // Do something with the cart items
-    });
+
+  constructor(private cartService: CartService) { 
+ 
   }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
       this.cartItemCount = products.length;
       this.cartItems = products;
+      console.log(this.cartItems);
     });
 
-    this.cartService.cartItems$.subscribe(products => {
-      this.cartItems = products;
+
+    this.cartService.totalPrice$.subscribe(price => {
+      this.totalPrice = price;
     });
 
-  }
-
-  checkout(): void {
-    this.router.navigate(['/login']);
-  }
-
-  home(): void {
-    this.router.navigate(['/all-cards']);
-  }
-
-
-  addToCart(product: Product, quantity: number): void {
-    this.cartService.getCartItemById(product.id).subscribe(existingProduct => {
-      if (existingProduct) {
-        // If the product already exists in the cart, update the quantity
-        const updatedQuantity = existingProduct.quantity + quantity;
-        this.cartService.updateCartItemQuantity(existingProduct, updatedQuantity);
-      } else {
-        // If the product does not exist in the cart, add it
-        this.cartService.addToCart(product, quantity);
-      }
+    this.cartService.quantity$.subscribe(quantity => {
+      this.totalQuantity = quantity;
     });
-  }
-    
+
   
-
-  removeCartItem(product: Product): void {
-    this.cartService.removeCartItem(product).subscribe(
-      () => {
-        console.log('Product removed from cart.');
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+  }
+  
+  removeFromCart(product: any): void {
+    this.cartService.removeFromCart(product);
+    this.updateCart();
   }
 
-
-//   incrementValue(fieldName: string): void {
-//   const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
-//   const currentVal = parseInt(inputElement.value, 10);
-
-//   if (!isNaN(currentVal)) {
-//     inputElement.value = String(currentVal + 1);
-//     this.cartItemCount++; // Increment the cart item count
-//   } else {
-//     inputElement.value = '0';
-//   }
-// }
-
-// decrementValue(fieldName: string): void {
-//   const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
-//   const currentVal = parseInt(inputElement.value, 10);
-
-//   if (!isNaN(currentVal) && currentVal > 0) {
-//     inputElement.value = String(currentVal - 1);
-//     this.cartItemCount--; // Decrement the cart item count
-//   } else {
-//     inputElement.value = '0';
-//   }
-// }
-
-updateCartTotal(): void {
-  let cartTotal = 0;
-  for (const product of this.cartItems) {
-    cartTotal += product.price * product.quantity;
+  updateCart() {
+    this.cartService.updateCartState();
   }
-  // You can assign the calculated cartTotal to a variable or update it as needed
-  // console.log('Cart Total:', cartTotal);
-  this.cartTotal = this.cartItemCount * this.product.price;
-}
 
-
-
-incrementValue(fieldName: string): void {
-  const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
-  const currentVal = parseInt(inputElement.value, 10);
-
-  if (!isNaN(currentVal)) {
-    inputElement.value = String(currentVal + 1);
-    this.cartItemCount++; // Increment the cart item count
-    this.updateCartTotal(); // Update the cart total
-  } else {
-    inputElement.value = '0';
+  onQuantityChange() {
+    this.updateCart();
   }
-}
-
-decrementValue(fieldName: string): void {
-  const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
-  const currentVal = parseInt(inputElement.value, 10);
-
-  if (!isNaN(currentVal) && currentVal > 0) {
-    inputElement.value = String(currentVal - 1);
-    this.cartItemCount--; // Decrement the cart item count
-    this.updateCartTotal(); // Update the cart total
-  } else {
-    inputElement.value = '0';
   }
-}
-
- 
-}

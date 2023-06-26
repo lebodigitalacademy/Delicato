@@ -2,6 +2,8 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { faShoppingCart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from 'src/app/cart.service';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { LoginServiceService } from 'src/app/login-service.service';
 //import { CartServiceService } from 'src/app/services/cart-service.service';
 
 @Component({
@@ -17,11 +19,17 @@ export class NavigationBarComponent implements OnInit {
 
   cartItemCount: number = 0;
 
-  constructor(public cartService: CartService) { }
+  isLoggedIn$ = this.loginService.isLoggedIn;
+  username$ = this.loginService.isLoggedIn;
+
+  constructor(private cartService: CartService, private router: Router,private loginService: LoginServiceService) { }
 
   ngOnInit(): void {
-    this.cartService.cartItems$.subscribe(products => {
+ /*    this.cartService.cartItems$.subscribe(products => {
       this.cartItemCount = products.length;
+    }); */
+    this.cartService.count$.subscribe(count => {
+      this.cartItemCount = count;
     });
   }
 
@@ -49,5 +57,21 @@ export class NavigationBarComponent implements OnInit {
       inputElement.value = '0';
       this.cartItemCount = 0; // Update cartItemCount
     }
+  }
+  signup(){
+    this.router.navigate(['/register']);
+  }
+
+  login(){
+    this.router.navigate(['/login']);
+  }
+
+  profile(){
+    this.router.navigate(['/profile']);
+  }
+
+  signout(){
+    this.loginService.logout();
+    
   }
 }

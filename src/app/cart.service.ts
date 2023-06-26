@@ -101,75 +101,79 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class CartService {
 
-  
-  cartItemList : any =[]
-  // productsList = new BehaviorSubject<any>([]);
+  private cartItems: any[] = [];
+  private quantitySubject = new BehaviorSubject<number>(0);
+  private countSubject = new BehaviorSubject<number>(0);
+  private totalPriceSubject = new BehaviorSubject<number>(0);
+  private cartItemsSubject = new BehaviorSubject<Product[]>([]);
 
+  quantity$ = this.quantitySubject.asObservable();
+  count$ = this.countSubject.asObservable();
+  totalPrice$ = this.totalPriceSubject.asObservable();
+  cartItems$ = this.cartItemsSubject.asObservable();
 
-  products: any[] = [];
-  private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  
-  private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  constructor() { }
 
+  addToCart(product: any) {
+    console.log(product)
+    const cartItem = this.cartItems.find(item => item.productId === product.productId);
 
-  // cartItems = this.cartItemsSubject.asObservable();
-  public cartItems$ = this.cartItemsSubject.asObservable();
-
-  constructor(){}
-
-  addToCart(product: Product, quantity: number = 1): void {
-    const currentItems = this.cartItemsSubject.getValue();
-    const existingProductIndex = currentItems.findIndex(item => item.id === product.id);
-
-    if (existingProductIndex !== -1) {
-      // If the product already exists in the cart, update the quantity
-      const existingProduct = currentItems[existingProductIndex];
-      const updatedQuantity = existingProduct.quantity + quantity;
-      existingProduct.quantity = updatedQuantity;
-      currentItems[existingProductIndex] = existingProduct;
+    if (cartItem) {
+      const totalPrice = this.cartItems.reduce((total, item) => total + item.price, 0);
+      this.totalPriceSubject.next(totalPrice);
+      cartItem.quantity++;
+      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+      this.updateCartState();
     } else {
-      // If the product does not exist in the cart, add it
-      const newProduct = { ...product, quantity };
-      currentItems.push(newProduct);
+      this.cartItems.push({ ...product, quantity: 1 });
+      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+      this.updateCartState();
     }
 
-    this.cartItemsSubject.next(currentItems);
+    this.updateCartState();
   }
 
+  removeFromCart(product: any) {
+    const index = this.cartItems.findIndex(item => item.productId === product.productId);
 
-getCartItemById(productId: number): Observable<Product | undefined> {
-  return this.cartItems$.pipe(
-    map(items => items.find(item => item.id === productId))
-  );
-}
-
-getCartItems(): Observable<Product[]> {
-  return this.cartProducts.asObservable();
-}
-
-  updateCartItemQuantity(product: Product, quantity: number): void {
-    const currentItems = this.cartItemsSubject.getValue();
-    const productIndex = currentItems.findIndex(item => item.id === product.id);
-
-    if (productIndex !== -1) {
-      const updatedProduct = { ...product, quantity };
-      currentItems[productIndex] = updatedProduct;
-      this.cartItemsSubject.next(currentItems);
+    if (index !== -1) {
+      const removedItem = this.cartItems.splice(index, 1)[0];
+      this.updateCartState();
     }
   }
 
+   updateCartState() {
+    const quantity = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+    const count = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+    const totalPrice = this.cartItems.reduce((total, item) => total+item.price *item.quantity, 0);
 
-  removeCartItem(product: Product): Observable<void> {
-    return new Observable<void>((observer) => {
-      this.cartItems$.pipe(
-        take(1),
-        map(items => items.filter(item => item.id !== product.id)),
-      ).subscribe(updatedItems => {
-        this.cartItemsSubject.next(updatedItems);
-        observer.next();
-        observer.complete();
-      });
-    });
+    this.quantitySubject.next(quantity);
+    this.countSubject.next(count);
+    this.totalPriceSubject.next(totalPrice);
+    this.cartItemsSubject.next([...this.cartItems]);
   }
 
+  getCartItems(): any[] {
+    return this.cartItems;
+  }
+
+  clearCart() {
+    this.cartItems = [];
+    this.updateCartState();
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
