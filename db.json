@@ -304,6 +304,11 @@
       "totalPrice": 20,
       "customerID": 18,
       "id": 19
+    },
+    {
+      "totalPrice": 100,
+      "customerID": 18,
+      "id": 20
     }
   ]
 }
