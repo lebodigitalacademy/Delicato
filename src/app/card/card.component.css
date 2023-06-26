@@ -17,6 +17,10 @@
     margin-top: 100px;
     padding: 25px;
 }
+.center-empty-cart {
+    margin-top: 50px; 
+  }
+
 .center img{
     text-decoration: none;
     color: inherit;

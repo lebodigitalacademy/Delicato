@@ -101,66 +101,83 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class CartService {
 
-  private cartItems: any[] = [];
-  private quantitySubject = new BehaviorSubject<number>(0);
-  private countSubject = new BehaviorSubject<number>(0);
-  private totalPriceSubject = new BehaviorSubject<number>(0);
-  private cartItemsSubject = new BehaviorSubject<Product[]>([]);
+  
+  cartItemList : any =[]
+  // productsList = new BehaviorSubject<any>([]);
 
-  quantity$ = this.quantitySubject.asObservable();
-  count$ = this.countSubject.asObservable();
-  totalPrice$ = this.totalPriceSubject.asObservable();
-  cartItems$ = this.cartItemsSubject.asObservable();
 
-  constructor() { }
+  products: any[] = [];
+  private cartCountSubject = new BehaviorSubject<number>(0);
+  // private cartPriceSubject = new BehaviorSubject<number>(0);
 
-  addToCart(product: any) {
-    console.log(product)
-    const cartItem = this.cartItems.find(item => item.productId === product.productId);
 
-    if (cartItem) {
-      const totalPrice = this.cartItems.reduce((total, item) => total + item.price, 0);
-      this.totalPriceSubject.next(totalPrice);
-      cartItem.quantity++;
-      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
-      this.updateCartState();
-    } else {
-      this.cartItems.push({ ...product, quantity: 1 });
-      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
-      this.updateCartState();
-    }
+  private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  
+  //shoppingCart$ = cartProducts BehaviorSubject<ShoppingCart>
+  private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
-    this.updateCartState();
-  }
+  private cartPriceSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  removeFromCart(product: any) {
-    const index = this.cartItems.findIndex(item => item.productId === product.productId);
 
-    if (index !== -1) {
-      const removedItem = this.cartItems.splice(index, 1)[0];
-      this.updateCartState();
-    }
-  }
 
-   updateCartState() {
-    const quantity = this.cartItems.reduce((total, item) => total + item.quantity, 0);
-    const count = this.cartItems.reduce((total, item) => total + item.quantity, 0);
-    const totalPrice = this.cartItems.reduce((total, item) => total+item.price *item.quantity, 0);
+  cartCount$ = this.cartCountSubject.asObservable();
+  // cartPrice$ = this.cartPriceSubject.asObservable();
+  cartPrice$: Observable<number> = this.cartPriceSubject.asObservable();
 
-    this.quantitySubject.next(quantity);
-    this.countSubject.next(count);
-    this.totalPriceSubject.next(totalPrice);
-    this.cartItemsSubject.next([...this.cartItems]);
-  }
 
-  getCartItems(): any[] {
-    return this.cartItems;
-  }
+  // cartItems = this.cartItemsSubject.asObservable();
+  public cartItems$ = this.cartItemsSubject.asObservable();
+  
 
-  clearCart() {
-    this.cartItems = [];
-    this.updateCartState();
-  }
+  constructor(){}
+
+  // addToCart(product: any) {
+  //   console.log(product)
+  //   const cartItem = this.cartItems.find(item => item.productId === product.productId);
+
+  //   if (cartItem) {
+  //     const totalPrice = this.cartItems.reduce((total, item) => total + item.price, 0);
+  //     this.totalPriceSubject.next(totalPrice);
+  //     cartItem.quantity++;
+  //     this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+  //     this.updateCartState();
+  //   } else {
+  //     this.cartItems.push({ ...product, quantity: 1 });
+  //     this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+  //     this.updateCartState();
+  //   }
+
+  //   this.updateCartState();
+  // }
+
+  // removeFromCart(product: any) {
+  //   const index = this.cartItems.findIndex(item => item.productId === product.productId);
+
+  //   if (index !== -1) {
+  //     const removedItem = this.cartItems.splice(index, 1)[0];
+  //     this.updateCartState();
+  //   }
+  // }
+
+  //  updateCartState() {
+  //   const quantity = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+  //   const count = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+  //   const totalPrice = this.cartItems.reduce((total, item) => total+item.price *item.quantity, 0);
+
+  //   this.quantitySubject.next(quantity);
+  //   this.countSubject.next(count);
+  //   this.totalPriceSubject.next(totalPrice);
+  //   this.cartItemsSubject.next([...this.cartItems]);
+  // }
+
+  // getCartItems(): any[] {
+  //   return this.cartItems;
+  // }
+
+  // clearCart() {
+  //   this.cartItems = [];
+  //   this.updateCartState();
+  // }
 }
 
 

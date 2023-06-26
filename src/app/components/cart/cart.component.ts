@@ -9,6 +9,11 @@ import { Product } from 'src/app/interface/product';
 })
 export class CartComponent implements OnInit {
 
+  constructor(private cartService: CartService) { 
+    // this.cartService.getCartItems().subscribe(products => {
+    //   // Do something with the cart items
+    // });
+  }
 
   ngOnInit(): void {
    
