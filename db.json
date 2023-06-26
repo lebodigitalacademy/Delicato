@@ -114,6 +114,14 @@
       "password": "password",
       "retypePassword": "password",
       "id": 15
+    },
+    {
+      "name": "Thilivhali",
+      "surname": "Ravhutulu",
+      "email": "trav@da.co.za",
+      "password": "123456",
+      "retypePassword": "123456",
+      "id": 16
     }
   ],
   "shipping": [

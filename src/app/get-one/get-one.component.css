@@ -1,5 +1,5 @@
 .py-5 button{
-    font-family: optimal;
+    font-family: optima;
     color: white;
     background-color: #38a8ae;
     border: 2px solid #38a8ae;
@@ -16,6 +16,7 @@
 }
 
 .card h5 {
+    font-family: optima;
     font-size: 19px;
 }
 
@@ -23,4 +24,8 @@
     background-color: #38a8ae;
     border:0px solid rgba(0,0,0.2);
     border-radius: 9px;
+    font-family: optima;
+}
+.card-title{
+    font-family: optima;
 }

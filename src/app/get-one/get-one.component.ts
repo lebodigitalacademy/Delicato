@@ -49,8 +49,14 @@ export class GetOneComponent implements OnInit {
 
   addToCart(product: any): void {
     this.cartService.addToCart(product);
+    this.updateCart();
     // console.log(product);
   }
-
+  updateCart() {
+    this.cartService.updateCartState();
+  }
+  onQuantityChange() {
+    this.updateCart();
+  }
 
 }

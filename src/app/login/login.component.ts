@@ -62,11 +62,11 @@ export class LoginComponent implements OnInit {
         });
         if (user) {
             this.loginService.login(this.loginForm.value.email, this.loginForm.value.password);
-     console.log("HI"+this.loginService.isLoggedIn)
-          alert('Login Successful');
+            console.log("HI"+this.loginService.isLoggedIn)
+            alert('Login Successful');
           
-          this.loginForm.reset();
-          this.router.navigate(['']);
+            this.loginForm.reset();
+           this.router.navigate(['']);
         } else {
           alert('User not found');
         }

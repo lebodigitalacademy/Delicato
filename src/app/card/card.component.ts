@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../interface/product';
+import { LoginServiceService } from '../login-service.service';
 
 
 @Component({
@@ -19,11 +20,10 @@ export class CardComponent implements OnInit {
   quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   updatedCart:any;
   totalQuantity:any;
+  
+  isLoggedIn$ = this.loginService.isLoggedIn;
 
-
-  constructor(private cartService: CartService) { 
- 
-  }
+  constructor(private cartService: CartService, private loginService: LoginServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(products => {
@@ -55,5 +55,9 @@ export class CardComponent implements OnInit {
 
   onQuantityChange() {
     this.updateCart();
+  }
+
+  alert(): void{
+    alert("Please Register/Login");
   }
   }
