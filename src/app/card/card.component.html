@@ -29,7 +29,6 @@
                     <div class="p-5">
                       <div class="d-flex justify-content-between align-items-center mb-5">
                         <h1 class="fw-bold mb-0 text-black">My Cart</h1>
-                        <h6 class="mb-0 text-muted">{{ cartItemCount }} items</h6>
                       </div>
                      
                       <hr class="my-4">
@@ -48,7 +47,7 @@
                           </div>
                         </div>
                         <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-end">
-                          <h6 class="mb-0">{{ product.price }}</h6>
+                          <h6 class="mb-0">R {{ product.price }} each</h6>
                         </div>
                         <div class="col-md-2 col-lg-2 col-xl-2 text-end">
                           <button class="btn btn-danger" (click)="removeFromCart(product)">
@@ -68,8 +67,15 @@
                         </div>
                       </div>
                       <div class="d-flex justify-content-center flex-wrap">
-                        <button class="emptycart btn btn-danger btn-md mx-2 my-2" (click)="clearCart()">EmptyCart</button>
-                        <button class="shopmore btn btn-primary btn-md mx-2 my-2" routerLink="">ShopMore</button>
+
+                        <ng-template #loggedOutTemplate>
+                          <button class="checkout btn btn-info btn-md mx-2 my-2" routerLink="/login">Login to Checkout</button>
+                      </ng-template>
+  
+                     
+                      <button class="emptycart btn btn-danger btn-md mx-2 my-2" (click)="clearCart()">EmptyCart</button>
+                      <button class="shopmore btn btn-primary btn-md mx-2 my-2" routerLink="">ShopMore</button>
+                      <div  *ngIf="isLoggedIn$ | async; else loggedOutTemplate">
                         <button class="checkout btn btn-info btn-md mx-2 my-2" routerLink="/checkout">CheckOut</button>
                       </div>                      
                     </div>
@@ -78,6 +84,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
