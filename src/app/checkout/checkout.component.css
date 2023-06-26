@@ -1,9 +1,10 @@
 .checkoutHeading{
     font-family: optima;
     color:orangered;
-    margin-top:8%;
+    margin-top:10%;
     margin-bottom:4%;
     font-size: 250%;
+    
 }
 .errorMsg{
     color: red;
@@ -70,7 +71,7 @@ input{
 .orderHeading{
     font-family: optima;
     color:orangered;
-    font-size: 195%;
+    font-size: 150%;
 
 }
 .Heading{
@@ -82,11 +83,12 @@ input{
 
 }
 .orderImg{
-    max-height: 30%;
-    max-width: 30%;
+    max-height: 10%;
+    max-width: 10%;
 }
 .tdImage{
     max-width: 10%;
+    min-height: 10%;
 }
 .table{
     font-family: optima;
@@ -94,12 +96,17 @@ input{
 }
 .placeOrder{
     justify-content: center;
-    min-width: 100%;
+    align-items: center;
+    text-align: center;
+    min-width: 50%;
     margin-top: 8%;
     border-width: 0.1px;
     border-radius: 10px 10px 10px 10px;
     background-color: #38A8AE;
     color: white;
+    margin-left: 25%;
+    padding-top: 3px;
+    padding-bottom: 3px;
 
 }
 

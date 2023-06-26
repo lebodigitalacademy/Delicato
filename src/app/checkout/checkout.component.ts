@@ -71,7 +71,7 @@ export class CheckoutComponent {
   }
   
 
-  onSubmit() {
+/*   onSubmit() {
     if (this.form.valid) {
       console.log("HIHIHIHI"+this.form.value)
       this.service.addShipping(this.form.value,).subscribe({
@@ -116,10 +116,10 @@ export class CheckoutComponent {
 
      
     }
-  }
+  } */
 isFormFilled(){
 
-  if(this.form1Filled && this.form2Filled){
+
     
       Swal.fire({
         title: 'Thank you!',
@@ -134,18 +134,9 @@ isFormFilled(){
       });
   
   
-  }else{
-    Swal.fire({
-      icon:"error",
-      title: 'Details not specified',
-      text: 'Please enter your shipping and payment info',
-    }).then((result) => {
-      if (result.isConfirmed) {
+ 
 
-      }
-    });
-
-  }
+  
 }
   
 
