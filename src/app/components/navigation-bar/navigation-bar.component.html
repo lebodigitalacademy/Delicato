@@ -23,7 +23,7 @@
                     [icon]="cartIcon"
                     [styles]="{ color: 'white' }"
                     size="lg"></fa-icon>
-                    <span class="cart-counter" >{{ cartCount }}</span>
+                    <span class="cart-counter" >{{ cartItemCount }}</span>
                 </a>
             </li>
         </ul>
@@ -37,10 +37,20 @@
                 </fa-icon>
             
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="signup()">Signup</button>
-                    <button mat-menu-item (click)="login()">Login</button>
+
+                    <ng-template #loggedOutTemplate>
+                        <button mat-menu-item (click)="signup()">Signup</button>
+                        <button mat-menu-item (click)="login()">Login</button>
+       
+                    </ng-template>
+
+                   
+                   
+                    <div  *ngIf="isLoggedIn$ | async; else loggedOutTemplate">
                     <button mat-menu-item (click)="profile()">View Profile</button>
                     <button mat-menu-item (click)="signout()">Sign out</button>
+                    
+                </div>
                 </mat-menu>
                 </a>
     </li>
@@ -48,6 +58,5 @@
         </div>
 
     </div>
-    
   </nav>
 </div>

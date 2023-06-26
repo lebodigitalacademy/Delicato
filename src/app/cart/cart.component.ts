@@ -109,20 +109,18 @@ export class CartComponent implements OnInit {
 
   addToCart(product: any): void {
     this.cartService.addToCart(product);
-    this.products = this.cartService.getProducts();
+    this.products = this.cartService.getCartItems();
     this.calculateGrandTotal();
   }
 
   removeItem(product: any): void {
     this.cartService.removeFromCart(product);
-    this.products = this.cartService.getProducts();
+    this.products = this.cartService.getCartItems();
     this.calculateGrandTotal();
   }
 
   clearCart(): void {
-    this.cartService.clearCart();
-    this.products = [];
-    this.grandTotal = 0;
+    this.cartService.clearCart;
   }
 }
 

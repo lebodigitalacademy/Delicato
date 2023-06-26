@@ -4,6 +4,7 @@ import { CartService } from '../cart.service';
 import { ServiceService } from '../service.service';
 import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -17,6 +18,9 @@ export class CheckoutComponent {
   totalPrice:number=0;
   form!: FormGroup;
   form2!:FormGroup;
+  form2Filled!: Boolean;
+  form1Filled!: Boolean;
+  loggedInUserDetails$:any;
 
   shippingSuccess(){
     Swal.fire('Shipping info successfully saved')
@@ -27,7 +31,7 @@ export class CheckoutComponent {
 
   constructor(private formBuilder: FormBuilder,private cartService: CartService, private service:ServiceService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private loginService:LoginServiceService) { }
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(products => {
@@ -39,9 +43,14 @@ export class CheckoutComponent {
       this.cartItems = products;
     });
 
-    this.cartService.cartPrice$.subscribe(price => {
+    this.cartService.totalPrice$.subscribe(price => {
       this.totalPrice = price;
     });
+     this.loginService.loggedInUser$.subscribe(userDetails => {
+      this.loggedInUserDetails$ = userDetails;
+      console.log("BIG MOE"+this.loggedInUserDetails$)
+    });
+  
 
 
 
@@ -64,7 +73,20 @@ export class CheckoutComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value)
+      console.log("HIHIHIHI"+this.form.value)
+      this.service.addShipping(this.form.value,).subscribe({
+        next: (val: any) => {
+          // once the employee has been addedng, display the success notification and reset the form
+         this.shippingSuccess();
+          this.form.reset();
+        },
+        // log a console error if the employee was not deleted
+        error: (err: any) => {
+          console.error (err);
+        },
+        
+      });
+      this.form1Filled=true;
       this.shippingSuccess();
       this.form.reset();
 
@@ -73,31 +95,61 @@ export class CheckoutComponent {
   }
   onSubmit2() {
     if (this.form2.valid) {
-      console.log(this.form.value)
-      this.paymentSuccess();
-      this.form.reset();
+      this.service.addPayment(this.form2.value).subscribe({
+        next: (val: any) => {
+        // once the item has been added, display the success notification and reset the form
+        //  this.successNotification();
+        // console.log('Successfully registered'+this.registerForm.value)
+        //   this.registerForm.reset();
+        console.log(this.form2.value)
+        this.form2Filled=true;
+        this.paymentSuccess();
+        this.form2.reset();
+        },
+        
+        error: (err: any) => {
+          console.error (err);
+        },
+        
+      });
+    
 
      
     }
   }
+isFormFilled(){
 
-  displayOrderSuccess(){
+  if(this.form1Filled && this.form2Filled){
+    
+      Swal.fire({
+        title: 'Thank you!',
+        text: 'Your order has been placed',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.cartService.clearCart();
+          // User clicked "Yes" button, perform the routing
+          this.router.navigate(['']); // Replace '/new-page' with the desired route
+  
+        }
+      });
+  
+  
+  }else{
     Swal.fire({
-      title: 'Confirmation',
-      text: 'Your order has been placed',
+      icon:"error",
+      title: 'Details not specified',
+      text: 'Please enter your shipping and payment info',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.cartService.resetCart();
-        // User clicked "Yes" button, perform the routing
-        this.router.navigate(['']); // Replace '/new-page' with the desired route
 
-      } else {
-        // User clicked "No" button, do nothing or handle accordingly
       }
     });
 
-
+  }
 }
+  
+
+
 }
 
 
