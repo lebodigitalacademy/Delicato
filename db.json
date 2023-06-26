@@ -122,6 +122,46 @@
       "password": "password",
       "retypePassword": "password",
       "id": 16
+    },
+    {
+      "name": "Abdul",
+      "surname": "Abdul",
+      "email": "Abdul@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 17
+    },
+    {
+      "name": "qwerty",
+      "surname": "qwerty",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 18
+    },
+    {
+      "name": "sadfas",
+      "surname": "adsfas",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 19
+    },
+    {
+      "name": "asdfasasdfa",
+      "surname": "asdfas",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 20
+    },
+    {
+      "name": "adfasad",
+      "surname": "adfa",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 21
     }
   ],
   "shipping": [
@@ -259,6 +299,11 @@
       "totalPrice": 50,
       "customerID": 13,
       "id": 18
+    },
+    {
+      "totalPrice": 20,
+      "customerID": 18,
+      "id": 19
     }
   ]
 }

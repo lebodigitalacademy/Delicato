@@ -3,6 +3,7 @@ import { CartService } from '../cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../interface/product';
 import { LoginServiceService } from '../login-service.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -21,9 +22,9 @@ export class CardComponent implements OnInit {
   updatedCart:any;
   totalQuantity:any;
   isLoggedIn$ = this.loginService.isLoggedIn;
+  loggedInUserDetails$:any;
 
-
-  constructor(private cartService: CartService, private loginService:LoginServiceService) { 
+  constructor(private cartService: CartService, private loginService:LoginServiceService, private router:Router) { 
  
   }
 
@@ -43,6 +44,11 @@ export class CardComponent implements OnInit {
       this.totalQuantity = quantity;
     });
 
+    this.loginService.loggedInUser$.subscribe(userDetails => {
+      this.loggedInUserDetails$ = userDetails;
+      console.log("BIG MOE"+this.loggedInUserDetails$)
+    });
+
   
   }
   
@@ -60,5 +66,25 @@ export class CardComponent implements OnInit {
   }
   clearCart(){
     this.cartService.clearCart();
+  }
+  tryCheckout(){
+    if (this.loggedInUserDetails$){
+     this.router.navigate(['/checkout']);
+    }
+    else{
+      Swal.fire({
+        icon:"warning",
+        title: 'You are not logged in',
+        text: 'Login to access the checkout page',
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          // User clicked "Yes" button, perform the routing
+          this.router.navigate(['/login']); // Replace '/new-page' with the desired route
+  
+        }
+      });
+
+    }
   }
   }

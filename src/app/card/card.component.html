@@ -67,18 +67,12 @@
                         </div>
                       </div>
                       <div class="d-flex justify-content-center flex-wrap">
-
-                        <ng-template #loggedOutTemplate>
-                          <button class="checkout btn btn-info btn-md mx-2 my-2" routerLink="/login">Login to Checkout</button>
-                      </ng-template>
   
                      
                       <button class="emptycart btn btn-danger btn-md mx-2 my-2" (click)="clearCart()">EmptyCart</button>
                       <button class="shopmore btn btn-primary btn-md mx-2 my-2" routerLink="">ShopMore</button>
-                      <div  *ngIf="isLoggedIn$ | async; else loggedOutTemplate">
-                        <button class="checkout btn btn-info btn-md mx-2 my-2" routerLink="/checkout">CheckOut</button>
+                        <button class="checkout btn btn-info btn-md mx-2 my-2" (click)="tryCheckout()">CheckOut</button>
                       </div>                      
-                    </div>
                   </div>
                 </div>
               </div>
