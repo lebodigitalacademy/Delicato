@@ -13,7 +13,9 @@ export class RegisterComponent implements OnInit {
   retypePass: string = 'none';
 
   //Inject Router Dependency
-  constructor(private router: Router, private service :ServiceService) {}
+
+  constructor(private router: Router, private service: ServiceService) {}
+
 
   ngOnInit(): void {}
 
