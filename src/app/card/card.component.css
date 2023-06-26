@@ -31,27 +31,27 @@
     margin: 20px 0px;
 }
 .emptycart{
-    
-    font-size: 18px; 
-    padding: 10px 50px; 
-    background-color: red; 
-    color: #ffffff; 
+
+    font-size: 18px;
+    padding: 10px 50px;
+    background-color: red;
+    color: #ffffff;
     border-radius: 20px;
     margin-right: 10px;
 }
 .shopmore{
     font-size: 18px;
-    padding: 10px 50px; 
+    padding: 10px 50px;
     background-color: #0079FF;
     color: #ffffff;
     border-radius: 20px;
     margin-right: 10px;
 }
 .checkout{
-    font-size: 18px; 
-    padding: 10px 50px; 
-    background-color: #38A8AE; 
-    color: #ffffff; 
+    font-size: 18px;
+    padding: 10px 50px;
+    background-color: #38A8AE;
+    color: #ffffff;
     border-radius: 20px;
 }
 .h4, h6{

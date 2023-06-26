@@ -68,10 +68,11 @@ export class CheckoutComponent {
       expiryDate: ['', [Validators.required, Validators.pattern('^(0[1-9]|1[0-2])\/?([0-9]{2})$')]],
       cvv: ['', [Validators.required, Validators.pattern('^[0-9]{3,4}$')]]
     });
+    
   }
   
 
-  onSubmit() {
+/*   onSubmit() {
     if (this.form.valid) {
       console.log("HIHIHIHI"+this.form.value)
       this.service.addShipping(this.form.value,).subscribe({
@@ -116,14 +117,26 @@ export class CheckoutComponent {
 
      
     }
-  }
+  } */
 isFormFilled(){
+  
 
-  if(this.form1Filled && this.form2Filled){
+  const data = {
+    totalPrice: this.totalPrice,
+    customerID: this.loggedInUserDetails$.id
+  };
+  console.log('dfgsfgsfgAwe'+this.totalPrice+this.loggedInUserDetails$.id);
+
+  this.service.addOrder(data).subscribe({
     
+    next: (val: any) => {
+      // once the employee has been addedng, display the success notification and reset the form
+      const orderID=val.id;
+      console.log('orderID'+orderID)
+
       Swal.fire({
-        title: 'Thank you!',
-        text: 'Your order has been placed',
+        title: 'Thank you '+this.loggedInUserDetails$.name,
+        text: 'Your order has been placed, order number is '+orderID+' and total order amount is R '+this.totalPrice,
       }).then((result) => {
         if (result.isConfirmed) {
           this.cartService.clearCart();
@@ -132,20 +145,21 @@ isFormFilled(){
   
         }
       });
+    },
+    // log a console error if the employee was not deleted
+    error: (err: any) => {
+      console.error (err);
+    },
+    
+  });
+
+
+    
   
   
-  }else{
-    Swal.fire({
-      icon:"error",
-      title: 'Details not specified',
-      text: 'Please enter your shipping and payment info',
-    }).then((result) => {
-      if (result.isConfirmed) {
+ 
 
-      }
-    });
-
-  }
+  
 }
   
 

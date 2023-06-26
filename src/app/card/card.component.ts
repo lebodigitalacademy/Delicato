@@ -56,9 +56,8 @@ export class CardComponent implements OnInit {
   onQuantityChange() {
     this.updateCart();
   }
-
-  resetCart(){
-    this.resetCart();
+  clearCart(){
+    this.cartService.clearCart();
   }
   }
 
