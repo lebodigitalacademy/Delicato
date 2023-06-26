@@ -1,8 +1,24 @@
-.card {
-    padding: 23px;
-    font-family: optima;
-    margin-top: 23vh;
+.py-5 button{
+    font-family: optimal;
+    color: white;
+    background-color: #38a8ae;
+    border: 2px solid #38a8ae;
+    border-radius: 13px;
+    padding: 5px 20px;
+    font-size: 16px;
 }
+
+.card {
+    padding: 73px 29px;
+    font-family: optima;
+    font-size: 16px;
+    margin-top: 5vh;
+}
+
+.card h5 {
+    font-size: 19px;
+}
+
 .add-to-cart{
     background-color: #38a8ae;
     border:0px solid rgba(0,0,0.2);
