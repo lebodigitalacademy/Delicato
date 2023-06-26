@@ -66,16 +66,105 @@
       "choosePassword": "Destiny",
       "retypePassword": "Destiny",
       "id": 9
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "password",
+      "retypePassword": "password",
+      "id": 10
+    },
+    {
+      "name": "Mohammed",
+      "surname": "Badat",
+      "email": "moebadat16@gmail.com",
+      "choosePassword": "afterwards",
+      "retypePassword": "afterwards",
+      "id": 11
+    },
+    {
+      "name": "Jake",
+      "surname": "Smith",
+      "email": "js@gmail.com",
+      "password": "afterwards",
+      "retypePassword": "afterwards",
+      "id": 12
+    },
+    {
+      "name": "delphy",
+      "surname": "delphy",
+      "email": "delphy@gmail.com",
+      "password": "222222",
+      "retypePassword": "222222",
+      "id": 13
+    },
+    {
+      "name": "Gmail",
+      "surname": "Gmail",
+      "email": "Gmail@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 14
+    },
+    {
+      "name": "Jason",
+      "surname": "Jason",
+      "email": "Jasno@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 15
     }
   ],
   "shipping": [
     {
-  
+      "id": 1,
+      "addressLine1": "216 Jason Street",
+      "addressLine2": "Jason",
+      "town": "JJason",
+      "postalcode": "8097"
+    },
+    {
+      "addressLine1": "asdfa",
+      "addressLine2": "asdfas",
+      "town": "adfa",
+      "postalCode": "1232",
+      "id": 2
+    },
+    {
+      "addressLine1": "sadf",
+      "addressLine2": "asdf",
+      "town": "adsf",
+      "postalCode": "1212",
+      "id": 3
+    },
+    {
+      "addressLine1": "sdfsd",
+      "addressLine2": "sfdsd",
+      "town": "sdfgs",
+      "postalCode": "1232",
+      "id": 4
     }
   ],
   "payment": [
     {
-  
+      "id": 2,
+      "cardNumber": "0980980980980980",
+      "expiry": "12/12",
+      "cvv": "323",
+      "userID": 1
+    },
+    {
+      "cardNumber": "1231231231231231",
+      "expiryDate": "1212",
+      "cvv": "123",
+      "id": 3
+    }
+  ],
+  "orders": [
+    {
+      "totalPrice": 1,
+      "orderId": 1
     }
   ]
 }
