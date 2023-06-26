@@ -1,0 +1,22 @@
+.checkoutHeading{
+    font-family: optima;
+    color:orangered;
+    margin-top:10%;
+    margin-bottom:4%;
+    font-size: 250%;
+    
+}
+.Heading{
+    font-family: optima;
+    color:orangered;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    font-size: 195%;
+
+}
+.border{
+   padding:5%; font-family: optima; font-size:130%; border-style:solid; border-width:0.1px; border-radius: 10px; background-color:#FAF9F6; border-color:rgb(218, 210, 210) ;
+}
+input{
+    min-width:200%;
+}
