@@ -1,3 +1,4 @@
+ 
 <!-- <div class="product" style="margin-top: 100px;">
     <h1>Categories</h1>
     
@@ -94,10 +95,10 @@
 
             <div class="row">
 
-                <div class="cat1 col-md-2">
-                    <div div class="card" style="max-height: 100%;">
+                <div class="col-md-2">
+                    <div div class="card">
 
-                        <img style="height: 124px;" src="https://th.bing.com/th/id/OIP.9BplZJxFcE0nPPxLOxqMcAHaFj?pid=ImgDet&rs=1" (click)="selectCategory(categories[0])"
+                        <img src="../../assets/Electronic.jpg" (click)="selectCategory(categories[0])"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text">{{categories[0]}}</p>
@@ -107,7 +108,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="card">
-                        <img src="https://th.bing.com/th/id/OIP.IPBmNdoSzuHQw6mwbVOFRAHaEl?pid=ImgDet&rs=1" (click)="selectCategory(categories[1])"
+                        <img src="../../assets/jewelry.jpeg" (click)="selectCategory(categories[1])"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text">{{categories[1]}}</p>
@@ -116,7 +117,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="card">
-                        <img src="https://th.bing.com/th/id/OIP.f8utj6pvkvtNfPDGQUSn8gHaEo?pid=ImgDet&rs=1" (click)="selectCategory(categories[2])"
+                        <img src="../../assets/woman clothing.jpeg" (click)="selectCategory(categories[2])"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text">{{categories[2]}}</p>
@@ -125,7 +126,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="card">
-                        <img src="https://th.bing.com/th/id/OIP.3Bbzp5N6QITrMJOGtLqJ4gHaEo?pid=ImgDet&rs=1" (click)="selectCategory(categories[3])"
+                        <img src="../../assets/mans clothing.jpeg" (click)="selectCategory(categories[3])"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text">{{categories[3]}}</p>
@@ -155,28 +156,28 @@
             <div class="row justify-content-center">
 
                 <div class="card" style="width: 18rem;">
-                    <img src="{{items[5].image.imageURL}}" (click)="viewProduct(items[5].productId)" class="card-img-top" alt="...">
+                    <img src="{{items[1].image.imageURL}}" (click)="viewProduct(items[1].productId)" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[5].name}}  <br> R {{items[5].price}}</p>
+                      <p class="card-text">{{items[1].name}}  <br> R {{items[1].price}}</p>
                     </div>
                 </div>
 
                   <div class="card" style="width: 18rem;">
-                    <img src="{{items[6].image.imageURL}}"  (click)="viewProduct(items[6].productId)" class="card-img-top" alt="...">
+                    <img src="{{items[13].image.imageURL}}"  (click)="viewProduct(items[13].productId)" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[6].name}}  <br> R {{items[6].price}}</p>
+                      <p class="card-text">{{items[13].name}}  <br> R {{items[13].price}}</p>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem;">
-                    <img src="{{items[7].image.imageURL}} " (click)="viewProduct(items[7].productId)"class="card-img-top" alt="...">
+                    <img src="{{items[22].image.imageURL}} " (click)="viewProduct(items[22].productId)"class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[7].name}}  <br> R {{items[7].price}}</p>
+                      <p class="card-text">{{items[22].name}}  <br> R {{items[22].price}}</p>
                     </div>
                   </div>
                   <div class="card" style="width: 18rem;">
-                    <img src="{{items[8].image.imageURL}} " (click)="viewProduct(items[8].productId)" class="card-img-top" alt="...">
+                    <img src="{{items[23].image.imageURL}} " (click)="viewProduct(items[23].productId)" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <p class="card-text">{{items[8].name}}  <br> R {{items[8].price}}</p>
+                      <p class="card-text">{{items[23].name}}  <br> R {{items[23].price}}</p>
                     </div>
                 </div>
             </div>
@@ -185,7 +186,7 @@
 </div>
 
 <!-- if there is filtered items then display the shop page -->
-<div *ngIf="check===true">
+<div *ngIf="check">
     <div class="container-fluid">
         <div class="row">
             <div class=" firstCol col-lg-2">
@@ -221,6 +222,4 @@
         </div>
     </div>
 </div>
-
-
 <app-navigation-bar></app-navigation-bar>

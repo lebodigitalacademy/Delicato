@@ -17,13 +17,13 @@
             </div>
         </div>
 
-        <div class="products col-lg-10 align-self-center">
+        <div class="products col-md-10 align-self-center">
 
             <div class="search-hero">
                 <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
                     placeholder="Enter text to Search">
             </div>
-            <div class="row1 row">
+            <div class="row1 row" >
 
                 <div *ngIf="selectedCategory; else emptyValue">
                     <!-- HTML content to display when value is not empty -->
@@ -56,4 +56,3 @@
     </div>
 </div>
 
-<app-navigation-bar></app-navigation-bar>

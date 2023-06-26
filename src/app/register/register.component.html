@@ -42,12 +42,12 @@
                 Email is invalid.
             </div>
 
-            <label for="choosePassword" class="form-label">Choose Password:</label>
-            <input type="password" class="form-control" id="choosePassword" formControlName="choosePassword">
-            <div class="form-text text-danger" *ngIf="ChoosePassword.errors?.['required'] && (ChoosePassword.dirty || ChoosePassword.touched)">
+            <label for="password" class="form-label">Choose Password:</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">
                 Password is required.
             </div>
-            <div class="form-text text-danger" *ngIf="ChoosePassword.errors?.['minlength'] || ChoosePassword.errors?.['maxlength'] && (ChoosePassword.dirty || ChoosePassword.touched)">
+            <div class="form-text text-danger" *ngIf="password.errors?.['minlength'] || password.errors?.['maxlength'] && (password.dirty || password.touched)">
                 Password should be at least 6 and at the maximum 15 characters long.
             </div>
 

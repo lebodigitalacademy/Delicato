@@ -8,6 +8,7 @@ import { ServiceService } from '../service.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
+
 export class RegisterComponent implements OnInit {
   retypePass: string = 'none';
 
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
       Validators.pattern('[a-zA-Z].*'),
     ]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    choosePassword: new FormControl('', [
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(16),
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.ChoosePassword.value !== this.RetypePassword.value) {
+    if (this.password.value !== this.RetypePassword.value) {
       this.RetypePassword.setErrors({ mismatch: true });
       this.retypePass = 'mismatch';
     } else {
@@ -83,8 +84,8 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('email') as FormControl;
   }
 
-  get ChoosePassword(): FormControl {
-    return this.registerForm.get('choosePassword') as FormControl;
+  get password(): FormControl {
+    return this.registerForm.get('password') as FormControl;
   }
 
   get RetypePassword(): FormControl {

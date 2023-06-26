@@ -14,7 +14,7 @@ export class HomeContentComponent {
   items1:any;
   items:any;
   // id?: number
-  categories: string[] = ["Fruit and Veg", "Meat and Poultry","Cereal", "Bakery", "Frozen Food"]; // Add your list of categories
+  categories: string[] = ["Fruit and Vegetables", "Meat and Poultry","Cereal", "Bakery", "Frozen Food"]; // Add your list of categories
   selectedCategory: any = '';
   filteredItems: any[] = [];
 
