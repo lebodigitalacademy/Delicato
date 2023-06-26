@@ -45,7 +45,7 @@ export class NavigationBarComponent implements OnInit {
       this.cartItemCount = 0; // Update cartItemCount
     }
   }
-  
+
   decrementValue(fieldName: string): void {
     const inputElement = document.querySelector(`input[name="${fieldName}"]`) as HTMLInputElement;
     const currentVal = parseInt(inputElement.value, 10);
@@ -72,6 +72,6 @@ export class NavigationBarComponent implements OnInit {
 
   signout(){
     this.loginService.logout();
-    
+
   }
 }

@@ -41,42 +41,25 @@ export class CardComponent implements OnInit {
       this.totalQuantity = quantity;
     });
 
-  
+
   }
-  
+
   removeFromCart(product: any): void {
     this.cartService.removeFromCart(product);
     this.updateCart();
   }
-
-  // updateCart() {
-  //   this.cartService.updateCart(this.cartItems);
-  // }
 
   updateCart() {
     this.cartService.updateCartState();
   }
 
   onQuantityChange() {
-    // Calculate the total price based on the selected quantity
-    this.product.totalPrice = this.product.price * this.product.quantity;
     this.updateCart();
   }
 
-  increaseQuantity(): void {
-    this.product.quantity++;
-    this.updateCart();
+  resetCart(){
+    this.resetCart();
   }
-  
-  decreaseQuantity(): void {
-    if (this.product.quantity > 1) {
-      this.product.quantity--;
-      this.updateCart();
-    }
-  }
-
-  resetCart() : void {
-    this.cartService.resetCart();
   }
 
   
@@ -104,5 +87,3 @@ export class CardComponent implements OnInit {
   //     }}
   
     
-  
-  }

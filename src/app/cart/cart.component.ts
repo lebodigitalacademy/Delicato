@@ -82,7 +82,7 @@ export class CartComponent implements OnInit {
   //   this.calculateGrandTotal();
   // }
 
-  clearCart(): void {
-    this.cartService.clearCart;
-  }
+  // clearCart(): void {
+  //   this.cartService.clearCart;
+  // }
 }
