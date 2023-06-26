@@ -28,10 +28,6 @@ export class CardComponent implements OnInit {
       this.cartItems = products;
     });
 
-    this.cartService.cartItems$.subscribe(products => {
-      this.cartItems = products;
-    });
-
     this.cartService.cartPrice$.subscribe(price => {
       this.totalPrice = price;
     });

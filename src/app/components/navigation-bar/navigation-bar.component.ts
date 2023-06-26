@@ -11,19 +11,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent implements OnInit {
-  products:any[] = []; 
+  items:any[] = []; 
   cartIcon = faShoppingCart;
   profileIcon = faUser;
   searchIcon = faSearch;
 
-  cartItemCount: number = 0;
+  cartCount: number = 0;
 
-  constructor(private cartService: CartService, private router: Router) { }
+  arr: any[]= [];
+
+  cartTotal: number = 0;
+
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
+    console.log(this.arr) 
     this.cartService.cartItems$.subscribe(products => {
-      this.cartItemCount = products.length;
+      this.cartCount = products.length;
+      console.log(this.cartCount)
     });
+    // this.cartService.getCartItems().subscribe((item: any)=> {
+    //   this.arr.push(item);
+    //   console.log(this.arr);
+    // })
   }
 
   incrementValue(fieldName: string): void {
@@ -32,10 +42,10 @@ export class NavigationBarComponent implements OnInit {
 
     if (!isNaN(currentVal)) {
       inputElement.value = String(currentVal + 1);
-      this.cartItemCount = currentVal + 1; // Update cartItemCount
+      this.cartCount = currentVal + 1; // Update cartItemCount
     } else {
       inputElement.value = '0';
-      this.cartItemCount = 0; // Update cartItemCount
+      this.cartCount = 0; // Update cartItemCount
     }
   }
   
@@ -45,10 +55,10 @@ export class NavigationBarComponent implements OnInit {
 
     if (!isNaN(currentVal) && currentVal > 0) {
       inputElement.value = String(currentVal - 1);
-      this.cartItemCount = currentVal - 1; // Update cartItemCount
+      this.cartCount = currentVal - 1; // Update cartItemCount
     } else {
       inputElement.value = '0';
-      this.cartItemCount = 0; // Update cartItemCount
+      this.cartCount = 0; // Update cartItemCount
     }
   }
   signup(){

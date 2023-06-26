@@ -1,7 +1,8 @@
 .h-100{
     margin: 50px 0px;
 }
-.container{
+.container1{
+    margin-top: 8%;
     min-height:100vh;
 }
 
@@ -67,4 +68,9 @@
     font-weight: 400;
     padding: 12px 72px;
     border-radius: 3px !important;
+}
+
+.btn-primary{
+    background-color:#F16B44;
+    border-color: #F16B44;
 }

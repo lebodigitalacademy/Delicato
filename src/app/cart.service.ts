@@ -91,7 +91,7 @@
 
 
 
-        import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map, take} from 'rxjs';
 import { Product } from './interface/product';
 import { mergeMap } from 'rxjs/operators';
@@ -107,6 +107,7 @@ export class CartService {
 
 
   products: any[] = [];
+
   private cartCountSubject = new BehaviorSubject<number>(0);
   private cartPriceSubject = new BehaviorSubject<number>(0);
 
@@ -114,6 +115,7 @@ export class CartService {
   private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   
   private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  private cartProducts$ = this.cartProducts.asObservable()
 
 
   cartCount$ = this.cartCountSubject.asObservable();
@@ -129,6 +131,7 @@ export class CartService {
     // const currentItems = this.cartProducts.value;
     // currentItems.push(product);
     // this.cartProducts.next(currentItems);
+    this.cartProducts.next(product);
     const currentItems = this.cartItemsSubject.getValue();
 
     const isProductInCart = currentItems.some(item => item.productId === product.productId);
@@ -154,7 +157,7 @@ getCartItemById(productId: number): Observable<Product | undefined> {
 }
 
 getCartItems(): Observable<Product[]> {
-  return this.cartProducts.asObservable();
+  return this.cartProducts$;
 }
 
   updateCartItemQuantity(product: Product, quantity: number): void {

@@ -49,7 +49,7 @@ export class GetOneComponent implements OnInit {
 
   addToCart(product: any): void {
     this.cartService.addToCart(product);
-    console.log(product);
+    // console.log(product);
   }
 
 
