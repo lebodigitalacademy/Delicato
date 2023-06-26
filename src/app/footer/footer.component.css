@@ -1,9 +1,14 @@
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: optima;
-  flex: 1;
+  /* flex: 1; */
 }
 
 
@@ -11,3 +16,10 @@
 text-decoration: none;
 }
 
+.content {
+  flex: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+}
