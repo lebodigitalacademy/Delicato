@@ -59,7 +59,8 @@ export class ServiceService {
    addPayment(body:any){
     return this.http.post('http://localhost:3000/payment', body);
    }
-   
-   
 
+   addOrder(data:any){
+    return this.http.post('http://localhost:3000/orders', data);
+   }
 }
