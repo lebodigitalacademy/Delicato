@@ -56,6 +56,9 @@ export class CardComponent implements OnInit {
   onQuantityChange() {
     this.updateCart();
   }
+  clearCart(){
+    this.cartService.clearCart();
+  }
 
   alert(): void{
     alert("Please Register/Login");

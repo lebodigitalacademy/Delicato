@@ -87,9 +87,13 @@ margin-left:32%;
 .form-control {
 border: 0.2px solid #F16B44;
 box-shadow: 0 2px 2px 0 #F16B44;
+margin-top: 30%;
+
 }
 .form-control::placeholder  {
 font-family: optima;
+align-items: center;
+text-align: center;
 }
 
 .category-list{

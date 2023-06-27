@@ -63,6 +63,10 @@ export class ServiceService {
    updateUser(id:number, body: any){
     return this.http.put('http://localhost:3000/users/'+id, body);
    }
+
+   addOrder(data:any){
+    return this.http.post('http://localhost:3000/orders', data);
+   }
    
    
 
