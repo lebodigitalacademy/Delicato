@@ -43,7 +43,7 @@ export class CheckoutComponent {
       this.cartItems = products;
     });
 
-    this.cartService.cartPrice$.subscribe(price => {
+    this.cartService.cartPrice$.subscribe((price: number) => {
       this.totalPrice = price;
     });
 

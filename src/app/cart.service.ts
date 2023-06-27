@@ -18,6 +18,7 @@ export class CartService {
   count$ = this.countSubject.asObservable();
   totalPrice$ = this.totalPriceSubject.asObservable();
   cartItems$ = this.cartItemsSubject.asObservable();
+  cartPrice$: any;
 
   constructor() { }
 
