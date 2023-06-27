@@ -163,8 +163,14 @@
   ],
   "orders": [
     {
+      "id": 1,
       "totalPrice": 1,
-      "orderId": 1
+      "customerID": 1
+    },
+    {
+      "totalPrice": 45,
+      "customerID": 1,
+      "id": 2
     }
   ]
 }
