@@ -1,5 +1,6 @@
 <section class="py-5">
     <div class="container px-5 px-lg-7 my-5">
+        <a [routerLink]="['']"><button class="btn btn-success">Back</button></a>
         <div class="row">
             <div class="col-sm-6 mb-3 mb-sm-0">
                 <div class="card">
@@ -20,7 +21,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">R{{product?.price}}</h4>
-                        <br><br><br>
+                        <br>
+                        <!-- <div class="justify-content-between">
+                            <div class="input-group w-auto justify-content-between align-items-center">
+                              <input type="number"  [(ngModel)]="product.quantity" (input)="onQuantityChange()" >
+                            </div>
+                          </div> -->
+                          <br><br>
                         <div class="d-flex">
                             <button (click)="addToCart(product)">Add Item</button>
                         </div>

@@ -1,0 +1,92 @@
+.h-100{
+    margin: 50px 0px;
+}
+.container1{
+    margin-top: 8%;
+    min-height:100vh;
+    font-family: optima;
+}
+
+.icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+    
+
+}
+.checkout-button{
+    font-size: 18px; 
+    padding: 8px 20px; 
+    background-color: #38A8AE; 
+    color: #ffffff; 
+    border-radius: 20px;
+}
+.card{
+    min-height: 65vh;
+    margin: 25px;
+    padding: 25px;
+}
+.center img{
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    height: 162px;
+    width: 250px;
+    margin: 20px 0px;
+    
+}
+h4, h6{
+    font-weight: 400;
+    font-family: optima;
+}
+.center{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    transform: translate (-50%, -50%);
+    text-align: center;
+    font-family: optima;
+}
+.card-table{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: none;
+    word-wrap: break-word;
+    background: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: .25rem;
+}
+.center .btn{
+    font-size: 14px !important;
+    margin-top: 20px !important;
+    font-weight: 400;
+    padding: 12px 72px;
+    border-radius: 3px !important;
+}
+
+.btn-primary{
+    background-color:#F16B44;
+    border-color: #F16B44;
+}
+
+h1{
+    font-family: optima;
+}
+
+h5{
+    font-family: optima;
+}
+
+.checkout{
+    font-family: optima;
+}

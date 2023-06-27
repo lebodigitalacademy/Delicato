@@ -37,13 +37,20 @@ export class GetOneComponent implements OnInit {
     location.reload;
   }
 
-  get products() {
-    return this.cartService.products;
-  }
+  // get products() {
+  //   return this.cartService.products;
+  // }
 
-  addToCart(product: Product): void {
+  addToCart(product: any): void {
     this.cartService.addToCart(product);
+    this.updateCart();
+    // console.log(product);
   }
-
+  updateCart() {
+    this.cartService.updateCartState();
+  }
+  onQuantityChange() {
+    this.updateCart();
+  }
 
 }

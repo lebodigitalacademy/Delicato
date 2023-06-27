@@ -53,6 +53,21 @@ export class ServiceService {
   getAllUsers(){
     return this.http.get('http://localhost:3000/users');
    }
+   addShipping(body:any){
+    return this.http.post('http://localhost:3000/shipping', body);
+   }
+   addPayment(body:any){
+    return this.http.post('http://localhost:3000/payment', body);
+   }
+
+   updateUser(id:number, body: any){
+    return this.http.put('http://localhost:3000/users/'+id, body);
+   }
+
+   addOrder(data:any){
+    return this.http.post('http://localhost:3000/orders', data);
+   }
+   
    
 
 }

@@ -1,5 +1,6 @@
+
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, take } from 'rxjs';
+import { BehaviorSubject, Observable, map, take} from 'rxjs';
 import { Product } from './interface/product';
 
 @Injectable({
@@ -7,61 +8,79 @@ import { Product } from './interface/product';
 })
 export class CartService {
 
-  products: any[] = [];
-  private cartItemsSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
-  public cartItems$ = this.cartItemsSubject.asObservable();
-  
-  private cartProducts: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  private cartItems: any[] = [];
+  private quantitySubject = new BehaviorSubject<number>(0);
+  private countSubject = new BehaviorSubject<number>(0);
+  private totalPriceSubject = new BehaviorSubject<number>(0);
+  private cartItemsSubject = new BehaviorSubject<Product[]>([]);
 
-  private cartCountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  public cartCount$ = this.cartCountSubject.asObservable();
+  quantity$ = this.quantitySubject.asObservable();
+  count$ = this.countSubject.asObservable();
+  totalPrice$ = this.totalPriceSubject.asObservable();
+  cartItems$ = this.cartItemsSubject.asObservable();
 
-  constructor(){}
+  constructor() { }
 
-  addToCart(product: Product) {
-  
-    const currentItems = this.cartItemsSubject.getValue();
-    const isProductInCart = currentItems.some(item => item.productId === product.id);
-    if (!isProductInCart) {
-      const updatedItems = [...currentItems, product];
-      this.cartItemsSubject.next(updatedItems);
+  addToCart(product: any) {
+    console.log(product)
+    const cartItem = this.cartItems.find(item => item.productId === product.productId);
 
-      const currentCount = this.cartCountSubject.getValue();
-      const updatedCount = currentCount + 1;
-      this.cartCountSubject.next(updatedCount);
+    if (cartItem) {
+      const totalPrice = this.cartItems.reduce((total, item) => total + item.price, 0);
+      this.totalPriceSubject.next(totalPrice);
+      cartItem.quantity++;
+      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+      this.updateCartState();
+    } else {
+      this.cartItems.push({ ...product, quantity: 1 });
+      this.countSubject.next(this.countSubject.value + 1); // Increase the countSubject value
+      this.updateCartState();
     }
-   
+
+    this.updateCartState();
   }
 
-  getCartItems(): Observable<Product[]> {
-    return this.cartProducts.asObservable();
+  removeFromCart(product: any) {
+    const index = this.cartItems.findIndex(item => item.productId === product.productId);
+
+    if (index !== -1) {
+      const removedItem = this.cartItems.splice(index, 1)[0];
+      this.updateCartState();
+    }
   }
 
-  getProducts() {
-    return this.products;
-  }
-  
-  clearCart(product: Product): void {
-    const currentItems = this.cartItemsSubject.getValue();
-    const updatedItems = currentItems.filter(item => item.id !== product.id);
-    this.cartItemsSubject.next(updatedItems);
+   updateCartState() {
+    const quantity = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+    const count = this.cartItems.reduce((total, item) => total + item.quantity, 0);
+    const totalPrice = this.cartItems.reduce((total, item) => total+item.price *item.quantity, 0);
 
-    const currentCount = this.cartCountSubject.getValue();
-    const updatedCount = currentCount - 1;
-    this.cartCountSubject.next(updatedCount);
+    this.quantitySubject.next(quantity);
+    this.countSubject.next(count);
+    this.totalPriceSubject.next(totalPrice);
+    this.cartItemsSubject.next([...this.cartItems]);
   }
 
-  removeFromCart(product: Product): Observable<void> {
-    return new Observable<void>((observer) => {
-      this.cartItems$.pipe(
-        take(1),
-        map(items => items.filter(item => item.id !== product.id)),
-      ).subscribe(updatedItems => {
-        this.cartItemsSubject.next(updatedItems);
-        observer.next();
-        observer.complete();
-      });
-    });
+  getCartItems(): any[] {
+    return this.cartItems;
   }
-  
+
+  clearCart() {
+    this.cartItems = [];
+    this.updateCartState();
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
