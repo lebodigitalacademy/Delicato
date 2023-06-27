@@ -114,6 +114,54 @@
       "password": "password",
       "retypePassword": "password",
       "id": 15
+    },
+    {
+      "name": "Lebbo",
+      "surname": "Lebbo",
+      "email": "Lebbo@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 16
+    },
+    {
+      "name": "Abdul",
+      "surname": "Abdul",
+      "email": "Abdul@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 17
+    },
+    {
+      "name": "qwerty",
+      "surname": "qwerty",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 18
+    },
+    {
+      "name": "sadfas",
+      "surname": "adsfas",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 19
+    },
+    {
+      "name": "asdfasasdfa",
+      "surname": "asdfas",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 20
+    },
+    {
+      "name": "adfasad",
+      "surname": "adfa",
+      "email": "qwerty@gmail.com",
+      "password": "password",
+      "retypePassword": "password",
+      "id": 21
     }
   ],
   "shipping": [
@@ -163,8 +211,104 @@
   ],
   "orders": [
     {
+      "id": 1,
       "totalPrice": 1,
-      "orderId": 1
+      "customerID": 1
+    },
+    {
+      "totalPrice": 40,
+      "customerID": 13,
+      "id": 2
+    },
+    {
+      "totalPrice": 100,
+      "customerID": 13,
+      "id": 3
+    },
+    {
+      "totalPrice": 45,
+      "customerID": 13,
+      "id": 4
+    },
+    {
+      "totalPrice": 20,
+      "customerID": 1,
+      "id": 5
+    },
+    {
+      "totalPrice": 50,
+      "customerID": 13,
+      "id": 6
+    },
+    {
+      "totalPrice": 25,
+      "customerID": 13,
+      "id": 7
+    },
+    {
+      "totalPrice": 50,
+      "customerID": 1,
+      "id": 8
+    },
+    {
+      "totalPrice": 86,
+      "customerID": 16,
+      "id": 9
+    },
+    {
+      "totalPrice": 114,
+      "customerID": 13,
+      "id": 10
+    },
+    {
+      "totalPrice": 50,
+      "customerID": 13,
+      "id": 11
+    },
+    {
+      "totalPrice": 50,
+      "customerID": 1,
+      "id": 12
+    },
+    {
+      "totalPrice": 81.99,
+      "customerID": 13,
+      "id": 13
+    },
+    {
+      "totalPrice": 50,
+      "customerID": 13,
+      "id": 14
+    },
+    {
+      "totalPrice": 380,
+      "customerID": 13,
+      "id": 15
+    },
+    {
+      "totalPrice": 20,
+      "customerID": 13,
+      "id": 16
+    },
+    {
+      "totalPrice": 60,
+      "customerID": 13,
+      "id": 17
+    },
+    {
+      "totalPrice": 50,
+      "customerID": 13,
+      "id": 18
+    },
+    {
+      "totalPrice": 20,
+      "customerID": 18,
+      "id": 19
+    },
+    {
+      "totalPrice": 100,
+      "customerID": 18,
+      "id": 20
     }
   ]
 }
