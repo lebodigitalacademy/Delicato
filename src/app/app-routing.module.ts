@@ -13,6 +13,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { RegisterComponent } from './register/register.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CardComponent } from './card/card.component';
 
 
 export const routes: Routes = [
@@ -22,7 +23,7 @@ export const routes: Routes = [
   {path : 'login', component : LoginComponent},
   {path : 'checkout', component : CheckoutComponent},
   {path : 'register', component : RegisterComponent},
-  {path : 'cart', component: CartComponent},
+  {path : 'cart', component: CardComponent},
   {path : 'profile', component: ProfileComponent}
 
 ];
