@@ -4,7 +4,7 @@
     <div class="row">
             <div class="col-12">
                 <!-- Page title -->
-                <div class="row">
+                <div class=" checkoutHeadingRow row">
                     <div class="col-lg-12">
                         <h1 class="checkoutHeading" style="text-align: center;">Profile</h1>
                 </div>
@@ -12,24 +12,24 @@
                 <form class="file-upload">
                     <div class="row"*ngIf="loggedInUserDetails$">
                         <!-- Contact detail -->
-                        <div class="col-xxl-6 mb-5 mb-xxl-0">
+                        <div class="col-lg-12 mb-5 mb-xxl-0">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
                                     <h4 class=" Heading mb-4 mt-0">Contact details</h4>
                                     <!-- First Name -->
                                     <div class="border">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12">
                                         <label class="form-label">First Name:</label>
                                         <input type="text" class="form-control" placeholder="{{loggedInUserDetails$.name}}" aria-label="First name" value="">
                                     </div>
                                     <!-- Last name -->
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12">
                                         <label class="form-label">Last Name:</label>
                                         <input type="text" class="form-control" placeholder="{{loggedInUserDetails$.surname}}" aria-label="Last name" value="">
                                     </div>
                                    
                                     <!-- Email -->
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <label for="inputEmail4" class="form-label">Email:</label>
                                         <input type="email" class="form-control" placeholder="{{loggedInUserDetails$.email}}" id="inputEmail4" value="">
                                     </div>
@@ -40,26 +40,26 @@
                     </div> <!-- Row END -->
     
                     
-                    <div class="row" style="margin-top: -100px;">
+                    <div class="row" style="margin-top: -100px;margin-bottom: 20%;">
     
                         <!-- change password -->
-                        <div class="col-xxl-6" *ngIf="loggedInUserDetails$" style="margin-top: 2px;">
+                        <div class="col-lg-12" *ngIf="loggedInUserDetails$" style="margin-top: 2px; ">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
-                                <div class="row g-3">
+                                <div class="row g-3" style="margin-top: 10%;">
                                     <h4 class="Heading my-4">Change Password</h4>
                                     <!-- Old password -->
                                     <div class="border">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-sm-12">
                                         <label for="exampleInputPassword1" class="form-label">Old password:</label>
                                         <input type="text" class="form-control"placeholder="********"  id="exampleInputPassword1">
                                     </div>
                                     <!-- New password -->
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-sm-12">
                                         <label for="exampleInputPassword2" class="form-label">New password:</label>
                                         <input type="password" class="form-control" placeholder="********" id="exampleInputPassword2">
                                     </div>
                                     <!-- Confirm password -->
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-sm-12">
                                         <label for="exampleInputPassword3" class="form-label">Confirm Password:</label>
                                         <input type="password" class="form-control" placeholder="********" id="exampleInputPassword3">
                                     </div>

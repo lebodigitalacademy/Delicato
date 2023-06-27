@@ -8,6 +8,10 @@
     text-align: center;
     vertical-align: middle;
 }
+
+.fw-bold{
+    color: #F16B44;
+}
 .icon-sm {
     width: 2rem;
     height: 2rem;
@@ -15,8 +19,16 @@
 .card{
     min-height: 50vh;
     margin-top: 100px;
+    margin-bottom: 0%;
     padding: 25px;
 }
+.card1{
+    min-height: 50vh;
+    margin-top: 200px;
+    margin-bottom: 0%;
+    padding: 25px;
+}
+
 .center img{
     text-decoration: none;
     color: inherit;
