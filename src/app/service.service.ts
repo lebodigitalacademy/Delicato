@@ -16,6 +16,7 @@ export class ServiceService {
   // backend url
 
   private url ='http://localhost:8081/api/products/getAllProducts';
+  private usersURL='http://localhost:3000/users';
 
   searchProducts(query: string): Observable<any> {
     const apiUrl = `${this.url}?q=${query}`;
@@ -67,6 +68,9 @@ export class ServiceService {
    addOrder(data:any){
     return this.http.post('http://localhost:3000/orders', data);
    }
+//    updateUser(val:any,id:any){
+//     return this.http.put(`${this.url}/${id}`, val)
+// }
    
    
 

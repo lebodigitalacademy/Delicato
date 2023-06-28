@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from '../login-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -62,8 +63,17 @@ export class LoginComponent implements OnInit {
         });
         if (user) {
             this.loginService.login(this.loginForm.value.email, this.loginForm.value.password);
-            console.log("HI"+this.loginService.isLoggedIn)
-            alert('Login Successful');
+            Swal.fire({
+              icon:'success',
+              title: 'Successfully logged in!',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // User clicked "Yes" button, perform the routing
+                this.router.navigate(['']); // Replace '/new-page' with the desired route
+        
+              }
+            });
+
           
             this.loginForm.reset();
            this.router.navigate(['']);

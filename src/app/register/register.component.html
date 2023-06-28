@@ -53,9 +53,6 @@
 
             <label for="retypePassword" class="form-label">Re-type Password:</label>
             <input type="password" class="form-control" id="retypePassword" formControlName="retypePassword">
-            <div class="form-text text-danger" [ngStyle]="{ 'display': retypePass }">
-                Re-type Password is invalid.
-            </div>
 
             <div class="form-text text-danger" *ngIf="retypePass === 'mismatch' && (RetypePassword.dirty || RetypePassword.touched)">
                 Passwords do not match

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -58,9 +58,16 @@ export class RegisterComponent implements OnInit {
         next: (val: any) => {
         // once the item has been added, display the success notification and reset the form
         //  this.successNotification();
-        this.router.navigate(['/login']);
-        // console.log('Successfully registered'+this.registerForm.value)
-        //   this.registerForm.reset();
+        Swal.fire({
+          icon:'success',
+          title: 'Account Successfully created',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // User clicked "Yes" button, perform the routing
+            this.router.navigate(['/login']); // Replace '/new-page' with the desired route
+    
+          }
+        });
         },
         
         error: (err: any) => {
