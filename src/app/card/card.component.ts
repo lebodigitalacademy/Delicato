@@ -67,6 +67,10 @@ export class CardComponent implements OnInit {
   clearCart(){
     this.cartService.clearCart();
   }
+
+  alert(): void{
+    alert("Please Register/Login");
+    }
   tryCheckout(){
     if (this.loggedInUserDetails$){
      this.router.navigate(['/checkout']);
@@ -87,4 +91,4 @@ export class CardComponent implements OnInit {
 
     }
   }
-  }
+}

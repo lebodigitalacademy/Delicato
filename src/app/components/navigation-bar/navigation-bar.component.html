@@ -18,16 +18,16 @@
         <div class="rightContent">
             <ul class="navbar-nav mr-auto">
 
-            <li class="cart">
-                <a class="nav-link" routerLink="/card">
-                    <fa-icon 
-                    [icon]="cartIcon"
-                    [styles]="{ color: 'white' }"
-                    size="lg"></fa-icon>
-                    <span class="cart-counter" >{{ cartItemCount }}</span>
-                </a>
-            </li>
-        </ul>
+                <li class="cart">
+                    <a class="nav-link" routerLink="/card">
+                        <fa-icon 
+                        [icon]="cartIcon"
+                        [styles]="{ color: 'white' }"
+                        size="lg"></fa-icon>
+                        <span class="cart-counter" >{{ cartItemCount }}</span>
+                    </a>
+                </li>
+            </ul>
         <ul class="navbar-nav mr-auto">
             <li class="profile">
                 <a class="nav-link" [matMenuTriggerFor]="menu">
@@ -35,7 +35,7 @@
                     [icon]="profileIcon"
                     [styles]="{ color: 'white' }"
                     size="lg">
-                </fa-icon>
+                    </fa-icon>
             
                 <mat-menu #menu="matMenu">
 
@@ -54,8 +54,8 @@
                 </div>
                 </mat-menu>
                 </a>
-    </li>
-</ul>
+            </li>
+        </ul>
         </div>
 
     </div>
